@@ -1,3 +1,3 @@
-# circuit
+# Circuit
 
 Elice Community + SNS
