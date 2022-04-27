@@ -27,6 +27,8 @@
     "prettier": "prettier --write './src/**/*.{ts,tsx}'",
     "prepare": "cd ../ && husky install ./front/.husky"
   },
+  "proxy": "http://localhost:3001",
+
   "lint-staged": {
     "*.{ts,tsx}": [
       "prettier --write",
