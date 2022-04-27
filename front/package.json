@@ -28,7 +28,6 @@
     "prepare": "cd ../ && husky install ./front/.husky"
   },
   "proxy": "http://localhost:3001",
-
   "lint-staged": {
     "*.{ts,tsx}": [
       "prettier --write",
@@ -54,7 +53,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react": "^18.0.7",
+    "@types/react": "^18.0.8",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.14.0",
