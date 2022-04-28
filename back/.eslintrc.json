@@ -20,6 +20,14 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "react/jsx-filename-extension": ["off"]
+    "react/jsx-filename-extension": "off",
+    "no-console": "warn",
+    "import/no-import-module-exports": "warn",
+    "no-restricted-globals": "warn",
+    "@typescript-eslint/no-use-before-define": ["warn"],
+    "no-shadow": "warn",
+    "@typescript-eslint/no-shadow": ["warn"],
+    "import/extensions": "off",
+    "no-underscore-dangle": "warn"
   }
 }

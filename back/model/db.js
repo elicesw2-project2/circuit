@@ -1,5 +1,5 @@
-const mysql = import('mysql');
-const dbConfig = import('../config/db.config');
+import mysql from 'mysql';
+import dbConfig from '../config/db.config';
 
 // 데이터베이스 connection 객체 생성
 const connection = mysql.createConnection({
