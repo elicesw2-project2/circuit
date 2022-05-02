@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import Comment from '../models/comment.model.js';
+=======
+import Comment from '../models/commnet.model.js';
+>>>>>>> mypage API
 
 // post_idx로 조회
 export function findAll(req, res) {
@@ -24,6 +28,7 @@ export function findAll(req, res) {
 		}
 	});
 }
+<<<<<<< HEAD
 
 // 댓글 추가
 export function createComment(req, res) {
@@ -117,3 +122,5 @@ export function deleteComment(req, res) {
 			});
 	});
 }
+=======
+>>>>>>> mypage API

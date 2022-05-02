@@ -48,4 +48,8 @@ app.use((err, req, res, next) => {
 	res.render('error');
 });
 
+// require("./routes/mypage.routes.js")(app);
+// import mypageRoutes from "./routes/mypage.routes.js"
+// app.use(mypageRoutes)
+
 export default app;
