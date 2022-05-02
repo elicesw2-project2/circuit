@@ -1,5 +1,5 @@
 import mysql from 'mysql';
-import dbConfig from '../config/db.config';
+import dbConfig from '../config/db.config.js';
 
 // 데이터베이스 connection 객체 생성
 const connection = mysql.createConnection({
@@ -33,4 +33,4 @@ connection.query('select * from users', (error, results) => {
 //     console.log(results);
 // })
 
-module.exports = connection;
+export default connection;

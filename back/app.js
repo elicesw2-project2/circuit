@@ -7,6 +7,8 @@ import logger from 'morgan';
 import { fileURLToPath } from 'url';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
+import mypageRouter from './routes/mypage.routes.js';
+import commentRouter from './routes/comment.routes.js';
 
 const app = express();
 
@@ -24,6 +26,8 @@ app.use(express.static(path.join(pathDirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/mypage', mypageRouter);
+app.use('/board/post', commentRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -40,5 +44,9 @@ app.use((err, req, res) => {
 	res.status(err.status || 500);
 	res.render('error');
 });
+
+// require("./routes/mypage.routes.js")(app);
+// import mypageRoutes from "./routes/mypage.routes.js"
+// app.use(mypageRoutes)
 
 export default app;
