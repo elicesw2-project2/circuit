@@ -1,9 +1,0 @@
-{
-    "compilerOptions": {
-        "target": "es5",
-        "module": "es2015",
-        "noImplicitAny": true,
-        "strictNullChecks": true
-    },
-    "include": ["./**/*.ts", "./**/*.js", "bin/www.cjs", "app.cjs"]
-}

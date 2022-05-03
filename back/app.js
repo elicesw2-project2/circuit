@@ -1,6 +1,6 @@
 import express from 'express';
 import createError from 'http-errors';
-import path, { dirname } from 'path';
+import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
@@ -10,17 +10,22 @@ import usersRouter from './routes/users.js';
 
 const app = express();
 
-const pathDirname = dirname(fileURLToPath(import.meta.url));
+// bulid 내부 파일 접근 허용
+app.use(express.static('build'));
+
+// ES6 절대 경로 지정
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // view engine setup
-app.set('views', path.join(pathDirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(pathDirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
