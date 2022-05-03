@@ -4,15 +4,15 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "lint": "eslint ./**/*.{ts,js}",
-    "lint:fix": "eslint --fix ./**/*.{ts,js}",
-    "prettier": "prettier --write ./**/*.{js,ts}",
+    "lint": "eslint ./**/*.{js}",
+    "lint:fix": "eslint --fix ./**/*.{js}",
+    "prettier": "prettier --write ./**/*.{js}",
     "prepare": "cd ../ && husky install ./back/.husky"
   },
   "lint-staged": {
-    "*.{js,ts}": [
-      "prettier --write ./**/*.{js,ts}",
-      "eslint --fix ./**/*.{ts,js}"
+    "*.{js}": [
+      "prettier --write ./**/*.{js}",
+      "eslint --fix ./**/*.{js}"
     ]
   },
   "dependencies": {
@@ -23,16 +23,12 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "mysql": "^2.18.1",
-    "typescript": "^4.6.3"
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.14.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
