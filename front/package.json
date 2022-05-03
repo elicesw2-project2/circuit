@@ -22,14 +22,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint './src/**/*.{ts,tsx,js,jsx}'",
-    "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
-    "prettier": "prettier --write './src/**/*.{ts,tsx}'",
+    "lint": "eslint './src/**/*.{js,jsx}'",
+    "lint:fix": "eslint --fix './src/**/*.{js,jsx}'",
+    "prettier": "prettier --write './src/**/*.{js,jsx}'",
     "prepare": "cd ../ && husky install ./front/.husky"
   },
   "proxy": "http://localhost:3001",
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{js,jsx}": [
       "prettier --write",
       "eslint --fix"
     ]
@@ -53,12 +53,8 @@
     ]
   },
   "devDependencies": {
-    "@types/react": "^18.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.14.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
