@@ -1,4 +1,5 @@
 {
+	"type": "module",
 	"name": "back",
 	"version": "0.0.0",
 	"private": true,
@@ -41,6 +42,5 @@
 		"lint-staged": "^12.4.1",
 		"nodemon": "^2.0.15",
 		"prettier": "^2.6.2"
-	},
-	"type": "module"
+	}
 }
