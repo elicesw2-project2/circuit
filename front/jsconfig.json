@@ -3,4 +3,8 @@
 		"baseUrl": "src"
 	},
 	"include": ["src"]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> feature/F-navBar

@@ -3,17 +3,26 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^6.1.1",
+		"@fortawesome/free-regular-svg-icons": "^6.1.1",
+		"@fortawesome/free-solid-svg-icons": "^6.1.1",
+		"@fortawesome/react-fontawesome": "^0.1.18",
 		"@testing-library/jest-dom": "^5.16.4",
 		"@testing-library/react": "^13.1.1",
 		"@testing-library/user-event": "^13.5.0",
 		"@types/jest": "^27.4.1",
 		"@types/node": "^16.11.27",
 		"@types/react-dom": "^18.0.2",
+		"@types/react-router-dom": "^5.3.3",
 		"express": "^4.17.3",
 		"mysql": "^2.18.1",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
+		"react-router-dom": "^6.3.0",
 		"react-scripts": "5.0.1",
+		"sass": "^1.51.0",
+		"styled-components": "^5.3.5",
+		"styled-reset": "^4.3.4",
 		"typescript": "^4.6.3",
 		"web-vitals": "^2.1.4"
 	},
@@ -63,9 +72,5 @@
 		"husky": "^7.0.4",
 		"lint-staged": "^12.4.1",
 		"prettier": "^2.6.2"
-	},
-	"engines": {
-		"node": "14.x",
-		"npm": "6.x"
 	}
 }

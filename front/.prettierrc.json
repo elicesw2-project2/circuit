@@ -1,6 +1,13 @@
 {
+<<<<<<< HEAD
   "singleQuote": true,
   "semi": true,
   "useTabs": true,
   "printWidth": 120
+=======
+	"singleQuote": true,
+	"semi": true,
+	"useTabs": true,
+	"printWidth": 120
+>>>>>>> feature/F-navBar
 }
