@@ -6,5 +6,9 @@
 	},
 	"extends": ["eslint:recommended", "plugin:react/recommended", "airbnb", "airbnb/hooks", "prettier"],
 	"plugins": ["react"],
-	"rules": { "import/no-unresolved": "off" }
+	"rules": {
+		"no-unused-vars": "off",
+		"import/no-unresolved": "off",
+		"import/no-extraneous-dependencies": "off"
+	}
 }
