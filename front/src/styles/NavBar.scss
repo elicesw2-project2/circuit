@@ -41,6 +41,10 @@
 	}
 }
 
+.searchBar__input::placeholder {
+	font-size: 15px;
+}
+
 .searchBar__icon {
 	position: absolute;
 	padding: 0px 15px 0px 20px;

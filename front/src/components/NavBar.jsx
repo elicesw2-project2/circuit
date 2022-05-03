@@ -3,7 +3,7 @@ import '../styles/NavBar.scss';
 
 // FontAwesome Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFlagCheckered, faSearch, faHomeLgAlt, faEdit, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faFlagCheckered, faSearch, faHomeLgAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 
 function NavBar() {
