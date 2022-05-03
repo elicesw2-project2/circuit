@@ -27,7 +27,9 @@
 		"lint": "eslint './src/**/*.{js,jsx}'",
 		"lint:fix": "eslint --fix './src/**/*.{js,jsx}'",
 		"prettier": "prettier --write './src/**/*.{js,jsx}'",
-		"prepare": "cd ../ && husky install ./front/.husky"
+		"prepare": "cd ../ && husky install ./front/.husky",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
 	},
 	"proxy": "http://localhost:3001",
 	"lint-staged": {
@@ -62,8 +64,10 @@
 		"eslint-plugin-jsx-a11y": "^6.5.1",
 		"eslint-plugin-react": "^7.29.4",
 		"eslint-plugin-react-hooks": "^4.4.0",
+		"gh-pages": "^3.2.3",
 		"husky": "^7.0.4",
 		"lint-staged": "^12.4.1",
 		"prettier": "^2.6.2"
-	}
+	},
+	"homepage": "http://ctdlog.github.io/circuit"
 }
