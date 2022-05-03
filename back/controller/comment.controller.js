@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import Comment from '../models/comment.model.js';
-=======
-import Comment from '../models/commnet.model.js';
->>>>>>> mypage API
 
 // post_idx로 조회
 export function findAll(req, res) {
@@ -28,7 +24,7 @@ export function findAll(req, res) {
 		}
 	});
 }
-<<<<<<< HEAD
+
 
 // 댓글 추가
 export function createComment(req, res) {
@@ -81,7 +77,8 @@ export function updateComment(req, res) {
 				res.status(500).send({
 					message: `Error updating Comment with comment_idx ${req.params.comment_idx} in post_idx ${req.params.post_idx}.`,
 				});
-			}
+			} 
+			
 		} else {
 			res.send({
 				status: 200,
@@ -122,5 +119,3 @@ export function deleteComment(req, res) {
 			});
 	});
 }
-=======
->>>>>>> mypage API
