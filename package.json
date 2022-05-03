@@ -4,8 +4,8 @@
   "description": "Elice SW-2 Team Project - Circuit",
   "main": "index.js",
   "scripts": {
-    "client-build": "cd front && npm ci && npm run build && cd../",
-    "server-build": "cd server && npm ci --dev && npm run build && cd../",
+    "client-build": "cd front && npm ci && npm run build && cd ../",
+    "server-build": "cd server && npm ci --dev && npm run build && cd ../",
     "heroku-prebuild": "npm run client-build && npm run server-build && mv ./front/build ./back/build",
     "start": "cd back && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"
