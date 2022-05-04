@@ -7,6 +7,7 @@ import logger from 'morgan';
 import { fileURLToPath } from 'url';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
+import boardRouter from './routes/board.routes.js';
 
 const app = express();
 
@@ -17,13 +18,14 @@ app.set('views', path.join(pathDirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
-app.use(express.json());
+app.use(express.json()); // JSON parse 미들웨어
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(pathDirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/board', boardRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

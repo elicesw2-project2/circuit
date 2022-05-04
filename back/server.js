@@ -1,5 +1,7 @@
-const express = import('express');
-const bodyParser = import('body-parser');
+// const express = import('express');
+// const bodyParser = import('body-parser');
+import express from 'express';
+import bodyParser from 'body-parser';
 
 const app = express();
 
