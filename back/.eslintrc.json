@@ -20,6 +20,7 @@
 		"no-unused-vars": "off",
 		"eqeqeq": "off",
 		"consistent-return": "off",
-		"prefer-const": "off"
+		"prefer-const": "off",
+		"import/order": "off"
 	}
 }

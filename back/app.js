@@ -8,12 +8,15 @@ import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import authRouter from './routes/auth.js';
 
+import cors from 'cors';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 
 app.use(express.static('build'));
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
