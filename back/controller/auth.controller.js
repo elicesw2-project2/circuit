@@ -2,6 +2,12 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import * as userRepository from '../data/auth.js';
 
+const users = {
+	userid: 'dd@gmail.com',
+	password: 'asdf1234',
+	nickname: 'siwon',
+	url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Westie_pups.jpg/268px-Westie_pups.jpg',
+};
 // 기본 설정
 const jwtSecretKey = 'PV59zFWNbrvJrfDLkETWe2VHZttSfSq9';
 const jwtExpiresInDays = '2d';
