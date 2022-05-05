@@ -7,7 +7,6 @@ function MainPage() {
 		<>
 			<NavBar />
 			<Profile />
-			<div />
 		</>
 	);
 }
