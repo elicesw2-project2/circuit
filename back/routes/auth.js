@@ -1,8 +1,9 @@
 import express from 'express';
 import { body } from 'express-validator';
-import validate from '../middleware/validator.js';
+import validate from '../models/validator.js';
 import * as authController from '../controller/auth.controller.js';
-import { isAuth } from '../middleware/auth.js';
+import { isAuth } from '../controller/user.controller.js';
+import * as userController from '../controller/user.controller.js';
 
 const router = express.Router();
 
@@ -31,7 +32,7 @@ const validateSignup = [
 		.optional({ nullable: true, checkFalsy: true }), // 필수x
 	validate,
 ];
-router.post('/signup', validateSignup, authController.signup);
+router.post('/signup', validateSignup, authController.signup, userController.create);
 router.post('/login', validateCredential, authController.login);
 router.get('/me', isAuth, authController.me);
 export default router;

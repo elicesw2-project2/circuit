@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import * as userRepository from '../data/auth.js';
+import * as userRepository from '../models/db.js';
 
 // 기본 설정
 const jwtSecretKey = 'PV59zFWNbrvJrfDLkETWe2VHZttSfSq9';

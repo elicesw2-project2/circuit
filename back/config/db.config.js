@@ -1,7 +1,7 @@
 const dbConfig = {
 	HOST: 'localhost',
-	USER: 'elice',
-	PASSWORD: '1111',
+	USER: 'root',
+	PASSWORD: 'GHKDTLDNJS1',
 	DB: 'elice_db',
 };
 
