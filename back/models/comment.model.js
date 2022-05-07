@@ -5,7 +5,7 @@ const Comment = function (comment) {
 	// this.comment_idx = comment.comment_idx;
 	this.id = comment.id;
 	this.content = comment.content;
-	// this.date = comment.date;
+	this.date = new Date();
 	this.profile = comment.profile;
 	// this.post_idx = comment.post_idx;
 	this.nickname = comment.nickname;
@@ -52,8 +52,8 @@ Comment.create = (post_idx, newComment, result) => {
 // 댓글 수정
 Comment.update = (post_idx, comment_idx, comment, result) => {
 	sql.query(
-		'UPDATE comment SET content = ? WHERE post_idx = ? and comment_idx = ?',
-		[comment.content, post_idx, comment_idx],
+		'UPDATE comment SET content = ?, date = ? WHERE post_idx = ? and comment_idx = ?',
+		[comment.content, new Date(), post_idx, comment_idx],
 		(err, res) => {
 			if (err) {
 				console.log('error: ', err);

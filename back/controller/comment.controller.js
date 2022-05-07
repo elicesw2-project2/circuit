@@ -70,11 +70,11 @@ export function updateComment(req, res) {
 		if (err) {
 			if (err.kind === 'not_found') {
 				res.status(404).send({
-					message: `Not found User with comment_idx ${req.params.comment_idx} in post_idx ${req.params.post_idx}.`,
+					message: `Not found Comment with comment_idx ${req.params.comment_idx} in post_idx ${req.params.post_idx}.`,
 				});
 			} else {
 				res.status(500).send({
-					message: `Error updating User with comment_idx ${req.params.comment_idx} in post_idx ${req.params.post_idx}.`,
+					message: `Error updating Comment with comment_idx ${req.params.comment_idx} in post_idx ${req.params.post_idx}.`,
 				});
 			}
 		} else {
