@@ -1,7 +1,6 @@
 /* div {
 	background-color: #fafafa;
 } */
-
 #signUpBox {
 	height: fit-content;
 	width: fit-content;
@@ -43,7 +42,7 @@
 	cursor: pointer;
 }
 
-label {
+/* label {
 	position: absolute;
 	pointer-events: none;
 	left: 10px;
@@ -55,7 +54,7 @@ label {
 	color: #999;
 	padding-top: 6px;
 	visibility: hidden;
-}
+} */
 
 /* error message */
 #errors {

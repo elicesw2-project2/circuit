@@ -1,0 +1,35 @@
+.read_container {
+	border: solid 1px #cdcdcd;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	margin: 30px auto;
+	padding: 30px 40px;
+	width: 800px;
+	/* width: 80%; */
+	box-sizing: border-box;
+}
+
+.read_title {
+	font-size: 30px;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+.read_info {
+	position: relative;
+	color: rgba(0, 0, 0, 0.4);
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+}
+
+.read_day {
+	position: absolute;
+	right: 0;
+}
+.read_content {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+	height: 300px;
+}

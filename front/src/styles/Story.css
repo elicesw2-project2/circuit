@@ -1,36 +1,64 @@
 .story_container {
-	border: solid 2px rgba(0, 0, 0, 0.5);
+	border: solid 1px #cdcdcd;
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 30px 50px;
-	padding: 10px 0px;
-	width: 700px;
+	margin: 20px auto;
+	width: 700px; /*아래 width랑 ㄱㅊ은거 골라 고정이나 비율중*/
+	/* width: 80%; */
+	height: 100%;
+	box-sizing: border-box;
 }
+
 .story {
 	display: flex;
 	position: relative;
-	width: 90%;
+	width: 100%;
 	justify-content: space-between;
-	background-color: antiquewhite;
-	border: solid 2px rgba(0, 0, 0, 0.2);
-	border-radius: 10px;
-	margin: 10px;
+	background-color: white;
+	border-bottom: solid 1px #cdcdcd;
+	margin: 0 10px;
 	padding: 10px;
+	box-sizing: border-box;
 }
-.story_name {
-	color: #524fa1;
+.story:last-child {
+	border-radius: 0 0 10px 10px;
+	border-bottom: none;
 }
+
 .story_title {
-	color: #524fa1;
 	position: absolute; /*형제 태그(이름)의 크기에 상관없이 제목의 시작점이 같도록 absolute 를 준것 + 부모인 .story는 relative 해줘야함*/
 	left: 100px;
 }
-.story_time {
-	color: #524fa1;
-}
+
 .story_child {
 	text-align: center;
 	font-size: 15px;
+	color: #524fa1;
+	font-weight: 600;
 }
+
+/*  */
+.story.storyInfo {
+	background-color: #524fa1;
+	border-radius: 8px 8px 0px 0px;
+}
+.story.storyInfo .story_child {
+	color: white;
+}
+.story.storyInfo .story_title {
+	right: 120px;
+}
+.story.storyInfo .story_time {
+	position: absolute;
+	right: 25px;
+}
+
+/* 아래는 프로필 이랑 글 목록 메인페이지에서 css 합쳐지게 test 해본것*/
+.test {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* #E3E2FC 마우스 올렸을 때 이 색으로 */
