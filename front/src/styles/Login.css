@@ -1,6 +1,6 @@
-div {
+/* div {
 	background-color: #fafafa;
-}
+} */
 #logInBox {
 	height: fit-content;
 	width: fit-content;
@@ -28,7 +28,7 @@ div {
 	padding: 25px 50px;
 }
 
-input {
+/* input {
 	padding: 9px 0px 7px 9px;
 	font-size: 12px;
 	width: 16rem;
@@ -37,7 +37,7 @@ input {
 	background: #fafafa;
 	border-radius: 3px;
 	border: 1px solid #cdcdcd;
-}
+} */
 
 #login-button {
 	text-align: center;

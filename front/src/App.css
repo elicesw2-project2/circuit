@@ -127,3 +127,42 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* a태그 기본 효과 제거 */
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* a태그 기본 효과 제거 */
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* a태그 기본 효과 제거 */
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
