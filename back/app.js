@@ -7,12 +7,14 @@ import { fileURLToPath } from 'url';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import authRouter from './routes/auth.js';
+import mypageRouter from './routes/mypage.routes.js';
+import commentRouter from './routes/comment.routes.js';
+import boardRouter from './routes/board.routes.js';
 
 import cors from 'cors';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 const app = express();
 
 app.use(express.static('build'));
@@ -23,13 +25,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
-app.use(express.json());
+app.use(express.json()); // JSON parse 미들웨어
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/board', boardRouter);
+app.use('/mypage', mypageRouter);
+app.use('/board/post', commentRouter);
 app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler

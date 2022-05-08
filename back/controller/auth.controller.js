@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import * as userRepository from '../data/auth.js';
+import * as userRepository from '../models/db.js';
 
 const users = {
 	userid: 'dd@gmail.com',
