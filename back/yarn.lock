@@ -83,6 +83,9 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0003b995042b0c0af791c4a0d945e4c189913b2e
 =======
 >>>>>>> 0003b995042b0c0af791c4a0d945e4c189913b2e
 "@typescript-eslint/eslint-plugin@^5.13.0":
@@ -855,15 +858,21 @@
     "object-keys" "^1.1.1"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "denque@^2.0.1":
   "integrity" "sha512-tfiWc6BQLXNLpNiR5iGd0Ocu3P3VpxfzFiqubLgMfhfOw9WyvgJBd46CClNn9k3qfbjvT//0cf7AlYRX/OslMQ=="
   "resolved" "https://registry.npmjs.org/denque/-/denque-2.0.1.tgz"
   "version" "2.0.1"
 =======
+=======
+>>>>>>> 0003b995042b0c0af791c4a0d945e4c189913b2e
 "delegates@^1.0.0":
   "integrity" "sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o="
   "resolved" "https://registry.npmjs.org/delegates/-/delegates-1.0.0.tgz"
   "version" "1.0.0"
+<<<<<<< HEAD
+>>>>>>> 0003b995042b0c0af791c4a0d945e4c189913b2e
+=======
 >>>>>>> 0003b995042b0c0af791c4a0d945e4c189913b2e
 
 "depd@~1.1.2":
@@ -1388,6 +1397,7 @@
   "version" "1.2.3"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "generate-function@^2.3.1":
   "integrity" "sha512-eeB5GfMNeevm/GRYq20ShmsaGcmI81kIX2K9XQx5miC8KdHaC6Jm0qQ8ZNeGOi7wYB8OsdxKs+Y2oVuTFuVwKQ=="
   "resolved" "https://registry.npmjs.org/generate-function/-/generate-function-2.3.1.tgz"
@@ -1395,6 +1405,8 @@
   dependencies:
     "is-property" "^1.0.2"
 =======
+=======
+>>>>>>> 0003b995042b0c0af791c4a0d945e4c189913b2e
 "gauge@^3.0.0":
   "integrity" "sha512-+5J6MS/5XksCuXq++uFRsnUd7Ovu1XenbeuIuNRJxYWjgQbPuFhT14lAvsWfqfAmnwluf1OwMjz39HjfLPci0Q=="
   "resolved" "https://registry.npmjs.org/gauge/-/gauge-3.0.2.tgz"
@@ -1409,6 +1421,9 @@
     "string-width" "^4.2.3"
     "strip-ansi" "^6.0.1"
     "wide-align" "^1.1.2"
+<<<<<<< HEAD
+>>>>>>> 0003b995042b0c0af791c4a0d945e4c189913b2e
+=======
 >>>>>>> 0003b995042b0c0af791c4a0d945e4c189913b2e
 
 "get-intrinsic@^1.0.2", "get-intrinsic@^1.1.0", "get-intrinsic@^1.1.1":
@@ -3349,6 +3364,9 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0003b995042b0c0af791c4a0d945e4c189913b2e
 =======
 >>>>>>> 0003b995042b0c0af791c4a0d945e4c189913b2e
 "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta":
