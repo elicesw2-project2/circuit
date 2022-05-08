@@ -19,6 +19,8 @@
 		"import/prefer-default-export": "off",
 		"no-unused-vars": "off",
 		"eqeqeq": "off",
-		"consistent-return": "off"
+		"consistent-return": "off",
+		"prefer-const": "off",
+		"func-names": "off"
 	}
 }

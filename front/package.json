@@ -1,71 +1,74 @@
 {
-  "name": "elicesw2-project2",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.1.1",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^16.11.27",
-    "@types/react-dom": "^18.0.2",
-    "express": "^4.17.3",
-    "mysql": "^2.18.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.6.3",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint './src/**/*.{ts,tsx,js,jsx}'",
-    "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
-    "prettier": "prettier --write './src/**/*.{ts,tsx}'",
-    "prepare": "cd ../ && husky install ./front/.husky"
-  },
-  "proxy": "http://localhost:3001",
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
-    "eslint": "^8.14.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.4.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.4.1",
-    "prettier": "^2.6.2"
-  }
+	"name": "elicesw2-project2",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^6.1.1",
+		"@fortawesome/free-regular-svg-icons": "^6.1.1",
+		"@fortawesome/free-solid-svg-icons": "^6.1.1",
+		"@fortawesome/react-fontawesome": "^0.1.18",
+		"@testing-library/jest-dom": "^5.16.4",
+		"@testing-library/react": "^13.1.1",
+		"@testing-library/user-event": "^13.5.0",
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0",
+		"react-hook-form": "^7.30.0",
+		"react-router-dom": "^6.3.0",
+		"react-scripts": "5.0.1",
+		"sass": "^1.51.0",
+		"styled-reset": "^4.3.4",
+		"web-vitals": "^2.1.4"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"github:build": "react-scripts build && rm -rf ../docs && mv build ../docs",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"lint": "eslint './src/**/*.{js,jsx}'",
+		"lint:fix": "eslint --fix './src/**/*.{js,jsx}'",
+		"prettier": "prettier --write './src/**/*.{js,jsx}'",
+		"prepare": "cd ../ && husky install ./front/.husky",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
+	},
+	"proxy": "http://localhost:3001",
+	"lint-staged": {
+		"*.{js,jsx}": [
+			"prettier --write",
+			"eslint --fix"
+		]
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"eslint": "^8.14.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-jsx-a11y": "^6.5.1",
+		"eslint-plugin-react": "^7.29.4",
+		"eslint-plugin-react-hooks": "^4.4.0",
+		"gh-pages": "^3.2.3",
+		"husky": "^7.0.4",
+		"lint-staged": "^12.4.1",
+		"prettier": "^2.6.2"
+	},
+	"homepage": "https://elicesw2-project2.github.io/circuit/"
 }
