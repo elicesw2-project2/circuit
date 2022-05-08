@@ -4,14 +4,14 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import { fileURLToPath } from 'url';
+import cors from 'cors';
+
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import authRouter from './routes/auth.js';
 import mypageRouter from './routes/mypage.routes.js';
 import commentRouter from './routes/comment.routes.js';
 import boardRouter from './routes/board.routes.js';
-
-import cors from 'cors';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
