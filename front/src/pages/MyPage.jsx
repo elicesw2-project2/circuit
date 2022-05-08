@@ -1,7 +1,8 @@
 import React from 'react';
+import MyPageProfile from 'components/MyPageProfile';
 
 function MyPage() {
-	return <div>MyPage</div>;
+	return <MyPageProfile />;
 }
 
 export default MyPage;
