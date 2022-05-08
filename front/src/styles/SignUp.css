@@ -1,6 +1,6 @@
-div {
+/* div {
 	background-color: #fafafa;
-}
+} */
 #signUpBox {
 	height: fit-content;
 	width: fit-content;
@@ -19,7 +19,7 @@ div {
 	padding: 50px 50px;
 }
 
-input {
+/* input {
 	padding: 9px 0px 7px 9px;
 	font-size: 12px;
 	width: 16rem;
@@ -28,7 +28,7 @@ input {
 	background: #fafafa;
 	border-radius: 3px;
 	border: 1px solid #cdcdcd;
-}
+} */
 
 #signUp-button {
 	text-align: center;
@@ -42,7 +42,7 @@ input {
 	cursor: pointer;
 }
 
-label {
+/* label {
 	position: absolute;
 	pointer-events: none;
 	left: 10px;
@@ -54,7 +54,7 @@ label {
 	color: #999;
 	padding-top: 6px;
 	visibility: hidden;
-}
+} */
 
 /* error message */
 #errors {

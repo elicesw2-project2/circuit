@@ -1,0 +1,23 @@
+{
+  "name": "circuit",
+  "version": "1.0.0",
+  "description": "Elice SW-2 Team Project - Circuit",
+  "main": "index.js",
+  "scripts": {
+    "client-build": "cd front && npm ci && npm run build && cd ../",
+    "server-build": "cd back && npm ci --dev && cd ../",
+    "heroku-prebuild": "npm run client-build && npm run server-build && mv ./front/build ./back/build",
+    "start": "cd back && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elicesw2-project2/circuit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elicesw2-project2/circuit/issues"
+  },
+  "homepage": "https://github.com/elicesw2-project2/circuit#readme"
+}
