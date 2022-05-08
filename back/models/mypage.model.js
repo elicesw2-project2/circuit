@@ -6,11 +6,12 @@ const Users = function (user) {
 	this.pw = user.pw;
 	this.nickname = user.nickname;
 	this.profile = user.profile;
+	this.intro = user.intro;
 };
 
 // user id로 조회
 Users.findById = (userId, result) => {
-	sql.query('SELECT * FROM users WHERE id = ?', userId, (err, res) => {
+	sql.query('SELECT * FROM user WHERE id = ?', userId, (err, res) => {
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);
@@ -31,8 +32,8 @@ Users.findById = (userId, result) => {
 // user id로 수정
 Users.updateById = (id, user, result) => {
 	sql.query(
-		'UPDATE users SET nickname = ?, profile = ? WHERE id = ?',
-		[user.nickname, user.profile, id],
+		'UPDATE user SET nickname = ?, profile = ?, intro = ? WHERE id = ?',
+		[user.nickname, user.profile,user.intro, id],
 		(err, res) => {
 			if (err) {
 				console.log('error: ', err);
@@ -54,7 +55,7 @@ Users.updateById = (id, user, result) => {
 
 // user id로 삭제
 Users.remove = (id, user, result) => {
-	sql.query('DELETE FROM users WHERE id = ? and pw = ?', [id, user.pw], (err, res) => {
+	sql.query('DELETE FROM user WHERE id = ? and pw = ?', [id, user.pw], (err, res) => {
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);

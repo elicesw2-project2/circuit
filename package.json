@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/elicesw2-project2/circuit/issues"
   },
-  "homepage": "https://elicesw2-project2.github.io/circuit/"
+  "homepage": "https://elicesw2-project2.github.io/circuit/",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }
