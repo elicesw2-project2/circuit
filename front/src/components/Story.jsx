@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import '../styles/Story.css';
 import dummy from '../db/story.json';
 
-// fetch('https://elice-server.herokuapp.com/auth/login', {
-// 	method: 'POST',
-// })
-// 	.then((res) => res.json())
-// 	.then((data) => console.log(data));
+fetch('https://elice-server.herokuapp.com/board', {
+	method: 'GET',
+})
+	.then((res) => res.json())
+	.then((data) => console.log(data));
 
 function Story() {
 	// 글 목록 컨테이너 , 이 안에 글 들이 들어감

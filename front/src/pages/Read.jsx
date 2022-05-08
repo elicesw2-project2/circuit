@@ -3,6 +3,12 @@ import { useParams } from 'react-router-dom';
 import '../styles/Read.css';
 import dummy from '../db/story.json';
 
+// fetch('https://elice-server.herokuapp.com/board', {
+// 	method: 'GET',
+// })
+// 	.then((res) => res.json())
+// 	.then((data) => console.log(data));
+
 function Read() {
 	const a = useParams().id - 1;
 	return (

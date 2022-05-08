@@ -8,10 +8,10 @@ function MainPage() {
 		<>
 			<NavBar />
 
-			{/* <div className="test"> 테스트 해본것임 */}
-			<Profile />
-			<Story />
-			{/* </div> */}
+			<div className="test">
+				<Profile />
+				<Story />
+			</div>
 
 			<div />
 		</>
