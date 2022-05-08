@@ -7,9 +7,8 @@ function MainPage() {
 	return (
 		<>
 			<NavBar />
-			<MainProfile />
-
 			<div className="test">
+				<MainProfile />
 				<Story />
 			</div>
 
