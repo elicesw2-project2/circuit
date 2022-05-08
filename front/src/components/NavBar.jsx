@@ -17,7 +17,6 @@ function NavBar() {
 				<div className="searchBar__icon">
 					<FontAwesomeIcon icon={faSearch} />
 				</div>
-				{/* <span>검색</span> */}
 			</div>
 			<ul className="navItems">
 				<li className="navItem">

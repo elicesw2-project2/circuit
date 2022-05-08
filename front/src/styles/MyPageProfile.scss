@@ -1,0 +1,59 @@
+.MyPageProfile__profile {
+	display: flex;
+	margin: 200px auto;
+	width: 700px;
+	height: 250px;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid #524fa1;
+
+	.MyPageProfile__container__left {
+		img {
+			margin-left: 50px;
+			width: 160px;
+			height: 160px;
+		}
+	}
+
+	.MyPageProfile__container__right {
+		width: 400px;
+		height: 150px;
+		display: flex;
+		flex-direction: column;
+		margin-right: 50px;
+
+		.items {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 35px;
+
+			// 별명
+			span {
+				margin-top: 7px;
+				font-size: 26px;
+			}
+		}
+
+		button {
+			width: 90px;
+			height: 35px;
+			border: 0;
+			outline: none;
+			background-color: #524fa1;
+			color: #fff;
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		.description {
+			span {
+				font-size: 18px;
+			}
+
+			p {
+				margin-top: 7px;
+			}
+		}
+	}
+}

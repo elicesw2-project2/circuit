@@ -1,0 +1,35 @@
+.MainProfile {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 200px;
+	height: 250px;
+	padding: 20px 0px 0px 0px;
+	margin: 50px 0px 0px 50px;
+	border: 1px solid #524fa1;
+	background: white;
+
+	img {
+		display: flex;
+		background-color: black;
+		width: 130px;
+		height: 130px;
+		border-radius: 50%;
+		margin-bottom: 35px;
+	}
+	button {
+		background-color: #524fa1;
+		color: #fff;
+		width: 150px;
+		height: 30px;
+		margin-bottom: 10px;
+		font-weight: 500;
+		font-size: 13px;
+
+		padding: 7px 0px 7px 0px;
+
+		// 버튼 기본 css 삭제
+		border: 0;
+		outline: 0;
+	}
+}

@@ -32,7 +32,6 @@
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build"
 	},
-	"proxy": "http://localhost:3001",
 	"lint-staged": {
 		"*.{js,jsx}": [
 			"prettier --write",
