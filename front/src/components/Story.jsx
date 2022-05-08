@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Story.css';
+import '../styles/Story.scss';
 
 export default function Story() {
 	// 글 목록 컴포넌트
