@@ -6,7 +6,11 @@ const Post = function (post) {
 	this.id = post.id;
 	this.title = post.title;
 	this.content = post.content;
-	// this.date = post.date;
+	// const now = new Date(); // 현재 시간
+	// const utcNow = now.getTime() + now.getTimezoneOffset() * 60 * 1000; // 현재 시간을 utc로 변환한 밀리세컨드값
+	// const koreaTimeDiff = 9 * 60 * 60 * 1000; // 한국 시간은 UTC보다 9시간 빠름(9시간의 밀리세컨드 표현)
+	// const koreaNow = new Date(utcNow + koreaTimeDiff); // utc로 변환된 값을 한국 시간으로 변환시키기 위해 9시간(밀리세컨드)를 더함
+	// this.date = koreaNow;
 	this.date = new Date();
 	this.nickname = post.nickname;
 };
@@ -103,6 +107,24 @@ Post.remove = (id, result) => {
 	});
 };
 
-// post 전체 삭제?
+// post title로 검색(params)
+Post.searchByTitle = (title, result) => {
+	sql.query('SELECT * FROM post WHERE title LIKE ?', `%${title}%`, (err, res) => {
+		if (err) {
+			console.log('error: ', err);
+			result(err, null);
+			return;
+		}
+
+		if (res.length) {
+			console.log('found post: ', res, 'Post.model.js');
+			result(null, res);
+			return;
+		}
+
+		// 결과가 없을 시
+		result({ kind: 'not_found' }, null);
+	});
+};
 
 export default Post;
