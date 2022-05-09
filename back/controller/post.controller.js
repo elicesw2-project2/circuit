@@ -81,7 +81,7 @@ export function findOne(req, res) {
 	});
 }
 
-// id로 갱신
+// id로 수정
 export function update(req, res) {
 	// Validate Request
 	if (!req.body) {

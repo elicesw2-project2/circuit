@@ -65,26 +65,22 @@ Post.findById = (id, result) => {
 
 // post id로 수정
 Post.updateById = (id, post, result) => {
-	sql.query(
-		'UPDATE post SET title = ?, content = ?, date = ? WHERE post_idx = ?',
-		[post.title, post.content, new Date(), id],
-		(err, res) => {
-			if (err) {
-				console.log('error: ', err);
-				result(err, null);
-				return;
-			}
-
-			if (res.affectedRows === 0) {
-				// id 결과가 없을 시
-				result({ kind: 'not_found' }, null);
-				return;
-			}
-
-			console.log('update post: ', { id, ...post });
-			result(null, { id, ...post });
+	sql.query('UPDATE post SET title = ?, content = ? WHERE post_idx = ?', [post.title, post.content, id], (err, res) => {
+		if (err) {
+			console.log('error: ', err);
+			result(err, null);
+			return;
 		}
-	);
+
+		if (res.affectedRows === 0) {
+			// 결과가 없을 시
+			result({ kind: 'not_found' }, null);
+			return;
+		}
+
+		console.log('update post: ', { id, ...post });
+		result(null, { id, ...post });
+	});
 };
 
 // post id로 삭제
