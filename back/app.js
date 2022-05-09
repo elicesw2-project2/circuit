@@ -12,6 +12,7 @@ import authRouter from './routes/auth.js';
 import mypageRouter from './routes/mypage.routes.js';
 import commentRouter from './routes/comment.routes.js';
 import boardRouter from './routes/board.routes.js';
+import searchRouter from './routes/search.routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,9 +34,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/board', boardRouter);
+app.use('/board', commentRouter);
 app.use('/mypage', mypageRouter);
-app.use('/board/post', commentRouter);
 app.use('/auth', authRouter);
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
