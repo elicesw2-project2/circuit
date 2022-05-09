@@ -31,7 +31,7 @@ Post.create = (newPost, result) => {
 
 // post 전체 조회
 Post.getAll = (result) => {
-	sql.query('SELECT * FROM post', (err, res) => {
+	sql.query('SELECT * FROM post ORDER BY post_idx DESC', (err, res) => {
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);
@@ -109,7 +109,7 @@ Post.remove = (id, result) => {
 
 // post title로 검색(params)
 Post.searchByTitle = (title, result) => {
-	sql.query('SELECT * FROM post WHERE title LIKE ?', `%${title}%`, (err, res) => {
+	sql.query('SELECT * FROM post WHERE title LIKE ? ORDER BY post_idx DESC', `%${title}%`, (err, res) => {
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);
