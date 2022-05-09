@@ -140,3 +140,29 @@ export function deleteId(req, res) {
 		}
 	});
 }
+
+// title로 검색(params)
+export function search(req, res) {
+	Post.searchByTitle(req.params.title, (err, data) => {
+		if (err) {
+			if (err.kind === 'not_found') {
+				res.status(404).send({
+					status: 404,
+					message: `Not found Post with title ${req.params.title}.`,
+				});
+			} else {
+				res.status(500).send({
+					status: 500,
+					message: `Error retrieving Post with title ${req.params.title}`,
+				});
+			}
+		} else {
+			res.send({
+				status: 200,
+				message: '성공',
+				data,
+			});
+			console.log('search() from postcontroller.js');
+		}
+	});
+}
