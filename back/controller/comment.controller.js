@@ -25,7 +25,6 @@ export function findAll(req, res) {
 	});
 }
 
-
 // 댓글 추가
 export function createComment(req, res) {
 	if (!req.body) {
@@ -77,8 +76,7 @@ export function updateComment(req, res) {
 				res.status(500).send({
 					message: `Error updating Comment with comment_idx ${req.params.comment_idx} in post_idx ${req.params.post_idx}.`,
 				});
-			} 
-			
+			}
 		} else {
 			res.send({
 				status: 200,
