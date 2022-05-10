@@ -21,6 +21,8 @@
 		"eqeqeq": "off",
 		"consistent-return": "off",
 		"prefer-const": "off",
-		"func-names": "off"
+		"func-names": "off",
+		"arrow-body-style": "off",
+		"prefer-arrow-callback": "off"
 	}
 }

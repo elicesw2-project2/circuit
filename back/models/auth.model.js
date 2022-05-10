@@ -1,61 +1,29 @@
+import jwt from 'jsonwebtoken';
+import * as userRepository from '../controller/user.controller.js';
 import sql from './db.js';
 
-const User = function (user) {
-	this.email = user.email;
-	this.password = user.password;
-	this.nickname = user.nickname;
-	this.profile = user.profile;
+const isAuth = async (req, res, next) => {
+	const authHeader = req.get('authorization');
+	if (!(authHeader && authHeader.startsWith('Bearer '))) {
+		return res.status(401).json({ message: 'ㅛ' });
+	}
+	const token = authHeader.split(' ')[1];
+
+	jwt.verify(
+		//
+		token,
+		'PV59zFWNbrvJrfDLkETWe2VHZttSfSq9',
+		async (error, decoded) => {
+			if (error) {
+				return res.status(401).json({ message: error });
+			}
+
+			const user = await userRepository.findByUserid(decoded.id);
+
+			if (error) console.log(`Error: ${error}`);
+			req.headers.id = user.id;
+			next();
+		}
+	);
 };
-
-User.createUser = (newUser, result) => {
-	sql.query('INSERT INTO customers SET ?', newUser, (err, res) => {
-		if (err) {
-			console.log('error: ', err);
-			result(err, null);
-			return;
-		}
-
-		console.log('Created customer: ', { id: res.inseertId, ...newUser });
-		result(null, { id: res.inseertId, ...newUser });
-	});
-};
-
-User.findById = (userID, result) => {
-	sql.query('SELECT * FROM users WHERE id = ?', userID, (err, res) => {
-		if (err) {
-			console.log('error: ', err);
-			result(err, null);
-			return;
-		}
-
-		if (res.length) {
-			console.log('found user: ', res[0]);
-			result(null, res[0]);
-			return;
-		}
-
-		// 결과가 없을 시
-		result({ kind: 'not_found' }, null);
-	});
-};
-
-User.findByEmail = (userEmail, result) => {
-	sql.query('SELECT * FROM users WHERE email = ?', userEmail, (err, res) => {
-		if (err) {
-			console.log('error: ', err);
-			result(err, null);
-			return;
-		}
-
-		if (res.length) {
-			console.log('found customer: ', res[0]);
-			result(null, res[0]);
-			return;
-		}
-
-		// 결과가 없을 시
-		result({ kind: 'not_found' }, null);
-	});
-};
-
-export default User;
+export default isAuth;
