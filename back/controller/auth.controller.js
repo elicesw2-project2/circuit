@@ -31,7 +31,11 @@ export async function signup(req, res) {
 export async function login(req, res) {
 	const { id, pw } = req.body;
 	const user = await userRepository.findByUserid(id);
+	if (!user) {
+		return res.status(404).json({ message: 'User not found' });
+	}
 	const isValidPassword = await bcrypt.compare(pw, user.pw);
+	console.log('isValidPassword', isValidPassword);
 	if (!isValidPassword) {
 		return res.status(401).json({ mesage: `Invalid email or password` });
 	}
