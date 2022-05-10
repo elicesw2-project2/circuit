@@ -3,7 +3,15 @@ import '../styles/NavBar.scss';
 
 // FontAwesome Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFlagCheckered, faSearch, faHomeLgAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
+import {
+	faFlagCheckered,
+	faSearch,
+	faHomeLgAlt,
+	faEdit,
+	faCircleUser,
+	faGear,
+	faRightFromBracket,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { Link } from 'react-router-dom';
 import profile from 'public/profile.jpeg';
@@ -49,17 +57,21 @@ function NavBar() {
 						/>
 						{showMenu ? (
 							<nav className="menu">
-								<ul>
+								<div className="menu__square" />
+								<div className="menu__lists">
 									<li>
-										<Link to="/">Menu 1</Link>
+										<FontAwesomeIcon icon={faCircleUser} className="menu__icon" />
+										<Link to="/">마이 페이지</Link>
 									</li>
 									<li>
-										<Link to="/">Menu 2</Link>
+										<FontAwesomeIcon icon={faGear} className="menu__icon" />
+										<Link to="/">설정</Link>
 									</li>
 									<li>
-										<Link to="/">Menu 3</Link>
+										<FontAwesomeIcon icon={faRightFromBracket} className="menu__icon" />
+										<Link to="/">로그아웃</Link>
 									</li>
-								</ul>
+								</div>
 							</nav>
 						) : null}
 					</div>
