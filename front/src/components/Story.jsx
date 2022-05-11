@@ -4,17 +4,6 @@ import '../styles/Story.scss';
 import dummy from '../db/story.json';
 
 function Story() {
-	const [stories, setStories] = useState('');
-
-	useEffect(() => {
-		(async () => {
-			const result = await fetch('https://elice-server.herokuapp.com/board', {
-				method: 'GEt',
-			}).then((res) => res.json());
-			setStories(result);
-		})();
-	}, []);
-	console.log(stories);
 	return (
 		<section className="story_container">
 			<StoryInfo />
