@@ -15,11 +15,19 @@ import {
 
 import { Link } from 'react-router-dom';
 import profile from 'public/profile.jpeg';
+import Search from 'utils/Search';
+import Logout from 'utils/Logout';
 
 function NavBar() {
 	const [showMenu, setShowMenu] = useState(false);
 	const toggleMenu = () => {
 		setShowMenu((showMenu) => !showMenu);
+	};
+
+	const [searchValue, setSearchValue] = useState('');
+	const handleSearchValue = (e) => {
+		setSearchValue(e.target.value);
+		console.log(searchValue);
 	};
 
 	return (
@@ -30,9 +38,9 @@ function NavBar() {
 				</Link>
 			</div>
 			<div className="searchBar">
-				<input className="searchBar__input" placeholder="검색" />
+				<input className="searchBar__input" placeholder="검색" value={searchValue} onChange={handleSearchValue} />
 				<div className="searchBar__icon">
-					<FontAwesomeIcon icon={faSearch} />
+					<FontAwesomeIcon icon={faSearch} onClick={() => Search(searchValue)} />
 				</div>
 			</div>
 			<ul className="navItems">
@@ -69,7 +77,9 @@ function NavBar() {
 									</li>
 									<li>
 										<FontAwesomeIcon icon={faRightFromBracket} className="menu__icon" />
-										<Link to="/auth/login">로그아웃</Link>
+										<Link to="/auth/login" onClick={Logout}>
+											로그아웃
+										</Link>
 									</li>
 								</div>
 							</nav>

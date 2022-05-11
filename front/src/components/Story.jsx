@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Story.scss';
 import dummy from '../db/story.json';
 
-// fetch('https://elice-server.herokuapp.com/board', {
-// 	method: 'GET',
-// })
-// 	.then((res) => res.json())
-// 	.then((data) => {
-// 		console.log(data.data);
-// 		// data.data.map((el) => console.log(el.post_idx));
-// 	});
-
 function Story() {
-	// 글 목록 컨테이너 , 이 안에 글 들이 들어감
-	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
+	const [stories, setStories] = useState('');
+
+	useEffect(() => {
+		(async () => {
+			const result = await fetch('https://elice-server.herokuapp.com/board', {
+				method: 'GEt',
+			}).then((res) => res.json());
+			setStories(result);
+		})();
+	}, []);
+	console.log(stories);
 	return (
 		<section className="story_container">
 			<StoryInfo />

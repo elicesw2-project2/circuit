@@ -12,6 +12,7 @@
 		"import/no-extraneous-dependencies": "off",
 		"no-console": "off",
 		"no-shadow": "off",
-		"no-alert": "off"
+		"no-alert": "off",
+		"react-hooks/exhaustive-deps": "off"
 	}
 }

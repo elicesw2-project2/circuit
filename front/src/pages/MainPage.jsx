@@ -12,8 +12,6 @@ function MainPage() {
 				<Story />
 				<MainProfile />
 			</div>
-
-			<div />
 		</>
 	);
 }

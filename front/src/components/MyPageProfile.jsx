@@ -27,12 +27,15 @@ function MyPageProfile() {
 			</div>
 			<div className="MyPageProfile__container__right">
 				<div className="items">
-					{edit === true ? <input placeholder={nickname} onChange={HandleNickname} /> : <span>{nickname}</span>}
+					{edit === true ? (
+						<input placeholder={nickname} onChange={HandleNickname} value={nickname} />
+					) : (
+						<span>{nickname}</span>
+					)}
 					<button
 						type="button"
 						onClick={() => {
 							toggleEdit();
-							setNickname(nickname);
 						}}
 					>
 						{edit ? '확인' : '수정'}
@@ -40,7 +43,11 @@ function MyPageProfile() {
 				</div>
 				<div className="description">
 					<span>한줄 소개</span>
-					{edit === true ? <textarea onChange={HandleDescription} placeholder={description} /> : <p>{description}</p>}
+					{edit === true ? (
+						<textarea onChange={HandleDescription} placeholder={description} value={description} />
+					) : (
+						<p>{description}</p>
+					)}
 				</div>
 			</div>
 		</div>
