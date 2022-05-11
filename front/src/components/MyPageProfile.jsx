@@ -6,6 +6,15 @@ import '../styles/MyPageProfile.scss';
 function MyPageProfile() {
 	const [edit, setEdit] = useState(false);
 	const [nickname, setNickname] = useState('별명');
+	const [description, setDescription] = useState('나를 소개해주세요!');
+
+	const HandleNickname = (e) => {
+		setNickname(e.target.value);
+	};
+
+	const HandleDescription = (e) => {
+		setDescription(e.target.value);
+	};
 
 	const toggleEdit = () => {
 		setEdit((edit) => !edit);
@@ -18,7 +27,7 @@ function MyPageProfile() {
 			</div>
 			<div className="MyPageProfile__container__right">
 				<div className="items">
-					{edit === true ? <input placeholder="별명" /> : <span>{nickname}</span>}
+					{edit === true ? <input placeholder={nickname} onChange={HandleNickname} /> : <span>{nickname}</span>}
 					<button
 						type="button"
 						onClick={() => {
@@ -31,14 +40,7 @@ function MyPageProfile() {
 				</div>
 				<div className="description">
 					<span>한줄 소개</span>
-					{edit === true ? (
-						<input placeholder="작성해주세요.." />
-					) : (
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique delectus id quaerat, voluptatibus quod
-							tempora tempore quidem
-						</p>
-					)}
+					{edit === true ? <textarea onChange={HandleDescription} placeholder={description} /> : <p>{description}</p>}
 				</div>
 			</div>
 		</div>
