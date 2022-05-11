@@ -1,7 +1,6 @@
 .story_container {
 	border: solid 1px #cdcdcd;
 	position: relative;
-	left: 100px;
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
@@ -23,7 +22,6 @@
 	margin: 0 10px;
 	padding: 10px;
 	box-sizing: border-box;
-	z-index: -1;
 }
 .story:last-child {
 	border-radius: 0 0 10px 10px;
