@@ -29,16 +29,29 @@ Post.create = (newPost, result) => {
 	});
 };
 
-// post 전체 조회
-Post.getAll = (result) => {
-	sql.query('SELECT * FROM post', (err, res) => {
+// post 전체 개수 조회
+Post.getAllCount = (result) => {
+	sql.query('SELECT Count(*) as count FROM post;', (err, res) => {
+		if (err) {
+			console.log('error: ', err);
+			result(err, null);
+			return;
+		}
+		console.log('post: ', res, 'Post.model.js');
+		result(null, res); // 개수전달
+	});
+};
+
+// post 페이징 조회
+Post.getAll = (offset, limit, result) => {
+	sql.query('SELECT * FROM post ORDER BY post_idx DESC LIMIT ?,?', [offset, limit], (err, res) => {
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);
 			return;
 		}
 
-		console.log('post: ', res, 'Post.model.js');
+		console.log('post: ', res.count, 'Post.model.js');
 		result(null, res);
 	});
 };
@@ -65,26 +78,22 @@ Post.findById = (id, result) => {
 
 // post id로 수정
 Post.updateById = (id, post, result) => {
-	sql.query(
-		'UPDATE post SET title = ?, content = ?, date = ? WHERE post_idx = ?',
-		[post.title, post.content, new Date(), id],
-		(err, res) => {
-			if (err) {
-				console.log('error: ', err);
-				result(err, null);
-				return;
-			}
-
-			if (res.affectedRows === 0) {
-				// id 결과가 없을 시
-				result({ kind: 'not_found' }, null);
-				return;
-			}
-
-			console.log('update post: ', { id, ...post });
-			result(null, { id, ...post });
+	sql.query('UPDATE post SET title = ?, content = ? WHERE post_idx = ?', [post.title, post.content, id], (err, res) => {
+		if (err) {
+			console.log('error: ', err);
+			result(err, null);
+			return;
 		}
-	);
+
+		if (res.affectedRows === 0) {
+			// 결과가 없을 시
+			result({ kind: 'not_found' }, null);
+			return;
+		}
+
+		console.log('update post: ', { id, ...post });
+		result(null, { id, ...post });
+	});
 };
 
 // post id로 삭제
@@ -109,7 +118,7 @@ Post.remove = (id, result) => {
 
 // post title로 검색(params)
 Post.searchByTitle = (title, result) => {
-	sql.query('SELECT * FROM post WHERE title LIKE ?', `%${title}%`, (err, res) => {
+	sql.query('SELECT * FROM post WHERE title LIKE ? ORDER BY post_idx DESC', `%${title}%`, (err, res) => {
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);
