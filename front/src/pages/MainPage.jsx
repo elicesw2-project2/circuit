@@ -1,12 +1,17 @@
 import React from 'react';
 import NavBar from 'components/NavBar';
-import Profile from 'components/Profile';
+import MainProfile from 'components/MainProfile';
+import Story from 'components/Story';
 
 function MainPage() {
 	return (
 		<>
 			<NavBar />
-			<Profile />
+			<div className="test">
+				<MainProfile />
+				<Story />
+			</div>
+
 			<div />
 		</>
 	);

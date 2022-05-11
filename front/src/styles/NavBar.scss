@@ -6,6 +6,9 @@
 	align-items: center;
 	padding: 16px 16px 16px 0;
 	border: 1px solid gainsboro;
+	a {
+		color: black;
+	}
 }
 
 .navLogo {
@@ -20,7 +23,6 @@
 	display: flex;
 	align-items: center;
 	width: 300px;
-	height: 40px;
 	background-color: #efefef;
 	border-radius: 10px;
 	margin-left: 50px;
@@ -32,8 +34,7 @@
 
 .searchBar__input {
 	background-color: #efefef;
-	margin-left: 50px;
-	height: 30px;
+	margin-left: 45px;
 	border: none;
 
 	&:focus {
@@ -48,6 +49,7 @@
 .searchBar__icon {
 	position: absolute;
 	padding: 0px 15px 0px 20px;
+	background-color: transparent;
 }
 
 .navItems {

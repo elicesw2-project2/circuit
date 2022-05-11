@@ -13,7 +13,6 @@ import commentRouter from './routes/comment.routes.js';
 import boardRouter from './routes/board.routes.js';
 import searchRouter from './routes/search.routes.js';
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();

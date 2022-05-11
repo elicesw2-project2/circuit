@@ -1,0 +1,83 @@
+.loginBox {
+	height: fit-content;
+	width: fit-content;
+	text-align: center;
+	background-color: #ffff;
+
+	/* 화면 정가운데 배치 */
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.login {
+	border: 1px solid #cdcdcd;
+	border-radius: 1px;
+	margin: 0 0 10px;
+	padding: 40px 50px 50px 50px;
+	input {
+		padding: 9px 0px 7px 9px;
+		font-size: 12px;
+		width: 16rem;
+		height: 1.5rem;
+		outline: none;
+		background: #fafafa;
+		border-radius: 3px;
+		border: 1px solid #cdcdcd;
+		margin-bottom: 15px;
+	}
+
+	label {
+		position: absolute;
+		pointer-events: none;
+		left: 10px;
+		padding-bottom: 15px;
+		transform: translateY(10px);
+		line-height: 6px;
+		transition: all ease-out 0.1s;
+		font-size: 14px;
+		color: #999;
+		padding-top: 6px;
+		visibility: hidden;
+	}
+}
+
+.login_title {
+	font-size: 40px;
+	font-weight: bolder;
+	margin: 0 0 30px 0;
+}
+
+#login-button {
+	text-align: center;
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid transparent;
+	background-color: #524fa1;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.singUp {
+	border: 1px solid #cdcdcd;
+	border-radius: 1px;
+	margin: 0 0 10px;
+	padding: 25px 50px;
+}
+
+#singUp-button {
+	color: #3897f0;
+	font-weight: 600;
+	text-decoration-line: none;
+}
+
+#login_errors {
+	color: red;
+	font-size: 12px;
+	text-align: left;
+	margin-bottom: 5px;
+}

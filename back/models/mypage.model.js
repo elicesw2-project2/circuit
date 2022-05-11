@@ -33,7 +33,7 @@ Users.findById = (userId, result) => {
 Users.updateById = (id, user, result) => {
 	sql.query(
 		'UPDATE user SET nickname = ?, profile = ?, intro = ? WHERE id = ?',
-		[user.nickname, user.profile,user.intro, id],
+		[user.nickname, user.profile, user.intro, id],
 		(err, res) => {
 			if (err) {
 				console.log('error: ', err);

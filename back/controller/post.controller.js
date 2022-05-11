@@ -36,8 +36,16 @@ export function create(req, res) {
 
 // 전체 조회
 export function findAll(req, res) {
-	Post.getAll((err, data) => {
-		console.log('postcontroller.js');
+	let page = req.query.page ? parseInt(req.query.page, 10) : 1; // 페이지 번호
+	let limit = req.query.limit ? parseInt(req.query.limit, 10) : 15; // 현재 보여줄 게시물 수
+	let offset = (page - 1) * limit; // 다음 페이지의 시작점
+	let pageCount; // 전체 페이지 수
+
+	Post.getAllCount((err, data) => {
+		pageCount = data;
+	});
+
+	Post.getAll(offset, limit, (err, data) => {
 		if (err) {
 			console.log('error postcontroller.js');
 			res.status(500).send({
@@ -48,6 +56,7 @@ export function findAll(req, res) {
 			res.send({
 				status: 200,
 				message: '성공',
+				pageCount,
 				data,
 			});
 			console.log('findAll() from postcontroller.js');
@@ -81,7 +90,7 @@ export function findOne(req, res) {
 	});
 }
 
-// id로 갱신
+// id로 수정
 export function update(req, res) {
 	// Validate Request
 	if (!req.body) {
