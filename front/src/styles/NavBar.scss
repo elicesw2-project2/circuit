@@ -19,6 +19,7 @@
 
 .searchBar {
 	position: relative;
+	right: -30px;
 	color: #909090;
 	display: flex;
 	align-items: center;
@@ -31,6 +32,7 @@
 		position: absolute;
 		left: 60px;
 	}
+	height: 40px;
 }
 
 .searchBar__input {

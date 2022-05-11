@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Story from './components/Story';
 import Read from './pages/Read';
+import Writing from './pages/Writing';
 
 function App() {
 	return (
@@ -17,7 +18,10 @@ function App() {
 				<Route path="/my-page" element={<MyPage />} />
 				<Route path="/auth/login" element={<Login />} />
 				<Route path="/auth/signup" element={<SignUp />} />
-				<Route path="/read/:id" element={<Read />} />
+				<Route path="/Story" element={<Story />} />
+				<Route path="/Read/:id" element={<Read />} />
+				<Route path="/Writing" element={<Writing />} />
+				<Route path="/MainPage" element={<MainPage />} />
 			</Routes>
 		</div>
 	);
