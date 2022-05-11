@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/Read.css';
 import dummy from '../db/story.json';
+import Comment from '../components/Comment';
 
 // fetch('https://elice-server.herokuapp.com/board', {
 // 	method: 'GET',
@@ -19,6 +20,7 @@ function Read() {
 				<span className="read_day">{dummy.info[a].day}</span>
 			</div>
 			<div className="read_content">{dummy.info[a].content}</div>
+			<Comment />
 		</section>
 	);
 }

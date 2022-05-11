@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Story.css';
+import '../styles/Story.scss';
 import dummy from '../db/story.json';
 
 fetch('https://elice-server.herokuapp.com/board', {
