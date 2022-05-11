@@ -29,16 +29,29 @@ Post.create = (newPost, result) => {
 	});
 };
 
-// post 전체 조회
-Post.getAll = (result) => {
-	sql.query('SELECT * FROM post ORDER BY post_idx DESC', (err, res) => {
+// post 전체 개수 조회
+Post.getAllCount = (result) => {
+	sql.query('SELECT Count(*) as count FROM post;', (err, res) => {
+		if (err) {
+			console.log('error: ', err);
+			result(err, null);
+			return;
+		}
+		console.log('post: ', res, 'Post.model.js');
+		result(null, res); // 개수전달
+	});
+};
+
+// post 페이징 조회
+Post.getAll = (offset, limit, result) => {
+	sql.query('SELECT * FROM post ORDER BY post_idx DESC LIMIT ?,?', [offset, limit], (err, res) => {
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);
 			return;
 		}
 
-		console.log('post: ', res, 'Post.model.js');
+		console.log('post: ', res.count, 'Post.model.js');
 		result(null, res);
 	});
 };
