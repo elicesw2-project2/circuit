@@ -1,7 +1,6 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-// import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Login.scss';
 import { useForm } from 'react-hook-form';
@@ -18,12 +17,13 @@ function Login() {
 
 		fetch('https://elice-server.herokuapp.com/auth/login', {
 			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
 		})
 			.then((response) => response.json())
 			.then((result) => {
 				console.log('결과: ', result);
-				if (result.message === '성공') {
+				if (result.message === '로그인 성공') {
 					// mainpage로 이동
 					navigate('/Story');
 				} else {
@@ -39,20 +39,16 @@ function Login() {
 				<form className="login" onSubmit={handleSubmit(onSubmit)}>
 					<h1 className="login_title">Circuit</h1>
 					<p>
-						<input {...register('username', { required: '아이디를 입력하세요.' })} id="username" placeholder="이메일" />
-						<label htmlFor="username">아이디</label>
+						<input {...register('id', { required: '아이디를 입력하세요.' })} id="id" placeholder="이메일" />
+						<label htmlFor="id">아이디</label>
 					</p>
 
 					<p>
-						<input
-							{...register('password', { required: '비밀번호를 입력하세요.' })}
-							id="password"
-							placeholder="비밀번호"
-						/>
-						<label htmlFor="password">비밀번호</label>
+						<input {...register('pw', { required: '비밀번호를 입력하세요.' })} id="pw" placeholder="비밀번호" />
+						<label htmlFor="pw">비밀번호</label>
 					</p>
-					{errors.username && <p id="login_errors">{errors.username.message}</p>}
-					{errors.password && <p id="login_errors">{errors.password.message}</p>}
+					{errors.id && <p id="login_errors">{errors.id.message}</p>}
+					{errors.pw && <p id="login_errors">{errors.pw.message}</p>}
 					<p>
 						<button type="submit" id="login-button">
 							로그인
