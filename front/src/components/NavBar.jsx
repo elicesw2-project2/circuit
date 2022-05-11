@@ -61,7 +61,7 @@ function NavBar() {
 								<div className="menu__lists">
 									<li>
 										<FontAwesomeIcon icon={faCircleUser} className="menu__icon" />
-										<Link to="/">마이 페이지</Link>
+										<Link to="/my-page">마이 페이지</Link>
 									</li>
 									<li>
 										<FontAwesomeIcon icon={faGear} className="menu__icon" />
@@ -69,7 +69,7 @@ function NavBar() {
 									</li>
 									<li>
 										<FontAwesomeIcon icon={faRightFromBracket} className="menu__icon" />
-										<Link to="/">로그아웃</Link>
+										<Link to="/auth/login">로그아웃</Link>
 									</li>
 								</div>
 							</nav>
