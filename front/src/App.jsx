@@ -15,11 +15,15 @@ import Writing from './pages/Writing';
 
 function App() {
 	const [imgSrc, setImgSrc] = useState(profile);
+	const [nickname, setNickname] = useState('별명');
 	return (
 		<div className="App">
 			<Routes>
-				<Route path="/" element={<MainPage imgSrc={imgSrc} setImgSrc={setImgSrc} />} />
-				<Route path="/my-page" element={<MyPage imgSrc={imgSrc} setImgSrc={setImgSrc} />} />
+				<Route path="/" element={<MainPage imgSrc={imgSrc} setImgSrc={setImgSrc} nickname={nickname} />} />
+				<Route
+					path="/my-page"
+					element={<MyPage imgSrc={imgSrc} setImgSrc={setImgSrc} nickname={nickname} setNickname={setNickname} />}
+				/>
 				<Route path="/auth/login" element={<Login />} />
 				<Route path="/auth/signup" element={<SignUp />} />
 				<Route path="/Story" element={<Story />} />
