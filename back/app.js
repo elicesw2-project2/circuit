@@ -34,7 +34,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/board', boardRouter);
 app.use('/mypage', mypageRouter);
-app.use('/board/post', commentRouter);
+app.use('/board', commentRouter);
 app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
