@@ -26,7 +26,6 @@ function Storys() {
 				setboard(data.data);
 			});
 	}, []);
-	console.log(board);
 
 	return board.map((el) => (
 		<div className="story">

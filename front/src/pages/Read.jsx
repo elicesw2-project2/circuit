@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/Read.css';
 import NavBar from 'components/NavBar';
-import dummy from '../db/story.json';
 import Comment from '../components/Comment';
 
 function Read() {
@@ -16,7 +15,6 @@ function Read() {
 
 function ReadContent() {
 	const a = useParams().id;
-	// console.log(a);
 
 	const [board, setboard] = useState([]);
 
@@ -26,13 +24,9 @@ function ReadContent() {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				setboard(data.data);
+				setboard(data.data.filter((el) => el.post_idx === Number(a)));
 			});
-	}, []);
-	// settest(board.filter((el) => el.post_idx === Number(a)));
-	board.filter((el) => el.post_idx === Number(a));
-	// console.log(board[0].id);
-	// console.log(asdf[0].id);
+	}, [a]);
 
 	return (
 		<div>
@@ -50,5 +44,4 @@ function ReadContent() {
 		</div>
 	);
 }
-// asdf[0]
 export default Read;
