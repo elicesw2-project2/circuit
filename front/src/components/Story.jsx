@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/Story.scss';
 import dummy from '../db/story.json';
 
-function Story() {
+function Story({ searchWritings }) {
 	return (
 		<section className="story_container">
 			<StoryInfo />

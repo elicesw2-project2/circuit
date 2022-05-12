@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/NavBar.scss';
 
 // FontAwesome Icon
@@ -12,13 +12,12 @@ import {
 	faGear,
 	faRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-
+import Search from 'utils/Search';
 import { Link } from 'react-router-dom';
 import profile from 'public/profile.jpeg';
-import Search from 'utils/Search';
 import Logout from 'utils/Logout';
 
-function NavBar() {
+function NavBar({ setSearchWritings }) {
 	const [showMenu, setShowMenu] = useState(false);
 	const toggleMenu = () => {
 		setShowMenu((showMenu) => !showMenu);
@@ -27,7 +26,6 @@ function NavBar() {
 	const [searchValue, setSearchValue] = useState('');
 	const handleSearchValue = (e) => {
 		setSearchValue(e.target.value);
-		console.log(searchValue);
 	};
 
 	return (
@@ -40,7 +38,13 @@ function NavBar() {
 			<div className="searchBar">
 				<input className="searchBar__input" placeholder="검색" value={searchValue} onChange={handleSearchValue} />
 				<div className="searchBar__icon">
-					<FontAwesomeIcon icon={faSearch} onClick={() => Search(searchValue)} />
+					<FontAwesomeIcon
+						icon={faSearch}
+						onClick={async () => {
+							const searchResult = await Search(searchValue);
+							setSearchWritings(searchResult);
+						}}
+					/>
 				</div>
 			</div>
 			<ul className="navItems">

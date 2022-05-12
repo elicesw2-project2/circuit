@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import profile from 'public/profile.jpeg';
 import EditProfile from 'utils/EditProfile';
 import '../styles/MyPageProfile.scss';
+import { Link } from 'react-router-dom';
 
 function MyPageProfile() {
 	const [edit, setEdit] = useState(false);
@@ -23,7 +24,9 @@ function MyPageProfile() {
 	return (
 		<div className="MyPageProfile__profile">
 			<div className="MyPageProfile__container__left">
-				<img src={profile} alt="profile" />
+				<Link to="/my-page/profileImg">
+					<img src={profile} alt="profile" />
+				</Link>
 			</div>
 			<div className="MyPageProfile__container__right">
 				<div className="items">
@@ -36,6 +39,9 @@ function MyPageProfile() {
 						type="button"
 						onClick={() => {
 							toggleEdit();
+							// if (edit === true) {
+							// 	fetch()
+							// }
 						}}
 					>
 						{edit ? '확인' : '수정'}

@@ -3,6 +3,8 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 import MyPage from 'pages/MyPage';
+import ProfileImg from 'pages/ProfileImg';
+import { ReadContent } from 'pages/Read';
 import MainPage from './pages/MainPage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
@@ -19,9 +21,9 @@ function App() {
 				<Route path="/auth/login" element={<Login />} />
 				<Route path="/auth/signup" element={<SignUp />} />
 				<Route path="/Story" element={<Story />} />
-				<Route path="/Read/:id" element={<Read />} />
+				<Route path="/Read/:id" element={<ReadContent />} />
 				<Route path="/Writing" element={<Writing />} />
-				<Route path="/MainPage" element={<MainPage />} />
+				<Route path="/my-page/profileImg" element={<ProfileImg />} />
 			</Routes>
 		</div>
 	);

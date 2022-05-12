@@ -1,9 +1,9 @@
-function Search(value) {
-	fetch(`https://elice-server.herokuapp.com/search/${value}`, {
+async function Search(value) {
+	const response = await fetch(`https://elice-server.herokuapp.com/search/${value}`, {
 		method: 'GET',
-	})
-		.then((res) => res.json())
-		.then((result) => console.log(result));
+	});
+	const results = await response.json();
+	return results.data;
 }
 
 export default Search;
