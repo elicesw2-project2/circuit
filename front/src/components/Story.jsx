@@ -3,24 +3,6 @@ import { Link } from 'react-router-dom';
 import '../styles/Story.scss';
 import dummy from '../db/story.json';
 
-// fetch('https://elice-server.herokuapp.com/board', {
-// 	method: 'GET',
-// })
-// 	.then((res) => res.json())
-// 	.then((data) => {
-// 		console.log(data);
-// 		// data.data.map((el) => console.log(el.post_idx));
-// 		data.data.map((el) => (
-// 			<div className="story">
-// 				<span className="story_name story_child asdf">{el.nickname}</span>
-// 				<Link to={`/Read/${el.id}`}>
-// 					<span className="story_title story_child">{el.title}</span>
-// 				</Link>
-// 				<span className="story_time story_child">{el.date}</span>
-// 			</div>
-// 		));
-// 	});
-
 function Story() {
 	// 글 목록 컨테이너 , 이 안에 글 들이 들어감
 	return (
@@ -33,8 +15,7 @@ function Story() {
 
 function Storys() {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
-	const [Test, setTest] = useState(null);
-	const [Testtt, setTesttt] = useState(null);
+	const [board, setboard] = useState([]);
 
 	useEffect(() => {
 		fetch('https://elice-server.herokuapp.com/board', {
@@ -42,21 +23,18 @@ function Storys() {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data.data);
-				setTest(data.data);
-				setTesttt(data.data[0]);
+				setboard(data.data);
 			});
 	}, []);
-	console.log(Test);
-	// console.log(Test[0]);
+	console.log(board);
 
-	return dummy.info.map((el) => (
+	return board.map((el) => (
 		<div className="story">
 			<span className="story_name story_child asdf">{el.nickname}</span>
-			<Link to={`/Read/${el.id}`}>
+			<Link to={`/Read/${el.post_idx}`}>
 				<span className="story_title story_child">{el.title}</span>
 			</Link>
-			<span className="story_time story_child">{el.date}</span>
+			<span className="story_time story_child">{el.date.substr(0, 10)}</span>
 		</div>
 	));
 }
