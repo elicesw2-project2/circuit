@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react';
-import profile from 'public/profile.jpeg';
+import profile from 'public/profile.jpg';
 
 export default function SingleComment({ tweet }) {
 	return (

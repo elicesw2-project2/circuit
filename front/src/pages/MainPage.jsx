@@ -4,7 +4,7 @@ import MainProfile from 'components/MainProfile';
 import Story from 'components/Story';
 import '../styles/MainPage.scss';
 
-function MainPage() {
+function MainPage({ imgSrc }) {
 	// 검색 결과 저장 state
 	const [searchWritings, setSearchWritings] = useState([]);
 	useEffect(() => {
@@ -13,10 +13,10 @@ function MainPage() {
 
 	return (
 		<>
-			<NavBar setSearchWritings={setSearchWritings} />
+			<NavBar setSearchWritings={setSearchWritings} imgSrc={imgSrc} />
 			<div className="main_cpn">
 				<Story searchWritings={searchWritings} />
-				<MainProfile />
+				<MainProfile imgSrc={imgSrc} />
 			</div>
 		</>
 	);

@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
-import profile from 'public/profile.jpeg';
+import React, { useEffect, useState } from 'react';
+import profile from 'public/profile.jpg';
 import EditProfile from 'utils/EditProfile';
 import '../styles/MyPageProfile.scss';
 import { Link } from 'react-router-dom';
+import ImgModal from 'components/ImgModal';
 
-function MyPageProfile() {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+
+function MyPageProfile({ imgSrc, setImgSrc }) {
 	const [edit, setEdit] = useState(false);
 	const [nickname, setNickname] = useState('별명');
 	const [description, setDescription] = useState('나를 소개해주세요!');
+	const [modalOpen, setModalOpen] = useState(false);
+
+	const openModal = () => {
+		setModalOpen(true);
+	};
+	const closeModal = () => {
+		setModalOpen(false);
+	};
 
 	const HandleNickname = (e) => {
 		setNickname(e.target.value);
@@ -24,10 +36,10 @@ function MyPageProfile() {
 	return (
 		<div className="MyPageProfile__profile">
 			<div className="MyPageProfile__container__left">
-				<Link to="/my-page/profileImg">
-					<img src={profile} alt="profile" />
-				</Link>
+				<img src={imgSrc} alt="profile" onClick={openModal} />
+				<FontAwesomeIcon icon={faPen} className="Profile__icon" />
 			</div>
+			<ImgModal open={modalOpen} close={closeModal} setImgSrc={setImgSrc} />
 			<div className="MyPageProfile__container__right">
 				<div className="items">
 					{edit === true ? (
@@ -40,7 +52,7 @@ function MyPageProfile() {
 						onClick={() => {
 							toggleEdit();
 							// if (edit === true) {
-							// 	fetch()
+							// 	fetch();
 							// }
 						}}
 					>

@@ -8,10 +8,24 @@
 	border: 1px solid #524fa1;
 
 	.MyPageProfile__container__left {
+		position: relative;
 		img {
+			border-radius: 50%;
 			margin-left: 50px;
 			width: 160px;
 			height: 160px;
+			&:hover {
+				opacity: 0.25;
+			}
+		}
+
+		.Profile__icon {
+			color: #524fa1;
+			font-size: 23px;
+			position: absolute;
+			bottom: 70px;
+			right: 67px;
+			z-index: -1;
 		}
 	}
 

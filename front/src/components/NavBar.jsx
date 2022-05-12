@@ -14,10 +14,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Search from 'utils/Search';
 import { Link } from 'react-router-dom';
-import profile from 'public/profile.jpeg';
+import profile from 'public/profile.jpg';
 import Logout from 'utils/Logout';
 
-function NavBar({ setSearchWritings }) {
+function NavBar({ setSearchWritings, imgSrc }) {
 	const [showMenu, setShowMenu] = useState(false);
 	const toggleMenu = () => {
 		setShowMenu((showMenu) => !showMenu);
@@ -61,7 +61,7 @@ function NavBar({ setSearchWritings }) {
 				<li className="navItem">
 					<div className="navItem__menu-container">
 						<img
-							src={profile}
+							src={imgSrc}
 							alt="profile"
 							onClick={() => toggleMenu()}
 							aria-hidden="true"
