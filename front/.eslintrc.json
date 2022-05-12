@@ -13,6 +13,7 @@
 		"no-console": "off",
 		"no-shadow": "off",
 		"no-alert": "off",
-		"react-hooks/exhaustive-deps": "off"
+		"react-hooks/exhaustive-deps": "off",
+		"react/prop-types": "off"
 	}
 }
