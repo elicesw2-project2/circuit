@@ -6,7 +6,7 @@ import '../styles/MainPage.scss';
 
 function MainPage({ imgSrc, nickname }) {
 	// 검색 결과 저장 state
-	const [searchWritings, setSearchWritings] = useState([]);
+	const [searchWritings, setSearchWritings] = useState();
 	useEffect(() => {
 		console.log('Search Result: ', searchWritings);
 	});

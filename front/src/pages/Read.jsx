@@ -4,7 +4,7 @@ import '../styles/Read.css';
 import NavBar from 'components/NavBar';
 import Comment from '../components/Comment';
 
-function Read() {
+export default function Read() {
 	return (
 		<>
 			<NavBar />
@@ -44,4 +44,3 @@ function ReadContent() {
 		</div>
 	);
 }
-export default Read;
