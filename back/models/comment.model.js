@@ -34,8 +34,8 @@ Comment.getAll = (post_idx, result) => {
 // 댓글 데이터 추가
 Comment.create = (post_idx, newComment, result) => {
 	sql.query(
-		'insert into comment (id,content,profile,nickname,post_idx) values (?,?,?,?,?);',
-		[newComment.id, newComment.content, newComment.profile, newComment.nickname, post_idx],
+		'insert into comment (comment_id,content,profile,nickname,post_idx) values (?,?,?,?,?);',
+		[newComment.id, newComment.content,newComment.profile, newComment.nickname, post_idx],
 		(err, res) => {
 			if (err) {
 				console.log('error: ', err);
