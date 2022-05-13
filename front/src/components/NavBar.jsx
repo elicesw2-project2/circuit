@@ -54,7 +54,7 @@ function NavBar({ setSearchWritings, imgSrc }) {
 					</Link>
 				</li>
 				<li className="navItem">
-					<Link to="/board">
+					<Link to="/Writing">
 						<FontAwesomeIcon icon={faEdit} />
 					</Link>
 				</li>
