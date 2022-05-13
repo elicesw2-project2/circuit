@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import profile from 'public/profile.jpeg';
 
 export default function SingleComment({ singleComment, onRemove }) {
 	const [edit, setEdit] = useState(false);
 	const [value, setValue] = useState(singleComment.content);
+	const postIdx = useParams().id;
 	const onChange = (e) => {
 		setValue(e.target.value);
 	};
@@ -38,7 +40,7 @@ export default function SingleComment({ singleComment, onRemove }) {
 							toggleEdit();
 							if (edit === true) {
 								// const editedComment = `${value}`;
-								fetch(`https://elice-server.herokuapp.com/board/1/comments/${singleComment.comment_idx}`, {
+								fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments/${singleComment.comment_idx}`, {
 									method: 'PATCH',
 									body: JSON.stringify({
 										content: `${value}`,

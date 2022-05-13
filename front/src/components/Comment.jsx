@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import '../styles/Comment.scss';
 import SingleComment from './SingleComment';
 
 function Comment() {
 	const [commentList, setCommentList] = useState();
-
+	const postIdx = useParams().id;
 	// 댓글 가져오기(GET)
 	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/board/1/comments`, {
+		fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
@@ -32,7 +33,7 @@ function Comment() {
 		// concat 함수로 comment객체를 commentList에 추가
 		setCommentList(commentList.concat(comment));
 		// 새댓글 post
-		fetch(`https://elice-server.herokuapp.com/board/1/comments`, {
+		fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
@@ -61,7 +62,7 @@ function Comment() {
 		setCommentList(commentList.filter((commentList) => commentList.comment_idx !== param));
 
 		// fetch delete
-		fetch(`https://elice-server.herokuapp.com/board/1/comments/${param}`, {
+		fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments/${param}`, {
 			method: 'DELETE',
 			body: JSON.stringify({
 				comment_idx: param,
