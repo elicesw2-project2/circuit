@@ -12,6 +12,13 @@ import NavBar from 'components/NavBar';
 // 	.then((data) => console.log(data));
 
 function Writing() {
+	const storyCreate = () => {
+		fetch('https://elice-server.herokuapp.com/board', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({}),
+		});
+	};
 	return (
 		<>
 			<NavBar />
@@ -27,7 +34,7 @@ function Writing() {
 						rows="10"
 						placeholder="내용을 입력하세요"
 					/>
-					<input type="submit" className="write_post" value="게시" />
+					<input type="submit" className="write_post" value="게시" onClick={storyCreate} />
 				</form>
 			</section>
 		</>
