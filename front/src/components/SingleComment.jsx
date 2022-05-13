@@ -1,9 +1,17 @@
 /* eslint-disable react/prop-types */
 
-import React from 'react';
+import React, { useState } from 'react';
 import profile from 'public/profile.jpeg';
 
 export default function SingleComment({ singleComment, onRemove }) {
+	const [edit, setEdit] = useState(false);
+	const [value, setValue] = useState(singleComment.content);
+	const onChange = (e) => {
+		setValue(e.target.value);
+	};
+	const toggleEdit = () => {
+		setEdit((edit) => !edit);
+	};
 	return (
 		<div className="singleComment">
 			<li className="comment_item">
@@ -13,11 +21,41 @@ export default function SingleComment({ singleComment, onRemove }) {
 				</span>
 				<span>
 					<div className="comment_user_name">{singleComment.nickname}</div>
-					<div className="comment_text">{singleComment.content}</div>
+
+					{edit === true ? (
+						<textarea className="comment_edit" onChange={onChange} value={value} />
+					) : (
+						<div className="comment_text">{value}</div>
+					)}
+
 					<div className="comment_date">{singleComment.date.substr(0, 10)} </div>
 				</span>
 				<span className="comment_edit_button">
-					<button type="button">수정</button>
+					{/* 수정버튼 */}
+					<button
+						type="submit"
+						onClick={() => {
+							toggleEdit();
+							if (edit === true) {
+								// const editedComment = `${value}`;
+								fetch(`https://elice-server.herokuapp.com/board/1/comments/${singleComment.comment_idx}`, {
+									method: 'PATCH',
+									body: JSON.stringify({
+										content: `${value}`,
+									}),
+									headers: {
+										'Content-type': 'application/json; charset=UTF-8',
+									},
+								})
+									.then((response) => response.json())
+									.then((data) => console.log(data));
+							}
+						}}
+					>
+						{edit ? '등록' : '수정'}
+					</button>
+
+					{/* 삭제버튼 */}
 					<button type="submit" onClick={() => onRemove(singleComment.comment_idx)}>
 						삭제
 					</button>

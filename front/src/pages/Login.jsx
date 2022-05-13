@@ -22,10 +22,12 @@ function Login() {
 		})
 			.then((response) => response.json())
 			.then((result) => {
-				console.log('결과: ', result);
+				// console.log('결과: ', result);
 				if (result.message === '로그인 성공') {
 					// mainpage로 이동
-					navigate('/Story');
+					navigate('/');
+					localStorage.setItem('id', data.id);
+					// console.log(localStorage.getItem('id'));
 				} else {
 					alert('아이디나 비밀번호를 바르게 입력해주세요.');
 				}
@@ -58,7 +60,7 @@ function Login() {
 				<div className="singUp">
 					<span>계정이 없으신가요? </span>
 					<span>
-						<Link to="/signUp" id="singUp-button">
+						<Link to="/auth/signUp" id="singUp-button">
 							가입하기
 						</Link>
 					</span>
