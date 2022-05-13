@@ -46,10 +46,17 @@ function NavBar({ setSearchWritings, imgSrc }) {
 					<FontAwesomeIcon
 						icon={faSearch}
 						onClick={async () => {
+							if (searchValue === '') {
+								alert('검색어를 입력해주세요!');
+								return;
+							}
 							const searchResult = await Search(searchValue);
+							if (searchResult.status === 404) {
+								console.log(searchResult.message);
+								setSearchWritings([]);
+								return;
+							}
 							setSearchWritings(searchResult);
-							console.log(navigate);
-							console.log('Search Result: ', searchResult);
 							navigate('/');
 						}}
 					/>

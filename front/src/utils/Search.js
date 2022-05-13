@@ -3,11 +3,11 @@ async function Search(value) {
 		const response = await fetch(`https://elice-server.herokuapp.com/search/${value}`, {
 			method: 'GET',
 		});
-		if (response.status === 200) {
-			const results = await response.json();
-			return results.data;
+		const results = await response.json();
+		if (results.status === 404) {
+			return results;
 		}
-		return 'Not Found';
+		return results.data;
 	} catch (err) {
 		console.log(err);
 	}
