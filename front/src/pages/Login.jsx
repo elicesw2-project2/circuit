@@ -58,7 +58,7 @@ function Login() {
 				<div className="singUp">
 					<span>계정이 없으신가요? </span>
 					<span>
-						<Link to="/signUp" id="singUp-button">
+						<Link to="/auth/signup" id="singUp-button">
 							가입하기
 						</Link>
 					</span>

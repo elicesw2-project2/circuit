@@ -20,24 +20,21 @@ function Writing() {
 		});
 	};
 	return (
-		<>
-			<NavBar />
-			<section className="write_container">
-				<form>
-					<input type="textara" placeholder="제목을 입력하세요" className="write_title write_style" />
-					<div />
-					<textarea
-						name=""
-						id=""
-						className="write_content write_style"
-						cols="30"
-						rows="10"
-						placeholder="내용을 입력하세요"
-					/>
-					<input type="submit" className="write_post" value="게시" onClick={storyCreate} />
-				</form>
-			</section>
-		</>
+		<section className="write_container">
+			<form>
+				<input type="textara" placeholder="제목을 입력하세요" className="write_title write_style" />
+				<div />
+				<textarea
+					name=""
+					id=""
+					className="write_content write_style"
+					cols="30"
+					rows="10"
+					placeholder="내용을 입력하세요"
+				/>
+				<input type="submit" className="write_post" value="게시" onClick={storyCreate} />
+			</form>
+		</section>
 	);
 }
 

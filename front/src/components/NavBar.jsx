@@ -13,11 +13,12 @@ import {
 	faRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 import Search from 'utils/Search';
-import { Link } from 'react-router-dom';
-import profile from 'public/profile.jpg';
+import { Link, useNavigate } from 'react-router-dom';
 import Logout from 'utils/Logout';
 
 function NavBar({ setSearchWritings, imgSrc }) {
+	const navigate = useNavigate();
+
 	const [showMenu, setShowMenu] = useState(false);
 	const toggleMenu = () => {
 		setShowMenu((showMenu) => !showMenu);
@@ -28,6 +29,10 @@ function NavBar({ setSearchWritings, imgSrc }) {
 		setSearchValue(e.target.value);
 	};
 
+	const {
+		location: { pathname },
+	} = window;
+	if (pathname === '/circuit/auth/login' || pathname === '/circuit/auth/signup') return null;
 	return (
 		<nav className="navBar">
 			<div className="navLogo">
@@ -43,6 +48,9 @@ function NavBar({ setSearchWritings, imgSrc }) {
 						onClick={async () => {
 							const searchResult = await Search(searchValue);
 							setSearchWritings(searchResult);
+							console.log(navigate);
+							console.log('Search Result: ', searchResult);
+							navigate('/');
 						}}
 					/>
 				</div>

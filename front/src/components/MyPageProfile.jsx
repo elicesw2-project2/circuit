@@ -47,9 +47,24 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname }) {
 						type="button"
 						onClick={() => {
 							toggleEdit();
-							// if (edit === true) {
-							// 	fetch();
-							// }
+							// 확인 버튼 눌렀을 때 유저 정보 수정 API (URL id값 수정해야함)
+							if (edit === true) {
+								fetch('https://elice-server.herokuapp.com/mypage/id1@gmail.com', {
+									method: 'PUT',
+									headers: {
+										'Content-Type': 'application/json',
+									},
+									body: JSON.stringify({
+										nickname,
+										profile: 1,
+										intro: description,
+									}),
+								})
+									.then((response) => response.json())
+									.then((data) => {
+										console.log(data);
+									});
+							}
 						}}
 					>
 						{edit ? '확인' : '수정'}

@@ -5,12 +5,7 @@ import NavBar from 'components/NavBar';
 import Comment from '../components/Comment';
 
 export default function Read() {
-	return (
-		<>
-			<NavBar />
-			<ReadContent />
-		</>
-	);
+	return <ReadContent />;
 }
 
 function ReadContent() {
