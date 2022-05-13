@@ -19,6 +19,7 @@
 
 .searchBar {
 	position: relative;
+	right: -30px;
 	color: #909090;
 	display: flex;
 	align-items: center;
@@ -31,6 +32,7 @@
 		position: absolute;
 		left: 60px;
 	}
+	height: 40px;
 }
 
 .searchBar__input {
@@ -71,27 +73,46 @@
 	}
 
 	img {
+		border-radius: 50%;
 		margin-top: 3px;
-		width: 25px;
-		height: 25px;
+		width: 30px;
+		height: 30px;
 	}
 
 	.menu {
 		background: #ffffff;
 		border-radius: 8px;
 		position: absolute;
-		top: 35px;
-		right: -10px;
-		width: 150px;
+		top: 45px;
+		right: -30px;
+		width: 200px;
 		box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-		opacity: 1;
-		visibility: visible;
-		text-align: center;
+		z-index: 999;
+
+		.menu__square {
+			position: absolute;
+			left: 150px;
+			top: -9px;
+			width: 15px;
+			height: 15px;
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			background-color: white;
+			border-bottom: none;
+			border-right: none;
+			transform: rotate(45deg);
+		}
 
 		li {
+			font-size: 16px;
+			line-height: 18px;
+			text-decoration: none;
 			color: #333333;
 			padding: 15px 20px;
 			display: block;
+
+			.menu__icon {
+				margin-right: 10px;
+			}
 		}
 	}
 }

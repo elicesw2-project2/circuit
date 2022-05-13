@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/NavBar.scss';
 
 // FontAwesome Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFlagCheckered, faSearch, faHomeLgAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
-
+import {
+	faFlagCheckered,
+	faSearch,
+	faHomeLgAlt,
+	faEdit,
+	faCircleUser,
+	faGear,
+	faRightFromBracket,
+} from '@fortawesome/free-solid-svg-icons';
+import Search from 'utils/Search';
 import { Link } from 'react-router-dom';
-import profile from 'public/profile.jpeg';
+import profile from 'public/profile.jpg';
+import Logout from 'utils/Logout';
 
-function NavBar() {
+function NavBar({ setSearchWritings, imgSrc }) {
 	const [showMenu, setShowMenu] = useState(false);
 	const toggleMenu = () => {
 		setShowMenu((showMenu) => !showMenu);
+	};
+
+	const [searchValue, setSearchValue] = useState('');
+	const handleSearchValue = (e) => {
+		setSearchValue(e.target.value);
 	};
 
 	return (
@@ -22,9 +36,15 @@ function NavBar() {
 				</Link>
 			</div>
 			<div className="searchBar">
-				<input className="searchBar__input" placeholder="검색" />
+				<input className="searchBar__input" placeholder="검색" value={searchValue} onChange={handleSearchValue} />
 				<div className="searchBar__icon">
-					<FontAwesomeIcon icon={faSearch} />
+					<FontAwesomeIcon
+						icon={faSearch}
+						onClick={async () => {
+							const searchResult = await Search(searchValue);
+							setSearchWritings(searchResult);
+						}}
+					/>
 				</div>
 			</div>
 			<ul className="navItems">
@@ -34,14 +54,14 @@ function NavBar() {
 					</Link>
 				</li>
 				<li className="navItem">
-					<Link to="/board">
+					<Link to="/Writing">
 						<FontAwesomeIcon icon={faEdit} />
 					</Link>
 				</li>
 				<li className="navItem">
 					<div className="navItem__menu-container">
 						<img
-							src={profile}
+							src={imgSrc}
 							alt="profile"
 							onClick={() => toggleMenu()}
 							aria-hidden="true"
@@ -49,17 +69,23 @@ function NavBar() {
 						/>
 						{showMenu ? (
 							<nav className="menu">
-								<ul>
+								<div className="menu__square" />
+								<div className="menu__lists">
 									<li>
-										<Link to="/">Menu 1</Link>
+										<FontAwesomeIcon icon={faCircleUser} className="menu__icon" />
+										<Link to="/my-page">마이 페이지</Link>
 									</li>
 									<li>
-										<Link to="/">Menu 2</Link>
+										<FontAwesomeIcon icon={faGear} className="menu__icon" />
+										<Link to="/">설정</Link>
 									</li>
 									<li>
-										<Link to="/">Menu 3</Link>
+										<FontAwesomeIcon icon={faRightFromBracket} className="menu__icon" />
+										<Link to="/auth/login" onClick={Logout}>
+											로그아웃
+										</Link>
 									</li>
-								</ul>
+								</div>
 							</nav>
 						) : null}
 					</div>

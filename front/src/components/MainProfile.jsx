@@ -1,16 +1,14 @@
 import React from 'react';
-import profile from 'public/profile.jpeg';
 import '../styles/MainProfile.scss';
-import Logout from 'utils/Logout';
 import { Link } from 'react-router-dom';
 
-function MainProfile() {
+function MainProfile({ imgSrc, nickname }) {
 	return (
 		<div className="MainProfile">
 			<Link to="/my-page">
-				<img src={profile} alt="profile" />
+				<img src={imgSrc} alt="profile" />
 			</Link>
-			<h2>엘리스</h2>
+			<h2>{nickname}</h2>
 			<span>elice123@gmail.com</span>
 			{/* <button type="button">
 				<Link to="/my-page">마이페이지</Link>

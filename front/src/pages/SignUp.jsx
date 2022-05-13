@@ -18,12 +18,14 @@ function SignUp() {
 
 		fetch('https://elice-server.herokuapp.com/auth/signup', {
 			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
 		})
 			.then((response) => response.json())
 			.then((result) => {
 				console.log('결과: ', result);
-				if (result.message === '성공') {
+				if (result.status === 201) {
+					alert(result.message);
 					// 이동할 페이지 작성
 					navigate('/');
 				} else {
@@ -38,28 +40,29 @@ function SignUp() {
 			<h1 className="signUp_title">회원가입</h1>
 			<form className="signUp" onSubmit={handleSubmit(onSubmit)}>
 				<p>
-					<input {...register('email', { required: '필수 정보입니다.' })} id="email" placeholder="이메일" />
-					<label htmlFor="email">이메일</label>
+					<input {...register('id', { required: '필수 정보입니다.' })} id="id" placeholder="이메일" />
+					<label htmlFor="id">이메일</label>
 				</p>
-				{errors.email && <p id="signUp_errors">{errors.email.message}</p>}
+				{errors.id && <p id="signUp_errors">{errors.id.message}</p>}
 
 				<p>
-					<input {...register('name', { required: '필수 정보입니다.' })} id="name" placeholder="이름" />
-					<label htmlFor="name">이름</label>
+					<input {...register('nickname', { required: '필수 정보입니다.' })} id="nickname" placeholder="별명" />
+					<label htmlFor="nickname">별명</label>
 				</p>
-				{errors.name && <p id="signUp_errors">{errors.name.message}</p>}
+				{errors.nickname && <p id="signUp_errors">{errors.nickname.message}</p>}
 
 				<p>
-					<input {...register('nickName', { required: '필수 정보입니다.' })} id="nickName" placeholder="별명" />
-					<label htmlFor="nickName">별명</label>
+					<input {...register('pw', { required: '필수 정보입니다.' })} id="pw" placeholder="비밀번호" />
+					<label htmlFor="pw">비밀번호</label>
 				</p>
-				{errors.nickName && <p id="signUp_errors">{errors.nickName.message}</p>}
+				{errors.pw && <p id="signUp_errors">{errors.pw.message}</p>}
 
+				{/* 프로필부분은 수정해야 됨 */}
 				<p>
-					<input {...register('password', { required: '필수 정보입니다.' })} id="password" placeholder="비밀번호" />
-					<label htmlFor="password">비밀번호</label>
+					<input {...register('profile', { required: '필수 정보입니다.' })} id="profile" placeholder="프로필" />
+					<label htmlFor="profile">프로필</label>
 				</p>
-				{errors.password && <p id="signUp_errors">{errors.password.message}</p>}
+				{errors.profile && <p id="signUp_errors">{errors.profile.message}</p>}
 
 				<button className="signUp-button" type="submit">
 					가입하기
