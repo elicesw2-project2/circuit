@@ -35,10 +35,6 @@ app.use('/users', usersRouter);
 app.use('/board', boardRouter);
 app.use('/board', commentRouter);
 app.use('/mypage', mypageRouter);
-<<<<<<< HEAD
-=======
-app.use('/board', commentRouter);
->>>>>>> feature/B-mypage
 app.use('/auth', authRouter);
 app.use('/search', searchRouter);
 
