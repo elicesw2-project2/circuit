@@ -57,7 +57,7 @@ function Comment() {
 
 		// 화면에서 보여지는 삭제
 		// comment_idx 가 전달받은 파라미터와 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
-		// = comment.id 가 id 인 것을 제거함
+		// = comment_idx 가 param 인 것을 제거함
 		setCommentList(commentList.filter((commentList) => commentList.comment_idx !== param));
 
 		// fetch delete
