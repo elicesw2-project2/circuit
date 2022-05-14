@@ -4,6 +4,8 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Login.scss';
 import { useForm } from 'react-hook-form';
+// import { saveToken, getToken } from 'db/token';
+import { saveToken, getToken } from 'utils/token';
 
 function Login() {
 	const navigate = useNavigate();
@@ -26,8 +28,10 @@ function Login() {
 				if (result.message === '로그인 성공') {
 					// mainpage로 이동
 					navigate('/');
-					localStorage.setItem('id', data.id);
+					localStorage.setItem('id', result.data.id);
 					// console.log(localStorage.getItem('id'));
+					saveToken(result.data.token);
+					console.log(getToken());
 				} else {
 					alert('아이디나 비밀번호를 바르게 입력해주세요.');
 				}
