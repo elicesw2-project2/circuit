@@ -12,6 +12,7 @@ import mypageRouter from './routes/mypage.routes.js';
 import commentRouter from './routes/comment.routes.js';
 import boardRouter from './routes/board.routes.js';
 import searchRouter from './routes/search.routes.js';
+import checkRouter from './routes/check.routes.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,6 +38,7 @@ app.use('/board', commentRouter);
 app.use('/mypage', mypageRouter);
 app.use('/auth', authRouter);
 app.use('/search', searchRouter);
+app.use('/check',checkRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
