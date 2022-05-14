@@ -13,9 +13,13 @@ function Comment() {
 		})
 			.then((res) => res.json())
 			.then((result) => {
-				console.log(result.data);
-				// commentList에 result.data를 넣어줌
-				setCommentList(result.data);
+				if (result.status === 200) {
+					console.log(result.data);
+					// commentList에 result.data를 넣어줌
+					setCommentList(result.data);
+				} else {
+					setCommentList([]);
+				}
 			});
 	}, []);
 
