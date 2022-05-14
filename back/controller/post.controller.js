@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-named-as-default
 import Post from '../models/Post.model.js';
 
 // 새 객체 생성
@@ -11,9 +12,9 @@ export function create(req, res) {
 
 	const post = new Post({
 		id: req.body.id,
+		nickname: req.body.nickname,
 		title: req.body.title,
 		content: req.body.content,
-		nickname: req.body.nickname,
 		date: req.body.date,
 	});
 

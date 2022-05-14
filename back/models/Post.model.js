@@ -4,11 +4,11 @@ import sql from './db.js';
 const Post = function (post) {
 	// this.post_idx = post.post_idx;
 	this.id = post.id;
+	this.nickname = post.nickname;
 	this.title = post.title;
 	this.content = post.content;
 	// this.date = new Date();
 	this.date = post.date;
-	this.nickname = post.nickname;
 };
 
 // post 튜플 추가
