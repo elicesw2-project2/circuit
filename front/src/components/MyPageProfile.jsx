@@ -35,7 +35,14 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname }) {
 				<img src={imgSrc} alt="profile" onClick={openModal} />
 				<FontAwesomeIcon icon={faPen} className="Profile__icon" />
 			</div>
-			<ImgModal open={modalOpen} close={closeModal} setImgSrc={setImgSrc} />
+			<ImgModal
+				open={modalOpen}
+				close={closeModal}
+				imgSrc={imgSrc}
+				setImgSrc={setImgSrc}
+				nickname={nickname}
+				description={description}
+			/>
 			<div className="MyPageProfile__container__right">
 				<div className="items">
 					{edit === true ? (
@@ -56,14 +63,10 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname }) {
 									},
 									body: JSON.stringify({
 										nickname,
-										profile: 1,
+										profile: 'img1.0189893c0e9773eea071.jpg',
 										intro: description,
 									}),
-								})
-									.then((response) => response.json())
-									.then((data) => {
-										console.log(data);
-									});
+								});
 							}
 						}}
 					>

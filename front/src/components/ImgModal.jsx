@@ -11,7 +11,7 @@ import 'styles/Modal.scss';
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
-function Modal({ open, close, setImgSrc }) {
+function Modal({ open, close, imgSrc, setImgSrc, nickname, description }) {
 	return (
 		<div className={open ? 'openModal modal' : 'modal'}>
 			{open ? (
@@ -27,8 +27,19 @@ function Modal({ open, close, setImgSrc }) {
 							<img
 								src={image}
 								alt="profile"
-								onClick={() => {
-									setImgSrc(image);
+								onClick={async () => {
+									const result = await fetch('https://elice-server.herokuapp.com/mypage/id1@gmail.com', {
+										method: 'PUT',
+										headers: {
+											'Content-Type': 'application/json',
+										},
+										body: JSON.stringify({
+											nickname,
+											profile: imgSrc,
+											intro: description,
+										}),
+									}).then((res) => res.json());
+									setImgSrc(result.data.profile);
 									close();
 								}}
 							/>
