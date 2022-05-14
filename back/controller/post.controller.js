@@ -14,6 +14,7 @@ export function create(req, res) {
 		title: req.body.title,
 		content: req.body.content,
 		nickname: req.body.nickname,
+		date: req.body.date,
 	});
 
 	// 데이터베이스에 저장
@@ -158,6 +159,7 @@ export function search(req, res) {
 				res.status(404).send({
 					status: 404,
 					message: `Not found Post with title ${req.params.title}.`,
+					data: [],
 				});
 			} else {
 				res.status(500).send({
