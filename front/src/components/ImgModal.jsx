@@ -27,19 +27,20 @@ function Modal({ open, close, imgSrc, setImgSrc, nickname, description }) {
 							<img
 								src={image}
 								alt="profile"
-								onClick={async () => {
-									const result = await fetch('https://elice-server.herokuapp.com/mypage/id1@gmail.com', {
+								onClick={async (e) => {
+									await setImgSrc(e.target.src);
+									await fetch('https://elice-server.herokuapp.com/mypage/id1@gmail.com', {
 										method: 'PUT',
 										headers: {
 											'Content-Type': 'application/json',
 										},
 										body: JSON.stringify({
 											nickname,
-											profile: imgSrc,
+											profile: e.target.src,
 											intro: description,
 										}),
 									}).then((res) => res.json());
-									setImgSrc(result.data.profile);
+
 									close();
 								}}
 							/>
