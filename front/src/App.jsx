@@ -29,7 +29,6 @@ function App() {
 				<Route path="/Story" element={<Story />} />
 				<Route path="/Read/:id" element={<Read />} />
 				<Route path="/Writing" element={<Writing />} />
-				<Route path="/my-page/profileImg" element={<ProfileImg />} />
 			</Routes>
 			<Routes>
 				<Route path="/auth/login" element={<Login />} />
