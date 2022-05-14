@@ -35,10 +35,11 @@ export function createComment(req, res) {
 	}
 
 	const comment = new Comment({
-		id: req.body.id,
+		comment_id: req.body.comment_id,
 		content: req.body.content,
 		profile: req.body.profile,
 		nickname: req.body.nickname,
+		date:req.body.date
 	});
 
 	// 데이터베이스에 저장

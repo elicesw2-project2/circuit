@@ -58,18 +58,6 @@ Users.updateById = (id, user, result) => {
 		'UPDATE post set nickname = ? WHERE id = ?',
 		[user.nickname, id],
 		(err, res) => {
-			if (err) {
-				console.log('error: ', err);
-				result(err, null);
-				return;
-			}
-
-			if (res.affectedRows == 0) {
-				// id 결과가 없을 시
-				result({ kind: 'not_found' }, null);
-				return;
-			}
-
 			console.log('update post: ', { id, ...user });
 			
 			
@@ -81,18 +69,6 @@ Users.updateById = (id, user, result) => {
 		'UPDATE comment set nickname = ?, profile =? WHERE comment_id = ?',
 		[user.nickname, user.profile, id],
 		(err, res) => {
-			if (err) {
-				console.log('error: ', err);
-				result(err, null);
-				return;
-			}
-
-			if (res.affectedRows == 0) {
-				// id 결과가 없을 시
-				result({ kind: 'not_found' }, null);
-				return;
-			}
-
 			console.log('update comment: ', { id, ...user });
 	
 		}
