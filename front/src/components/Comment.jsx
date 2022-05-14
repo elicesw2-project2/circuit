@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/Comment.scss';
+import ChangeDate from 'utils/ChangeDate';
 import SingleComment from './SingleComment';
 
 function Comment() {
@@ -25,12 +26,14 @@ function Comment() {
 
 	// 댓글 추가
 	const onCreate = () => {
+		const time = ChangeDate();
 		// 새댓글이 추가되는 것을 화면에서 보이는 부분
 		const { value } = document.querySelector('#comment_textarea');
 		const comment = {
 			comment_idx: commentList.length + 1,
 			nickname: '홍길동',
-			date: new Date().toISOString().slice(0, 10),
+			date: time,
+			// date: new Date().toISOString().slice(0, 10),
 			content: value,
 			profile: 2,
 		};
@@ -41,13 +44,11 @@ function Comment() {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				comment_idx: commentList.length + 1,
-				nickname: '홍길동',
-				date: new Date(),
+				comment_id: 'id2@gmail.com',
 				content: value,
-				id: 'id3@gmail.com',
-				post_idx: 1,
 				profile: 2,
+				nickname: '홍길동',
+				date: time,
 			}),
 		})
 			.then((res) => res.json())
@@ -68,9 +69,6 @@ function Comment() {
 		// fetch delete
 		fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments/${param}`, {
 			method: 'DELETE',
-			body: JSON.stringify({
-				comment_idx: param,
-			}),
 		})
 			.then((res) => res.json())
 			.then((result) => {
