@@ -22,6 +22,8 @@ function App() {
 			<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} setSearchWritings={setSearchWritings} />
 			<Routes>
 				<Route path="/" element={<MainPage imgSrc={imgSrc} nickname={nickname} searchWritings={searchWritings} />} />
+				<Route path="/auth/login" element={<Login />} />
+				<Route path="/auth/signup" element={<SignUp />} />
 				<Route
 					path="/my-page"
 					element={<MyPage imgSrc={imgSrc} setImgSrc={setImgSrc} nickname={nickname} setNickname={setNickname} />}
@@ -29,10 +31,6 @@ function App() {
 				<Route path="/Story" element={<Story />} />
 				<Route path="/Read/:id" element={<Read />} />
 				<Route path="/Writing" element={<Writing />} />
-			</Routes>
-			<Routes>
-				<Route path="/auth/login" element={<Login />} />
-				<Route path="/auth/signup" element={<SignUp />} />
 			</Routes>
 		</div>
 	);
