@@ -63,7 +63,7 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname }) {
 									},
 									body: JSON.stringify({
 										nickname,
-										profile: 'img1.0189893c0e9773eea071.jpg',
+										profile: imgSrc,
 										intro: description,
 									}),
 								});

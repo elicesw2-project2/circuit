@@ -16,6 +16,7 @@ function App() {
 	const [imgSrc, setImgSrc] = useState(profile);
 	const [nickname, setNickname] = useState('별명');
 	const [searchWritings, setSearchWritings] = useState();
+	const [email, setEmail] = useState('');
 	return (
 		<div className="App">
 			<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} setSearchWritings={setSearchWritings} />
@@ -29,6 +30,8 @@ function App() {
 							nickname={nickname}
 							setNickname={setNickname}
 							searchWritings={searchWritings}
+							email={email}
+							setEmail={setEmail}
 						/>
 					}
 				/>
@@ -36,7 +39,15 @@ function App() {
 				<Route path="/auth/signup" element={<SignUp />} />
 				<Route
 					path="/my-page"
-					element={<MyPage imgSrc={imgSrc} setImgSrc={setImgSrc} nickname={nickname} setNickname={setNickname} />}
+					element={
+						<MyPage
+							imgSrc={imgSrc}
+							setImgSrc={setImgSrc}
+							nickname={nickname}
+							setNickname={setNickname}
+							setEmail={setEmail}
+						/>
+					}
 				/>
 				<Route path="/Story" element={<Story />} />
 				<Route path="/Read/:id" element={<Read />} />
