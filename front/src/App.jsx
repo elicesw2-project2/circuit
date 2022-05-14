@@ -3,7 +3,6 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 import MyPage from 'pages/MyPage';
-import ProfileImg from 'pages/ProfileImg';
 import profile from 'public/profile.jpg';
 import NavBar from 'components/NavBar';
 import MainPage from './pages/MainPage';
