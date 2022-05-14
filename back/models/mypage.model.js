@@ -1,3 +1,4 @@
+import User from './auth.model.js';
 import sql from './db.js';
 
 // 생성자
@@ -95,6 +96,25 @@ Users.remove = (id, user, result) => {
 	});
 };
 
+// id로 닉네임 체크
+Users.getCheckNickname = (user,result)=>{
+	sql.query('select nickname from user where nickname = ? ', user.nickname,(err, res) =>{
+		if (err) {
+			console.log('error: ', err);
+			result(err, null);
+			return;
+		}
+
+		if (res.length) {
+			console.log("found nickname: ", res);
+			result(null, res);
+			return;
+		}
+
+		// 결과가 없을 시
+		result({ kind: 'not_found' }, null);
+	})
+}
 // id로 게시글 조회
 Users.getPostsById = (userId, result) => {
 	sql.query('SELECT * FROM post WHERE id = ?', userId, (err, res) => {

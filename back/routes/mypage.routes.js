@@ -12,6 +12,9 @@ router.put('/:userId', users.update);
 // id로 사용자 삭제
 router.delete('/:userId', users.deleteId);
 
+// id로 닉네임 체크
+router.get('/check_nickname', users.findNickname);
+
 // id로 게시글 조회
 router.get('/:userId/posts', users.findPosts);
 

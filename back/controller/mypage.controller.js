@@ -87,6 +87,40 @@ export function deleteId(req, res) {
 	});
 }
 
+// nickname check
+export function findNickname(req,res){
+	if (!req.body) {
+		res.status(400).send({
+			status: 400,
+			message: 'Content can not be empty!',
+		});
+	}
+
+	User.getCheckNickname(new User(req.body),(err, data)=>{
+		if (err) {
+			if (err.kind === 'not_found') {
+				// 중복 닉네임이 없을 때
+				res.status(404).send({
+					
+					message: '중복 닉네임 없음',
+					data : 'false',
+				});
+			} else {
+				res.status(500).send({
+					status: 500,
+					message: `Error retrieving User with nickname ${req.params.nickname}`,
+				});
+			}
+		} else {
+			res.send({
+				status: 200,
+				message: '닉네임 중복',
+				data : 'true',
+			});
+		}
+	})
+}
+
 // id로 게시글 조회
 export function findPosts(req, res) {
 	User.getPostsById(req.params.userId, (err, data) => {
