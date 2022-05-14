@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import profile from 'public/profile.jpeg';
+import img2 from 'public/img2.jpg';
 
 export default function SingleComment({ singleComment, onRemove }) {
 	const [edit, setEdit] = useState(false);
@@ -19,7 +19,7 @@ export default function SingleComment({ singleComment, onRemove }) {
 			<li className="comment_item">
 				<span className="comment_profile">
 					{/* 프로필 나중에 수정 */}
-					<img src={profile} alt="profile" />
+					<img src={img2} alt="profile" />
 				</span>
 				<span>
 					<div className="comment_user_name">{singleComment.nickname}</div>
