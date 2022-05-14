@@ -1,44 +1,61 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Writing.scss';
 import NavBar from 'components/NavBar';
 
-// 글쓰는 페이지 임시로 만들어둠 다 변경해야함
+export default function Writing() {
+	const contentRef = useRef(null);
+	const titleRef = useRef(null);
+	const navigate = useNavigate();
 
-// fetch('https://elice-server.herokuapp.com/board', {
-// 	method: 'POST',
-// })
-// 	.then((res) => res.json())
-// 	.then((data) => console.log(data));
-
-function Writing() {
-	const storyCreate = () => {
+	function storySubmit(e) {
+		e.preventDefault();
+		if (titleRef.current.value.length === 0) {
+			alert('제목을 입력해주세요.');
+			return;
+		}
+		if (contentRef.current.value.length === 0) {
+			alert('내용을 입력해주세요.');
+			return;
+		}
 		fetch('https://elice-server.herokuapp.com/board', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({}),
-		});
-	};
+			body: JSON.stringify({
+				nickname: '내이름', // 사용자 닉네임 받아와야함
+				title: titleRef.current.value,
+				content: contentRef.current.value,
+				id: 'id3@gmail.com', // 사용자 id 받아와야 함
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				// window.location.href = `Read/${data.data.post_idx}`;
+				navigate(`/Read/${data.data.post_idx}`);
+			});
+	}
+
 	return (
 		<>
 			<NavBar />
 			<section className="write_container">
 				<form>
-					<input type="textara" placeholder="제목을 입력하세요" className="write_title write_style" />
+					<input type="text" placeholder="제목을 입력하세요" className="write_title write_style" ref={titleRef} />
 					<div />
 					<textarea
-						name=""
-						id=""
+						id="writing_textarea"
 						className="write_content write_style"
 						cols="30"
 						rows="10"
 						placeholder="내용을 입력하세요"
+						ref={contentRef}
 					/>
-					<input type="submit" className="write_post" value="게시" onClick={storyCreate} />
+					{/* <Link to={`/Read/${el.post_idx}`}> */}
+					<input type="submit" className="write_post" value="게시" onClick={storySubmit} />
+					{/* </Link> */}
 				</form>
 			</section>
 		</>
 	);
 }
-
-export default Writing;

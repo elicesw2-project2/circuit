@@ -14,7 +14,7 @@ export default function Read() {
 }
 
 function ReadContent() {
-	const a = useParams().id;
+	const readParam = useParams().id;
 
 	const [board, setboard] = useState([]);
 
@@ -24,9 +24,9 @@ function ReadContent() {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				setboard(data.data.filter((el) => el.post_idx === Number(a)));
+				setboard(data.data.filter((el) => el.post_idx === Number(readParam)));
 			});
-	}, [a]);
+	}, [readParam]);
 
 	return (
 		<div>
@@ -35,7 +35,7 @@ function ReadContent() {
 					<div className="read_title">{board[0].title}</div>
 					<div className="read_info">
 						<span className="read_name">{board[0].nickname}</span>
-						<span className="read_day">{board[0].date}</span>
+						<span className="read_day">{board[0].date.substr(0, 10)}</span>
 					</div>
 					<div className="read_content">{board[0].content}</div>
 					<Comment />
