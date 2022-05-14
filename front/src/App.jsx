@@ -20,7 +20,18 @@ function App() {
 		<div className="App">
 			<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} setSearchWritings={setSearchWritings} />
 			<Routes>
-				<Route path="/" element={<MainPage imgSrc={imgSrc} nickname={nickname} searchWritings={searchWritings} />} />
+				<Route
+					path="/"
+					element={
+						<MainPage
+							imgSrc={imgSrc}
+							setImgSrc={setImgSrc}
+							nickname={nickname}
+							setNickname={setNickname}
+							searchWritings={searchWritings}
+						/>
+					}
+				/>
 				<Route path="/auth/login" element={<Login />} />
 				<Route path="/auth/signup" element={<SignUp />} />
 				<Route
