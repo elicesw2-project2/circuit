@@ -34,7 +34,7 @@ Users.updateById = (id, user, result) => {
 	// user 테이블 수정
 	sql.query(
 		'UPDATE user SET nickname = ?, profile = ?, intro = ? WHERE id = ?',
-		[user.nickname, user.profile, user.intro, id],
+		[user.nickname, user.profile,user.intro, id],
 		(err, res) => {
 			if (err) {
 				console.log('error: ', err);
@@ -54,40 +54,23 @@ Users.updateById = (id, user, result) => {
 	);
 
 	// post 테이블 수정
-	sql.query('UPDATE post set nickname = ? WHERE id = ?', [user.nickname, id], (err, res) => {
-		if (err) {
-			console.log('error: ', err);
-			result(err, null);
-			return;
+	sql.query(
+		'UPDATE post set nickname = ? WHERE id = ?',
+		[user.nickname, id],
+		(err, res) => {
+			console.log('update post: ', { id, ...user });
+			
+			
 		}
-
-		if (res.affectedRows == 0) {
-			// id 결과가 없을 시
-			result({ kind: 'not_found' }, null);
-			return;
-		}
-
-		console.log('update post: ', { id, ...user });
-	});
+	);
 
 	// commnet 테이블 수정
 	sql.query(
 		'UPDATE comment set nickname = ?, profile =? WHERE comment_id = ?',
 		[user.nickname, user.profile, id],
 		(err, res) => {
-			if (err) {
-				console.log('error: ', err);
-				result(err, null);
-				return;
-			}
-
-			if (res.affectedRows == 0) {
-				// id 결과가 없을 시
-				result({ kind: 'not_found' }, null);
-				return;
-			}
-
 			console.log('update comment: ', { id, ...user });
+	
 		}
 	);
 };

@@ -3,9 +3,9 @@ import sql from './db.js';
 // 생성자
 const Comment = function (comment) {
 	// this.comment_idx = comment.comment_idx;
-	this.id = comment.id;
+	this.comment_id = comment.comment_id;
 	this.content = comment.content;
-	this.date = new Date();
+	this.date = comment.date;
 	this.profile = comment.profile;
 	// this.post_idx = comment.post_idx;
 	this.nickname = comment.nickname;
@@ -31,11 +31,11 @@ Comment.getAll = (post_idx, result) => {
 	});
 };
 
-// 댓글 데이터 추가
+// 댓글 등록
 Comment.create = (post_idx, newComment, result) => {
 	sql.query(
-		'insert into comment (id,content,profile,nickname,post_idx) values (?,?,?,?,?);',
-		[newComment.id, newComment.content, newComment.profile, newComment.nickname, post_idx],
+		'insert into comment (comment_id,content,profile,nickname,date,post_idx) values (?,?,?,?,?,?);',
+		[newComment.comment_id, newComment.content,newComment.profile, newComment.nickname,newComment.date, post_idx],
 		(err, res) => {
 			if (err) {
 				console.log('error: ', err);
@@ -43,8 +43,8 @@ Comment.create = (post_idx, newComment, result) => {
 				return;
 			}
 
-			console.log('Created customer: ', { id: res.comment_idx, ...newComment });
-			result(null, { id: res.comment_idx, ...newComment });
+			console.log('Created customer: ', { id: res.comment_id, ...newComment });
+			result(null, { id: res.comment_id, ...newComment });
 		}
 	);
 };
@@ -53,7 +53,7 @@ Comment.create = (post_idx, newComment, result) => {
 Comment.update = (post_idx, comment_idx, comment, result) => {
 	sql.query(
 		'UPDATE comment SET content = ?, date = ? WHERE post_idx = ? and comment_idx = ?',
-		[comment.content, new Date(), post_idx, comment_idx],
+		[comment.content, comment.date, post_idx, comment_idx],
 		(err, res) => {
 			if (err) {
 				console.log('error: ', err);
