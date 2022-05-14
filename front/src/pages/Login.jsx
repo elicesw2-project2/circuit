@@ -25,7 +25,7 @@ function Login() {
 				console.log('결과: ', result);
 				if (result.message === '로그인 성공') {
 					// mainpage로 이동
-					navigate('/Story');
+					navigate('/');
 				} else {
 					alert('아이디나 비밀번호를 바르게 입력해주세요.');
 				}
