@@ -32,6 +32,10 @@
 	position: absolute; /*형제 태그(이름)의 크기에 상관없이 제목의 시작점이 같도록 absolute 를 준것 + 부모인 .story는 relative 해줘야함*/
 	left: 100px;
 }
+.story_name {
+	position: absolute;
+	right: 140px;
+}
 
 .story_child {
 	text-align: center;
@@ -42,24 +46,13 @@
 
 /*  */
 .story.storyInfo {
-	background-color: #524fa1;
+	background-color: #d9c9f8;
 	border-radius: 8px 8px 0px 0px;
 }
 .story.storyInfo .story_child {
 	color: white;
 }
+
 .story.storyInfo .story_title {
-	right: 120px;
+	right: 220px;
 }
-.story.storyInfo .story_time {
-	position: absolute;
-	right: 25px;
-}
-
-/* 아래는 프로필 이랑 글 목록 메인페이지에서 css 합쳐지게 test 해본것*/
-// .test {
-// 	display: flex;
-// 	justify-content: space-between;
-// }
-
-/* #E3E2FC 마우스 올렸을 때 이 색으로 */
