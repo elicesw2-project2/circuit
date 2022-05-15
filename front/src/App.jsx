@@ -51,7 +51,7 @@ function App() {
 				/>
 				<Route path="/Story" element={<Story />} />
 				<Route path="/Read/:id" element={<Read />} />
-				<Route path="/Writing" element={<Writing />} />
+				<Route path="/Writing" element={<Writing nickname={nickname} />} />
 			</Routes>
 		</div>
 	);
