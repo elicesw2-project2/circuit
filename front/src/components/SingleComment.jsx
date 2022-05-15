@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import img2 from 'public/img2.jpg';
+import ChangeDate from 'utils/ChangeDate';
 
 export default function SingleComment({ singleComment, onRemove }) {
 	const [edit, setEdit] = useState(false);
@@ -44,6 +45,7 @@ export default function SingleComment({ singleComment, onRemove }) {
 									method: 'PATCH',
 									body: JSON.stringify({
 										content: `${value}`,
+										date: ChangeDate(),
 									}),
 									headers: {
 										'Content-type': 'application/json; charset=UTF-8',
