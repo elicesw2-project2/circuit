@@ -41,7 +41,29 @@ function NavBar({ setSearchWritings, imgSrc }) {
 				</Link>
 			</div>
 			<div className="searchBar">
-				<input className="searchBar__input" placeholder="검색" value={searchValue} onChange={handleSearchValue} />
+				<input
+					className="searchBar__input"
+					placeholder="검색"
+					value={searchValue}
+					onChange={handleSearchValue}
+					onKeyDown={async (e) => {
+						console.log(e.key);
+						if (e.key === 'Enter') {
+							if (searchValue === '') {
+								alert('검색어를 입력해주세요!');
+								return;
+							}
+							const searchResult = await Search(searchValue);
+							if (searchResult.status === 404) {
+								console.log(searchResult.message);
+								setSearchWritings([]);
+								return;
+							}
+							setSearchWritings(searchResult);
+							navigate('/');
+						}
+					}}
+				/>
 				<div className="searchBar__icon">
 					<FontAwesomeIcon
 						icon={faSearch}
@@ -61,6 +83,17 @@ function NavBar({ setSearchWritings, imgSrc }) {
 						}}
 					/>
 				</div>
+				{searchValue !== '' ? (
+					<button
+						type="button"
+						className="searchBar__delete"
+						onClick={() => {
+							setSearchValue('');
+						}}
+					>
+						&times;
+					</button>
+				) : null}
 			</div>
 			<ul className="navItems">
 				<li className="navItem">
