@@ -5,12 +5,7 @@ import '../styles/Writing.scss';
 import NavBar from 'components/NavBar';
 
 export default function Writing({ nickname }) {
-	return (
-		<>
-			<NavBar />
-			<WriteContent nickname={nickname} />
-		</>
-	);
+	return <WriteContent nickname={nickname} />;
 }
 
 function WriteContent({ nickname }) {
