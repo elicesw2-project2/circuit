@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import img2 from 'public/img2.jpg';
 import ChangeDate from 'utils/ChangeDate';
 
-export default function SingleComment({ singleComment, onRemove }) {
+export default function SingleComment({ singleComment, onRemove, setCommentList }) {
 	const [edit, setEdit] = useState(false);
 	const [value, setValue] = useState(singleComment.content);
 	const postIdx = useParams().id;
