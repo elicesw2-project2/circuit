@@ -100,12 +100,7 @@ function Comment() {
 			<ul className="comment_list">
 				{commentList &&
 					commentList.map((singleComment) => (
-						<SingleComment
-							key={singleComment.comment_idx}
-							singleComment={singleComment}
-							onRemove={onRemove}
-							setCommentList={setCommentList}
-						/>
+						<SingleComment key={singleComment.comment_idx} singleComment={singleComment} onRemove={onRemove} />
 					))}
 			</ul>
 		</div>
