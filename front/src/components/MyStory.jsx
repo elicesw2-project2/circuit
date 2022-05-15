@@ -28,7 +28,8 @@ function Storys() {
 
 	return board.map((el) => (
 		<div className="story">
-			<span className="story_name story_child asdf">{el.nickname}</span>
+			<span className="story_number story_child">{el.post_idx}</span>
+			<span className="story_name story_child">{el.nickname}</span>
 			<Link to={`/Read/${el.post_idx}`}>
 				<span className="story_title story_child">{el.title}</span>
 			</Link>
@@ -41,8 +42,9 @@ function StoryInfo() {
 	// 글 목록의 구성( 작성자, 제목, 작성일 )
 	return (
 		<div className="story storyInfo">
-			<span className="story_name story_child">작성자</span>
+			<span className="story_number story_child">번호</span>
 			<span className="story_title story_child">제목</span>
+			<span className="story_name story_child">작성자</span>
 			<span className="story_time story_child">작성일</span>
 		</div>
 	);
