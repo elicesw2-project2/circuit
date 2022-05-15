@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import img2 from 'public/img2.jpg';
 import ChangeDate from 'utils/ChangeDate';
 
-export default function SingleComment({ singleComment, onRemove, setCommentList }) {
+export default function SingleComment({ singleComment, onRemove }) {
 	const [edit, setEdit] = useState(false);
 	const [value, setValue] = useState(singleComment.content);
 	const postIdx = useParams().id;
