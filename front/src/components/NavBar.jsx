@@ -47,7 +47,6 @@ function NavBar({ setSearchWritings, imgSrc }) {
 					value={searchValue}
 					onChange={handleSearchValue}
 					onKeyDown={async (e) => {
-						console.log(e.key);
 						if (e.key === 'Enter') {
 							if (searchValue === '') {
 								alert('검색어를 입력해주세요!');
