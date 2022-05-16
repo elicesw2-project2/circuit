@@ -17,22 +17,34 @@ function SignUp() {
 	const onSubmit = (data) => {
 		console.log(data);
 
-		fetch('https://elice-server.herokuapp.com/auth/signup', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(data),
+		const signUpPost = () => {
+			fetch('https://elice-server.herokuapp.com/auth/signup', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(data),
+			})
+				.then((response) => response.json())
+				.then((result) => {
+					if (result.status === 201) {
+						alert(result.message);
+						// 이동할 페이지 작성
+						navigate('/auth/login');
+					} else if (result.status === 409) {
+						// 회원가입 실패 메세지
+						alert(result.message);
+					}
+				});
+		};
+
+		fetch(`https://elice-server.herokuapp.com/check/${data.nickname}`, {
+			method: 'GET',
 		})
 			.then((response) => response.json())
 			.then((result) => {
-				console.log('결과: ', result);
-				if (result.status === 201) {
+				if (result.data === 'true') {
 					alert(result.message);
-					console.log(result);
-					// 이동할 페이지 작성
-					navigate('/auth/login');
-				} else if (result.status === 409) {
-					// 회원가입 실패 메세지
-					alert(result.message);
+				} else {
+					signUpPost();
 				}
 			});
 	};
