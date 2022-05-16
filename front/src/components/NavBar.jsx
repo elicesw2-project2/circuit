@@ -27,10 +27,10 @@ function NavBar({ imgSrc }) {
 	return (
 		<nav className="navBar">
 			<div className="navLogo">
-				<Link to="/" style={{ textDecoration: 'none' }}>
+				<a href="/circuit" style={{ textDecoration: 'none' }}>
 					Circuit
 					{/* <FontAwesomeIcon icon={faFlagCheckered} /> */}
-				</Link>
+				</a>
 			</div>
 			<ul className="navItems">
 				{/* <li className="navItem">
