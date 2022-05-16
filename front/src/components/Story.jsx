@@ -23,7 +23,6 @@ function Storys({ searchWritings }) {
 			.then((res) => res.json())
 			.then((data) => {
 				setboard(data.data);
-				console.log(data.data);
 			});
 	}, []);
 	return searchWritings === undefined
