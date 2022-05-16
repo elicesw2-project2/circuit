@@ -10,8 +10,8 @@ function Storys({ searchWritings }) {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
 	const [board, setboard] = useState([]);
 	const [maxpage, setMaxpage] = useState();
-	const [page, setpage] = useState([]);
-	const asdf = [];
+	const [page, setpage] = useState();
+
 	useEffect(() => {
 		fetch(`https://elice-server.herokuapp.com/board/?page=${1}`, {
 			method: 'GET',
@@ -20,17 +20,17 @@ function Storys({ searchWritings }) {
 			.then((data) => {
 				setboard(data.data);
 				setMaxpage(Math.ceil(data.pageCount[0].count / 15));
+				const asdf = [];
+				for (let i = 1; i <= maxpage; i += 1) {
+					console.log('asdf');
+					asdf.push(i);
+					console.log(asdf);
+				}
+				console.log(asdf);
+				setpage(asdf);
 			});
+		console.log(page);
 	}, []);
-
-	useEffect(() => {
-		for (let i = 1; i <= maxpage; i += 1) {
-			asdf.concat(i);
-			console.log(asdf);
-		}
-		setpage(asdf);
-	}, []);
-	console.log(page);
 
 	function storyPagination(e) {
 		const pageNumber = Number(e.target.innerHTML);
@@ -68,9 +68,6 @@ function Storys({ searchWritings }) {
 				</button>
 				<button type="submit" onClick={storyPagination}>
 					3
-				</button>
-				<button type="submit" onClick={storyPagination}>
-					4
 				</button>
 			</div>
 		</div>
