@@ -1,3 +1,8 @@
+.story_parent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .story_container {
 	border: solid 1px #cdcdcd;
 	position: relative;
@@ -8,7 +13,6 @@
 	margin: 50px auto;
 	width: 700px; /*아래 width랑 ㄱㅊ은거 골라 고정이나 비율중*/
 	/* width: 80%; */
-	height: 100%;
 	box-sizing: border-box;
 }
 

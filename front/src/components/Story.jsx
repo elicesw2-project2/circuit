@@ -3,39 +3,81 @@ import { Link } from 'react-router-dom';
 import '../styles/Story.scss';
 
 function Story({ searchWritings }) {
-	return (
-		<section className="story_container">
-			<StoryInfo />
-			<Storys searchWritings={searchWritings} />
-		</section>
-	);
+	return <Storys searchWritings={searchWritings} />;
 }
 
 function Storys({ searchWritings }) {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
 	const [board, setboard] = useState([]);
-
+	const [maxpage, setMaxpage] = useState();
+	const [page, setpage] = useState([]);
+	const asdf = [];
 	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/board`, {
+		fetch(`https://elice-server.herokuapp.com/board/?page=${1}`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
 			.then((data) => {
 				setboard(data.data);
+				setMaxpage(Math.ceil(data.pageCount[0].count / 15));
 			});
 	}, []);
-	return searchWritings === undefined
-		? board.map((el) => (
-				<div className="story">
-					<span className="story_number story_child">{el.post_idx}</span>
-					<span className="story_name story_child">{el.nickname}</span>
-					<Link to={`/Read/${el.post_idx}`}>
-						<span className="story_title story_child">{el.title}</span>
-					</Link>
-					<span className="story_time story_child">{el.date.substr(0, 10)}</span>
-				</div>
-		  ))
-		: searchWritings.map((el) => (
+
+	useEffect(() => {
+		for (let i = 1; i <= maxpage; i += 1) {
+			asdf.concat(i);
+			console.log(asdf);
+		}
+		setpage(asdf);
+	}, []);
+	console.log(page);
+
+	function storyPagination(e) {
+		const pageNumber = Number(e.target.innerHTML);
+		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNumber}`, {
+			method: 'GET',
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				setboard(data.data);
+				setMaxpage(Math.ceil(data.pageCount[0].count / 15));
+			});
+	}
+
+	return searchWritings === undefined ? (
+		<div className="story_parent">
+			<div className="story_container">
+				<StoryInfo />
+				{board.map((el) => (
+					<div className="story">
+						<span className="story_number story_child">{el.post_idx}</span>
+						<span className="story_name story_child">{el.nickname}</span>
+						<Link to={`/Read/${el.post_idx}`}>
+							<span className="story_title story_child">{el.title}</span>
+						</Link>
+						<span className="story_time story_child">{el.date.substr(0, 10)}</span>
+					</div>
+				))}
+			</div>
+			<div className="pages_nav">
+				<button type="submit" onClick={storyPagination}>
+					1
+				</button>
+				<button type="submit" onClick={storyPagination}>
+					2
+				</button>
+				<button type="submit" onClick={storyPagination}>
+					3
+				</button>
+				<button type="submit" onClick={storyPagination}>
+					4
+				</button>
+			</div>
+		</div>
+	) : (
+		<section className="story_container">
+			<StoryInfo />
+			{searchWritings.map((el) => (
 				<div className="story">
 					<span className="story_number story_child">{el.post_idx}</span>
 					<span className="story_name story_child asdf">{el.nickname}</span>
@@ -44,7 +86,9 @@ function Storys({ searchWritings }) {
 					</Link>
 					<span className="story_time story_child">{el.date.substr(0, 10)}</span>
 				</div>
-		  ));
+			))}
+		</section>
+	);
 }
 
 function StoryInfo() {
@@ -57,6 +101,23 @@ function StoryInfo() {
 			<span className="story_time story_child">작성일</span>
 		</div>
 	);
+}
+
+function Pages() {
+	const [board, setboard] = useState([]);
+	// const [page, setpage] = useState(1);
+
+	useEffect(() => {
+		fetch(`https://elice-server.herokuapp.com/board`, {
+			method: 'GET',
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data.pageCount[0].count);
+				setboard(data.data);
+			});
+	}, []);
+	return <div>ds</div>;
 }
 
 export default Story;
