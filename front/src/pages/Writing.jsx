@@ -1,8 +1,6 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Parser from 'html-react-parser';
 import '../styles/Writing.scss';
-import NavBar from 'components/NavBar';
 
 export default function Writing({ nickname }) {
 	return <WriteContent nickname={nickname} />;
@@ -13,7 +11,6 @@ function WriteContent({ nickname }) {
 	const titleRef = useRef(null);
 	const contentRef = useRef(null);
 	const nickName = nickname;
-	console.log(nickName);
 	const today = new Date();
 	const Time = {
 		year: today.getFullYear(),
@@ -44,8 +41,8 @@ function WriteContent({ nickname }) {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				nickname: nickName, // 사용자 닉네임 받아와야함
-				id: localStorage.getItem('id'), // 사용자 id 받아와야 함
+				nickname: nickName,
+				id: localStorage.getItem('id'),
 				title: titleRef.current.value,
 				content: contentRef.current.value,
 				date: time,
@@ -53,7 +50,6 @@ function WriteContent({ nickname }) {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				navigate(`/Read/${data.data.post_idx}`);
 			});
 	}

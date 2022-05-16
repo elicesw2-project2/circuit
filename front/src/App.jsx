@@ -13,6 +13,7 @@ import SignUp from './pages/SignUp';
 import Story from './components/Story';
 import Read from './pages/Read';
 import Writing from './pages/Writing';
+import WritePut from './pages/WritePut';
 
 function App() {
 	const [imgSrc, setImgSrc] = useState(profile);
@@ -81,7 +82,7 @@ function App() {
 					path="/Read/:id"
 					element={
 						<PrivateRoute>
-							<Read />
+							<Read nickname={nickname} imgSrc={imgSrc} email={email} />
 						</PrivateRoute>
 					}
 				/>
@@ -90,6 +91,15 @@ function App() {
 					element={
 						<PrivateRoute>
 							<Writing nickname={nickname} />
+						</PrivateRoute>
+					}
+				/>
+
+				<Route
+					path="/Writing/:id"
+					element={
+						<PrivateRoute>
+							<WritePut />
 						</PrivateRoute>
 					}
 				/>

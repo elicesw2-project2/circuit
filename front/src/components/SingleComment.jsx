@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import img2 from 'public/img2.jpg';
 import ChangeDate from 'utils/ChangeDate';
 
 export default function SingleComment({ singleComment, onRemove }) {
@@ -19,8 +18,7 @@ export default function SingleComment({ singleComment, onRemove }) {
 		<div className="singleComment">
 			<li className="comment_item">
 				<span className="comment_profile">
-					{/* 프로필 나중에 수정 */}
-					<img src={img2} alt="profile" />
+					<img src={singleComment.profile} alt="profile" />
 				</span>
 				<span>
 					<div className="comment_user_name">{singleComment.nickname}</div>
@@ -33,37 +31,39 @@ export default function SingleComment({ singleComment, onRemove }) {
 
 					<div className="comment_date">{singleComment.date.substr(0, 10)} </div>
 				</span>
-				<span className="comment_edit_button">
-					{/* 수정버튼 */}
-					<button
-						type="submit"
-						onClick={() => {
-							toggleEdit();
-							if (edit === true) {
-								// const editedComment = `${value}`;
-								fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments/${singleComment.comment_idx}`, {
-									method: 'PATCH',
-									body: JSON.stringify({
-										content: `${value}`,
-										date: ChangeDate(),
-									}),
-									headers: {
-										'Content-type': 'application/json; charset=UTF-8',
-									},
-								})
-									.then((response) => response.json())
-									.then((data) => console.log(data));
-							}
-						}}
-					>
-						{edit ? '등록' : '수정'}
-					</button>
 
-					{/* 삭제버튼 */}
-					<button type="submit" onClick={() => onRemove(singleComment.comment_idx)}>
-						삭제
-					</button>
-				</span>
+				{/* 댓글 작성자에게만 수정/삭제 버튼 보이게 */}
+				{localStorage.getItem('id') === singleComment.comment_id ? (
+					<span className="comment_edit_button">
+						{/* 수정버튼 */}
+						<button
+							type="submit"
+							onClick={() => {
+								toggleEdit();
+								if (edit === true) {
+									fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments/${singleComment.comment_idx}`, {
+										method: 'PATCH',
+										body: JSON.stringify({
+											content: `${value}`,
+											date: ChangeDate(),
+										}),
+										headers: {
+											'Content-type': 'application/json; charset=UTF-8',
+										},
+									})
+										.then((response) => response.json())
+										.then((data) => console.log(data));
+								}
+							}}
+						>
+							{edit ? '등록' : '수정'}
+						</button>
+						{/* 삭제버튼 */}
+						<button type="submit" onClick={() => onRemove(singleComment.comment_idx)}>
+							삭제
+						</button>
+					</span>
+				) : null}
 			</li>
 		</div>
 	);
