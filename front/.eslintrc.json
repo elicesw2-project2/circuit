@@ -19,6 +19,8 @@
 		"jsx-a11y/click-events-have-key-events": "off",
 		"jsx-a11y/no-noninteractive-element-interactions": "off",
 		// "no-use-before-define": "off"
-		"react/no-array-index-key": "off"
+		"react/no-array-index-key": "off",
+		"react/jsx-props-no-spreading": "off",
+		"no-unused-expressions": "off"
 	}
 }
