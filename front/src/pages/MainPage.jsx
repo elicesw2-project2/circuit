@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import MainProfile from 'components/MainProfile';
 import Story from 'components/Story';
 import '../styles/MainPage.scss';
+import SearchBar from 'components/SearchBar';
 
-function MainPage({ userId, imgSrc, setImgSrc, nickname, setNickname, searchWritings, email, setEmail }) {
+function MainPage({ imgSrc, setImgSrc, nickname, setNickname, searchWritings, setSearchWritings, email, setEmail }) {
 	// URL 파라미터 수정해야함
 	useEffect(() => {
 		(async function fetchUserId() {
@@ -25,7 +26,10 @@ function MainPage({ userId, imgSrc, setImgSrc, nickname, setNickname, searchWrit
 	return (
 		<div className="main_cpn">
 			<Story searchWritings={searchWritings} />
-			<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
+			<div className="Mainpage__rightContainer">
+				<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
+				<SearchBar setSearchWritings={setSearchWritings} />
+			</div>
 		</div>
 	);
 }

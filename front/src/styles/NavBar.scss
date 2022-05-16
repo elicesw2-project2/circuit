@@ -1,7 +1,7 @@
 .navBar {
 	margin-top: 30px;
 	/* position: fixed; */
-	width: 100%;
+	// width: 100%;
 	height: 22px;
 	display: flex;
 	justify-content: space-between;
@@ -21,62 +21,6 @@
 	margin: -5px 0 0 30px;
 	text-decoration: none;
 }
-
-// .searchBar {
-// 	position: relative;
-// 	right: -30px;
-// 	color: #909090;
-// 	display: flex;
-// 	align-items: center;
-// 	width: 300px;
-// 	height: 40px;
-// 	background-color: #efefef;
-// 	border-radius: 10px;
-// 	margin-left: 50px;
-// 	span {
-// 		position: absolute;
-// 		left: 60px;
-// 	}
-// 	height: 40px;
-
-// 	.searchBar__delete {
-// 		font-size: 15px;
-// 		background-color: #c7c7c7;
-// 		border: none;
-// 		border-radius: 50%;
-// 		color: whitesmoke;
-// 		margin-left: 70px;
-// 		width: 20px;
-// 		height: 20px;
-// 		line-height: 20px;
-// 	}
-// }
-
-// .searchBar__input {
-// 	background-color: #efefef;
-// 	margin-left: 45px;
-// 	border: none;
-
-// 	&:focus {
-// 		outline: none;
-// 	}
-// }
-
-// .searchBar__input::placeholder {
-// 	font-size: 15px;
-// }
-
-// .searchBar__icon {
-// 	position: absolute;
-// 	padding: 0px 15px 0px 20px;
-// 	background-color: transparent;
-// }
-
-// .navItems {
-// 	display: flex;
-// 	margin-right: 50px;
-// 	align-items: center;
-// }
 
 .navItem {
 	padding: 6px 12px;
