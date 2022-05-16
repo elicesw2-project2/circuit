@@ -1,17 +1,31 @@
-import React, { useRef, Component } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Writing.scss';
 
-export default function WritiePut({ nickname }) {
-	return <WriteContent nickname={nickname} />;
+export default function WritiePut() {
+	return <WriteContent />;
 }
 
-function WriteContent({ nickname }) {
+function WriteContent() {
 	const WritingParam = useParams().id;
 	const navigate = useNavigate();
 	const titleRef = useRef(null);
 	const contentRef = useRef(null);
-	const nickName = nickname;
+
+	const [titleText, settitleText] = useState();
+	const [contentText, setcontentText] = useState();
+
+	useEffect(() => {
+		fetch(`https://elice-server.herokuapp.com/board/${WritingParam}`, {
+			method: 'GET',
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				const el = data.data;
+				settitleText(el.title);
+				setcontentText(el.content);
+			});
+	}, []);
 
 	function storyPut(e) {
 		// 글 작성 게시 버튼 누르면 동작
@@ -29,8 +43,6 @@ function WriteContent({ nickname }) {
 			method: 'PUT',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				// nickname: nickName,
-				// id: localStorage.getItem('id'),
 				title: titleRef.current.value,
 				content: contentRef.current.value,
 			}),
@@ -49,7 +61,8 @@ function WriteContent({ nickname }) {
 					placeholder="제목을 입력하세요"
 					className="write_title write_style"
 					ref={titleRef}
-					value=""
+					value={titleText}
+					onChange={(e) => settitleText(e.target.value)}
 				/>
 				<div />
 				<textarea
@@ -59,7 +72,8 @@ function WriteContent({ nickname }) {
 					rows="10"
 					placeholder="내용을 입력하세요"
 					ref={contentRef}
-					value="sdf"
+					value={contentText}
+					onChange={(e) => setcontentText(e.target.value)}
 				/>
 				<input type="submit" className="write_post" value="게시" onClick={storyPut} />
 			</form>

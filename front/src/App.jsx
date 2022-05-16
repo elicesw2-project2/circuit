@@ -53,7 +53,7 @@ function App() {
 				<Route path="/Story" element={<Story />} />
 				<Route path="/Read/:id" element={<Read />} />
 				<Route path="/Writing" element={<Writing nickname={nickname} />} />
-				<Route path="/Writing/:id" element={<WritePut nickname={nickname} />} />
+				<Route path="/Writing/:id" element={<WritePut />} />
 			</Routes>
 		</div>
 	);
