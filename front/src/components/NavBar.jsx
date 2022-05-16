@@ -1,32 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../styles/NavBar.scss';
 
 // FontAwesome Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faFlagCheckered,
-	faSearch,
 	faHomeLgAlt,
 	faEdit,
 	faCircleUser,
 	faGear,
 	faRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import Search from 'utils/Search';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logout from 'utils/Logout';
 
-function NavBar({ setSearchWritings, imgSrc }) {
-	const navigate = useNavigate();
-
+function NavBar({ imgSrc }) {
 	const [showMenu, setShowMenu] = useState(false);
 	const toggleMenu = () => {
 		setShowMenu((showMenu) => !showMenu);
-	};
-
-	const [searchValue, setSearchValue] = useState('');
-	const handleSearchValue = (e) => {
-		setSearchValue(e.target.value);
 	};
 
 	const {
@@ -41,60 +32,6 @@ function NavBar({ setSearchWritings, imgSrc }) {
 					{/* <FontAwesomeIcon icon={faFlagCheckered} /> */}
 				</Link>
 			</div>
-			{/* <div className="searchBar">
-				<input
-					className="searchBar__input"
-					placeholder="검색"
-					value={searchValue}
-					onChange={handleSearchValue}
-					onKeyDown={async (e) => {
-						if (e.key === 'Enter') {
-							if (searchValue === '') {
-								alert('검색어를 입력해주세요!');
-								return;
-							}
-							const searchResult = await Search(searchValue);
-							if (searchResult.status === 404) {
-								console.log(searchResult.message);
-								setSearchWritings([]);
-								return;
-							}
-							setSearchWritings(searchResult);
-							navigate('/');
-						}
-					}}
-				/>
-				<div className="searchBar__icon">
-					<FontAwesomeIcon
-						icon={faSearch}
-						onClick={async () => {
-							if (searchValue === '') {
-								alert('검색어를 입력해주세요!');
-								return;
-							}
-							const searchResult = await Search(searchValue);
-							if (searchResult.status === 404) {
-								console.log(searchResult.message);
-								setSearchWritings([]);
-								return;
-							}
-							setSearchWritings(searchResult);
-							navigate('/');
-						}}
-					/>
-				</div>
-				{searchValue !== '' ? (
-					<button
-						type="button"
-						className="searchBar__delete"
-						onClick={() => {
-							setSearchValue('');
-						}}
-					>
-						&times;
-					</button>
-				) : null}
-			</div> */}
 			<ul className="navItems">
 				{/* <li className="navItem">
 					<Link to="/">

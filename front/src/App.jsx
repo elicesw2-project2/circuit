@@ -22,7 +22,7 @@ function App() {
 	const [email, setEmail] = useState('');
 	return (
 		<div className="App">
-			<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} setSearchWritings={setSearchWritings} />
+			<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} />
 			<Routes>
 				<Route
 					path="/auth/login"
@@ -50,6 +50,7 @@ function App() {
 								nickname={nickname}
 								setNickname={setNickname}
 								searchWritings={searchWritings}
+								setSearchWritings={setSearchWritings}
 								email={email}
 								setEmail={setEmail}
 							/>
