@@ -5,14 +5,16 @@ import MyStory from 'components/MyStory';
 function MyPage({ imgSrc, setImgSrc, nickname, setNickname, setEmail }) {
 	useEffect(() => {
 		(async function fetchUserId() {
-			await fetch('https://elice-server.herokuapp.com/mypage/id1@gmail.com', {
+			await fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {
 				method: 'GET',
 			})
 				.then((res) => res.json())
 				.then((result) => {
 					setNickname(result.data.nickname);
 					setEmail(result.data.id);
-					setImgSrc(result.data.profile);
+					if (result.data.profile) {
+						setImgSrc(result.data.profile);
+					}
 				});
 		})();
 	}, []);

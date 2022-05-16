@@ -45,7 +45,7 @@ function WriteContent({ nickname }) {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
 				nickname: nickName, // 사용자 닉네임 받아와야함
-				id: 'id3@gmail.com', // 사용자 id 받아와야 함
+				id: localStorage.getItem('id'), // 사용자 id 받아와야 함
 				title: titleRef.current.value,
 				content: contentRef.current.value,
 				date: time,

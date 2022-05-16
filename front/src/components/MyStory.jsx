@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Story.scss';
-import dummy from '../db/story.json';
 
-function MyStory({ searchWritings }) {
+function MyStory() {
 	return (
 		<section className="story_container">
 			<StoryInfo />
@@ -15,14 +14,15 @@ function MyStory({ searchWritings }) {
 function Storys() {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
 	const [board, setboard] = useState([]);
-	const id = 'id1@gmail.com';
 	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/mypage/${id}/posts`, {
+		fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}/posts`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				setboard(data.data);
+				if (data.data) {
+					setboard(data.data);
+				}
 			});
 	}, []);
 

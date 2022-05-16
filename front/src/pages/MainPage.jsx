@@ -3,19 +3,21 @@ import MainProfile from 'components/MainProfile';
 import Story from 'components/Story';
 import '../styles/MainPage.scss';
 
-function MainPage({ imgSrc, setImgSrc, nickname, setNickname, searchWritings, email, setEmail }) {
+function MainPage({ userId, imgSrc, setImgSrc, nickname, setNickname, searchWritings, email, setEmail }) {
 	// URL 파라미터 수정해야함
-	const id = localStorage.getItem('id');
 	useEffect(() => {
 		(async function fetchUserId() {
-			await fetch('https://elice-server.herokuapp.com/mypage/id1@gmail.com', {
+			await fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {
 				method: 'GET',
 			})
 				.then((res) => res.json())
 				.then((result) => {
 					setNickname(result.data.nickname);
 					setEmail(result.data.id);
-					setImgSrc(result.data.profile);
+					// 처음 로그인한 유저는 null값이 들어오므로 profile값이 있을 때만 DB에서 불러와서 지정함
+					if (result.data.profile) {
+						setImgSrc(result.data.profile);
+					}
 				});
 		})();
 	}, []);

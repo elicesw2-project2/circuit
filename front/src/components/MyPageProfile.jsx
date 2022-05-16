@@ -56,7 +56,7 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname }) {
 							toggleEdit();
 							// 확인 버튼 눌렀을 때 유저 정보 수정 API (URL id값 수정해야함)
 							if (edit === true) {
-								fetch('https://elice-server.herokuapp.com/mypage/id1@gmail.com', {
+								fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {
 									method: 'PUT',
 									headers: {
 										'Content-Type': 'application/json',
