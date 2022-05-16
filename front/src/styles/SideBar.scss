@@ -1,0 +1,39 @@
+.container{
+    background-color: #fff;
+    display: flex;
+	position: relative;
+	right: 30px;
+	flex-direction: column;
+	width: 200px;
+	height: 230px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px #e1e1e1;
+    margin: 10px;
+}
+
+h2{
+    color: #2F1154;
+}
+
+.link{
+    margin-top: 20px;
+    text-decoration: none; /* 링크의 밑줄 제거 */ 
+    color: #2F1154;
+}
+
+#link1{
+    margin-bottom: 5px;
+}
+#link2{
+    margin-bottom: 5px;
+}
+
+.git{
+    margin-top: 90px;
+}
+.footer{
+    font-size: 14px;
+    margin-top: 10px;
+    color: #808080;
+}

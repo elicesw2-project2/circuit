@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MainProfile from 'components/MainProfile';
 import Story from 'components/Story';
+import SideBar from 'components/SideBar';
 import '../styles/MainPage.scss';
 import SearchBar from 'components/SearchBar';
 
@@ -26,10 +27,8 @@ function MainPage({ imgSrc, setImgSrc, nickname, setNickname, searchWritings, se
 	return (
 		<div className="main_cpn">
 			<Story searchWritings={searchWritings} />
-			<div className="Mainpage__rightContainer">
-				<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
-				<SearchBar setSearchWritings={setSearchWritings} />
-			</div>
+			<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
+			<SideBar />
 		</div>
 	);
 }
