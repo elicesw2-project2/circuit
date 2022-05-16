@@ -5,9 +5,8 @@ import ImgModal from 'components/ImgModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 
-function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname }) {
+function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, setDescription }) {
 	const [edit, setEdit] = useState(false);
-	const [description, setDescription] = useState('나를 소개해주세요!');
 	const [modalOpen, setModalOpen] = useState(false);
 
 	const openModal = () => {

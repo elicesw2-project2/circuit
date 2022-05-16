@@ -23,10 +23,11 @@ function Modal({ open, close, imgSrc, setImgSrc, nickname, description }) {
 						</button>
 					</header>
 					<main>
-						{images.map((image) => (
+						{images.map((image, index) => (
 							<img
 								src={image}
 								alt="profile"
+								key={index}
 								onClick={async (e) => {
 									await setImgSrc(e.target.src);
 									await fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {
