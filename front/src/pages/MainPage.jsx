@@ -27,8 +27,11 @@ function MainPage({ imgSrc, setImgSrc, nickname, setNickname, searchWritings, se
 	return (
 		<div className="main_cpn">
 			<Story searchWritings={searchWritings} />
-			<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
-			<SideBar />
+			<div className="Mainpage__rightContainer">
+				<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
+				<SearchBar setSearchWritings={setSearchWritings} />
+				<SideBar />
+			</div>
 		</div>
 	);
 }
