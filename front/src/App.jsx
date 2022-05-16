@@ -14,7 +14,7 @@ import Writing from './pages/Writing';
 
 function App() {
 	const [imgSrc, setImgSrc] = useState(profile);
-	const [nickname, setNickname] = useState('별명');
+	const [nickname, setNickname] = useState('');
 	const [searchWritings, setSearchWritings] = useState();
 	const [email, setEmail] = useState('');
 	return (

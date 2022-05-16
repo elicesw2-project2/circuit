@@ -32,7 +32,7 @@ function NavBar({ setSearchWritings, imgSrc }) {
 	const {
 		location: { pathname },
 	} = window;
-	if (pathname === '/circuit/auth/login' || pathname === '/circuit/auth/signup') return null;
+	if (pathname === '/circuit/auth/login' || pathname === '/circuit/auth/signUp') return null;
 	return (
 		<nav className="navBar">
 			<div className="navLogo">
