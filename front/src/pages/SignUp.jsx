@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/SignUp.scss';
 
 function SignUp() {
@@ -52,14 +52,14 @@ function SignUp() {
 
 	return (
 		<div className="signUpBox">
-			<h1 className="signUp_title">회원가입</h1>
+			<h1 className="signUp_title">Circuit</h1>
+			<hr />
 			<form className="signUp" onSubmit={handleSubmit(onSubmit)}>
 				<p>
-					<input {...register('id', { required: '필수 정보입니다.' })} id="id" placeholder="이메일" />
+					<input className="id" {...register('id', { required: '필수 정보입니다.' })} id="id" placeholder="이메일" />
 					<label htmlFor="id">이메일</label>
 				</p>
 				{errors.id && <p id="signUp_errors">{errors.id.message}</p>}
-
 				<p>
 					<input {...register('nickname', { required: '필수 정보입니다.' })} id="nickname" placeholder="별명" />
 					<label htmlFor="nickname">별명</label>
@@ -87,9 +87,17 @@ function SignUp() {
 				)}
 
 				<button className="signUp-button" type="submit">
-					가입하기
+					회원가입
 				</button>
 			</form>
+			<div className="LogIn">
+				<span>이미 계정이 있으신가요? </span>
+				<span>
+					<Link to="/auth/login" id="logIn-button">
+						로그인하기
+					</Link>
+				</span>
+			</div>
 		</div>
 	);
 }

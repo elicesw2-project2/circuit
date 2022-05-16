@@ -44,16 +44,27 @@ function Login() {
 			<div className="loginBox">
 				<form className="login" onSubmit={handleSubmit(onSubmit)}>
 					<h1 className="login_title">Circuit</h1>
+					<hr />
 					<p>
-						<input {...register('id', { required: '아이디를 입력하세요.' })} id="id" placeholder="이메일" />
+						<input
+							className="id"
+							{...register('id', { required: '아이디를 입력하세요.' })}
+							id="id"
+							placeholder="이메일"
+						/>
 						<label htmlFor="id">아이디</label>
 					</p>
+					{errors.id && <p id="login_errors">{errors.id.message}</p>}
 
 					<p>
-						<input {...register('pw', { required: '비밀번호를 입력하세요.' })} id="pw" placeholder="비밀번호" />
+						<input
+							className="pw"
+							{...register('pw', { required: '비밀번호를 입력하세요.' })}
+							id="pw"
+							placeholder="비밀번호"
+						/>
 						<label htmlFor="pw">비밀번호</label>
 					</p>
-					{errors.id && <p id="login_errors">{errors.id.message}</p>}
 					{errors.pw && <p id="login_errors">{errors.pw.message}</p>}
 					<p>
 						<button type="submit" id="login-button">

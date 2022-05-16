@@ -2,7 +2,6 @@
 	height: fit-content;
 	width: fit-content;
 	text-align: center;
-	background-color: #ffff;
 
 	/* 화면 정가운데 배치 */
 	position: absolute;
@@ -10,28 +9,56 @@
 	top: 50%;
 	transform: translate(-50%, -50%);
 
-	border: 1px solid #cdcdcd;
 	border-radius: 1px;
 	margin: 0 0 10px;
 	padding: 50px 50px;
 }
 
 .signUp_title {
-	font-size: 32px;
-	font-weight: bolder;
 	margin: 0 0 30px 0;
+	font-family: 'Italiana';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+	line-height: 39px;
+	color: #4a3763;
 }
+
+hr {
+	width: 509px;
+	height: 0px;
+	margin-bottom: 30px;
+
+	background-color: #4a3763;
+	transform: rotate(-0.22deg);
+}
+
 .signUp {
 	input {
-		padding: 9px 0px 7px 9px;
-		font-size: 12px;
-		width: 16rem;
-		height: 1.5rem;
-		outline: none;
-		background: #fafafa;
-		border-radius: 3px;
-		border: 1px solid #cdcdcd;
-		margin: 8px 0;
+		width: 329px;
+		height: 50px;
+		background: rgba(255, 255, 255, 0.7);
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.7);
+		margin-top: 25px;
+
+		padding-left: 20px;
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 17px;
+	}
+	input::placeholder {
+		color: #adadad;
+		// padding-left: 20px;
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 17px;
+	}
+	/* outline 테두리 속성 수정 */
+	input:focus {
+		outline: 2px solid #a171ff;
 	}
 
 	label {
@@ -49,23 +76,53 @@
 	}
 }
 
-/* error message */
-#signUp_errors {
-	color: red;
-	font-size: 12px;
-	text-align: left;
-	margin-bottom: 5px;
+.id {
+	margin-top: 50px;
 }
 
 .signUp-button {
 	text-align: center;
-	width: 100%;
-	padding: 1rem;
+	width: 349px;
+	height: 50px;
+	padding: 0.5rem;
 	border: 1px solid transparent;
-	background-color: #524fa1;
-	color: #fff;
-	font-weight: 600;
-	font-size: 14px;
+	background: #a171ff;
+	border-radius: 15px;
 	cursor: pointer;
-	margin-top: 10px;
+	margin-top: 35px;
+
+	color: #fff;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 17px;
+	letter-spacing: 0.15em;
+}
+
+.LogIn {
+	// border: 1px solid #cdcdcd;
+	border-radius: 1px;
+	margin: 0 0 10px;
+	padding: 25px 50px;
+	color: #2f1154;
+}
+
+#logIn-button {
+	color: #a171ff;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 19px;
+	text-decoration-line: none;
+}
+
+/* error message */
+#signUp_errors {
+	position: absolute;
+	padding-left: 85px;
+	color: red;
+	font-size: 12px;
+	text-align: left;
+	margin: 5px;
 }
