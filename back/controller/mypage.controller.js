@@ -96,7 +96,7 @@ export function findNickname(req,res){
 		});
 	}
 
-	User.getCheckNickname(new User(req.body),(err, data)=>{
+	User.getCheckNickname(req.params.nickname,(err, data)=>{
 		if (err) {
 			if (err.kind === 'not_found') {
 				// 중복 닉네임이 없을 때
