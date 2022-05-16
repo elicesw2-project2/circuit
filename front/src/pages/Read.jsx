@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Read.scss';
-import NavBar from 'components/NavBar';
 import Comment from '../components/Comment';
 
 export default function Read() {
@@ -21,7 +20,11 @@ function ReadContent() {
 				setboard(data.data.filter((el) => el.post_idx === Number(readParam)));
 			});
 	}, [readParam]);
-	function storyPut() {}
+
+	function storyPut() {
+		// 글 수정페이지로 이동
+		navigate(`/Writing/${board[0].post_idx}`);
+	}
 
 	function storyDel() {
 		// 글 삭제 기능
@@ -43,10 +46,13 @@ function ReadContent() {
 						<span className="read_day">{board[0].date.substr(0, 10)}</span>
 					</div>
 					<div className="read_content">{board[0].content}</div>
-					<div className="button_box">
-						<input type="submit" className="read_button" value="수정" />
-						<input type="submit" className="read_button delete_button" value="삭제" onClick={storyDel} />
-					</div>
+					{localStorage.getItem('id') === board[0].id ? (
+						<div className="button_box">
+							<input type="submit" className="read_button" value="수정" onClick={storyPut} />
+							<input type="submit" className="read_button delete_button" value="삭제" onClick={storyDel} />
+						</div>
+					) : null}
+
 					<Comment />
 				</section>
 			) : null}

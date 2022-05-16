@@ -11,6 +11,7 @@ import SignUp from './pages/SignUp';
 import Story from './components/Story';
 import Read from './pages/Read';
 import Writing from './pages/Writing';
+import WritePut from './pages/WritePut';
 
 function App() {
 	const [imgSrc, setImgSrc] = useState(profile);
@@ -52,6 +53,7 @@ function App() {
 				<Route path="/Story" element={<Story />} />
 				<Route path="/Read/:id" element={<Read />} />
 				<Route path="/Writing" element={<Writing nickname={nickname} />} />
+				<Route path="/Writing/:id" element={<WritePut nickname={nickname} />} />
 			</Routes>
 		</div>
 	);
