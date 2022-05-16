@@ -36,6 +36,7 @@ function ReadContent() {
 		navigate(`/`);
 		alert('삭제되었습니다.');
 	}
+
 	return (
 		<div>
 			{board[0] !== undefined ? (
@@ -45,7 +46,14 @@ function ReadContent() {
 						<span className="read_name">{board[0].nickname}</span>
 						<span className="read_day">{board[0].date.substr(0, 10)}</span>
 					</div>
-					<div className="read_content">{board[0].content}</div>
+					<div className="read_content">
+						{board[0].content.split('\n').map((el) => (
+							<span>
+								{el}
+								<br />
+							</span>
+						))}
+					</div>
 					{localStorage.getItem('id') === board[0].id ? (
 						<div className="button_box">
 							<input type="submit" className="read_button" value="수정" onClick={storyPut} />

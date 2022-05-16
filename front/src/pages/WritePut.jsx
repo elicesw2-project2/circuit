@@ -61,8 +61,8 @@ function WriteContent() {
 					placeholder="제목을 입력하세요"
 					className="write_title write_style"
 					ref={titleRef}
-					value={titleText}
 					onChange={(e) => settitleText(e.target.value)}
+					value={titleText}
 				/>
 				<div />
 				<textarea
@@ -72,8 +72,8 @@ function WriteContent() {
 					rows="10"
 					placeholder="내용을 입력하세요"
 					ref={contentRef}
-					value={contentText}
 					onChange={(e) => setcontentText(e.target.value)}
+					value={contentText}
 				/>
 				<input type="submit" className="write_post" value="게시" onClick={storyPut} />
 			</form>
