@@ -50,7 +50,12 @@ function Login() {
 					</p>
 
 					<p>
-						<input {...register('pw', { required: '비밀번호를 입력하세요.' })} id="pw" placeholder="비밀번호" />
+						<input
+							type="password"
+							{...register('pw', { required: '비밀번호를 입력하세요.' })}
+							id="pw"
+							placeholder="비밀번호"
+						/>
 						<label htmlFor="pw">비밀번호</label>
 					</p>
 					{errors.id && <p id="login_errors">{errors.id.message}</p>}
