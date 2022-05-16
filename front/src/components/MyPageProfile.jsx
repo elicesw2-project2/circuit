@@ -85,11 +85,11 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 							toggleEdit();
 						}}
 					>
-						{edit ? '확인' : '수정'}
+						{edit ? '확인' : '프로필 수정'}
 					</button>
 				</div>
 				<div className="description">
-					<span>한줄 소개</span>
+					<span>한줄 소개, 취미</span>
 					{edit === true ? (
 						<textarea onChange={HandleDescription} placeholder={description} value={description} />
 					) : (
