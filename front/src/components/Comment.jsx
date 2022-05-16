@@ -65,6 +65,8 @@ function Comment({ nickname, imgSrc, email }) {
 				// concat 함수로 comment객체를 commentList에 추가
 				setCommentList(commentList.concat(comment));
 			});
+		// 댓글 등록 후 textarea 리셋
+		document.querySelector('#comment_textarea').value = '';
 	};
 
 	// 댓글 삭제
