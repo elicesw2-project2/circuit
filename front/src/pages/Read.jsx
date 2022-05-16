@@ -3,11 +3,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Read.scss';
 import Comment from '../components/Comment';
 
-export default function Read() {
-	return <ReadContent />;
+export default function Read({ nickname, imgSrc, email }) {
+	return <ReadContent nickname={nickname} imgSrc={imgSrc} email={email} />;
 }
 
-function ReadContent() {
+function ReadContent({ nickname, imgSrc, email }) {
 	const readParam = useParams().id;
 	const navigate = useNavigate();
 	const [board, setboard] = useState([]);
@@ -53,7 +53,7 @@ function ReadContent() {
 						</div>
 					) : null}
 
-					<Comment />
+					<Comment nickname={nickname} imgSrc={imgSrc} email={email} />
 				</section>
 			) : null}
 		</div>

@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import img2 from 'public/img2.jpg';
 import ChangeDate from 'utils/ChangeDate';
 
 export default function SingleComment({ singleComment, onRemove }) {
@@ -20,7 +19,7 @@ export default function SingleComment({ singleComment, onRemove }) {
 			<li className="comment_item">
 				<span className="comment_profile">
 					{/* 프로필 나중에 수정 */}
-					<img src={img2} alt="profile" />
+					<img src={singleComment.profile} alt="profile" />
 				</span>
 				<span>
 					<div className="comment_user_name">{singleComment.nickname}</div>
