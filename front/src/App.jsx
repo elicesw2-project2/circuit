@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import PrivateRoute from 'utils/PrivateRoute';
+import PublicRoute from 'utils/PublicRoute';
 
 import MyPage from 'pages/MyPage';
 import profile from 'public/profile.jpg';
@@ -23,37 +25,84 @@ function App() {
 			<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} setSearchWritings={setSearchWritings} />
 			<Routes>
 				<Route
-					path="/"
+					path="/auth/login"
 					element={
-						<MainPage
-							imgSrc={imgSrc}
-							setImgSrc={setImgSrc}
-							nickname={nickname}
-							setNickname={setNickname}
-							searchWritings={searchWritings}
-							email={email}
-							setEmail={setEmail}
-						/>
+						<PublicRoute>
+							<Login />
+						</PublicRoute>
 					}
 				/>
-				<Route path="/auth/login" element={<Login />} />
-				<Route path="/auth/signup" element={<SignUp />} />
+				<Route
+					path="/auth/signup"
+					element={
+						<PublicRoute>
+							<SignUp />
+						</PublicRoute>
+					}
+				/>
+				<Route
+					path="/"
+					element={
+						<PrivateRoute>
+							<MainPage
+								imgSrc={imgSrc}
+								setImgSrc={setImgSrc}
+								nickname={nickname}
+								setNickname={setNickname}
+								searchWritings={searchWritings}
+								email={email}
+								setEmail={setEmail}
+							/>
+						</PrivateRoute>
+					}
+				/>
 				<Route
 					path="/my-page"
 					element={
-						<MyPage
-							imgSrc={imgSrc}
-							setImgSrc={setImgSrc}
-							nickname={nickname}
-							setNickname={setNickname}
-							setEmail={setEmail}
-						/>
+						<PrivateRoute>
+							<MyPage
+								imgSrc={imgSrc}
+								setImgSrc={setImgSrc}
+								nickname={nickname}
+								setNickname={setNickname}
+								setEmail={setEmail}
+							/>
+						</PrivateRoute>
 					}
 				/>
-				<Route path="/Story" element={<Story />} />
-				<Route path="/Read/:id" element={<Read nickname={nickname} imgSrc={imgSrc} email={email} />} />
-				<Route path="/Writing" element={<Writing nickname={nickname} />} />
-				<Route path="/Writing/:id" element={<WritePut />} />
+				<Route
+					path="/Story"
+					element={
+						<PrivateRoute>
+							<Story />
+						</PrivateRoute>
+					}
+				/>
+				<Route
+					path="/Read/:id"
+					element={
+						<PrivateRoute>
+							<Read nickname={nickname} imgSrc={imgSrc} email={email} />
+						</PrivateRoute>
+					}
+				/>
+				<Route
+					path="/Writing"
+					element={
+						<PrivateRoute>
+							<Writing nickname={nickname} />
+						</PrivateRoute>
+					}
+				/>
+
+				<Route
+					path="/Writing/:id"
+					element={
+						<PrivateRoute>
+							<WritePut />
+						</PrivateRoute>
+					}
+				/>
 			</Routes>
 		</div>
 	);

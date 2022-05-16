@@ -14,10 +14,9 @@ function Story({ searchWritings }) {
 function Storys({ searchWritings }) {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
 	const [board, setboard] = useState([]);
-	// console.log(searchWritings);
 
 	useEffect(() => {
-		fetch('https://elice-server.herokuapp.com/board', {
+		fetch(`https://elice-server.herokuapp.com/board`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())

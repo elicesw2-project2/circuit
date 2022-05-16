@@ -36,11 +36,12 @@ function NavBar({ setSearchWritings, imgSrc }) {
 	return (
 		<nav className="navBar">
 			<div className="navLogo">
-				<Link to="/">
-					<FontAwesomeIcon icon={faFlagCheckered} />
+				<Link to="/" style={{ textDecoration: 'none' }}>
+					Circuit
+					{/* <FontAwesomeIcon icon={faFlagCheckered} /> */}
 				</Link>
 			</div>
-			<div className="searchBar">
+			{/* <div className="searchBar">
 				<input
 					className="searchBar__input"
 					placeholder="검색"
@@ -93,18 +94,18 @@ function NavBar({ setSearchWritings, imgSrc }) {
 						&times;
 					</button>
 				) : null}
-			</div>
+			</div> */}
 			<ul className="navItems">
-				<li className="navItem">
+				{/* <li className="navItem">
 					<Link to="/">
 						<FontAwesomeIcon icon={faHomeLgAlt} />
 					</Link>
-				</li>
-				<li className="navItem">
+				</li> */}
+				{/* <li className="navItem">
 					<Link to="/Writing">
 						<FontAwesomeIcon icon={faEdit} />
 					</Link>
-				</li>
+				</li> */}
 				<li className="navItem">
 					<div className="navItem__menu-container">
 						<img
@@ -120,15 +121,18 @@ function NavBar({ setSearchWritings, imgSrc }) {
 								<div className="menu__lists">
 									<li>
 										<FontAwesomeIcon icon={faCircleUser} className="menu__icon" />
-										<Link to="/my-page">마이 페이지</Link>
+										<Link to="/my-page" className="menu__mypage" style={{ textDecoration: 'none' }}>
+											마이 페이지
+										</Link>
 									</li>
-									<li>
+									{/* <Divider>Or</Divider> */}
+									{/* <li>
 										<FontAwesomeIcon icon={faGear} className="menu__icon" />
 										<Link to="/">설정</Link>
-									</li>
+									</li> */}
 									<li>
 										<FontAwesomeIcon icon={faRightFromBracket} className="menu__icon" />
-										<Link to="/auth/login" onClick={Logout}>
+										<Link to="/auth/login" onClick={Logout} style={{ textDecoration: 'none' }}>
 											로그아웃
 										</Link>
 									</li>

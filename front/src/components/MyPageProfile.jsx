@@ -8,6 +8,7 @@ import { faPen } from '@fortawesome/free-solid-svg-icons';
 function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, setDescription }) {
 	const [edit, setEdit] = useState(false);
 	const [modalOpen, setModalOpen] = useState(false);
+	const [currentNickname, setCurrentNickname] = useState('');
 
 	const openModal = () => {
 		setModalOpen(true);
@@ -51,29 +52,44 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 					)}
 					<button
 						type="button"
-						onClick={() => {
-							toggleEdit();
-							// 확인 버튼 눌렀을 때 유저 정보 수정 API (URL id값 수정해야함)
-							if (edit === true) {
-								fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {
-									method: 'PUT',
-									headers: {
-										'Content-Type': 'application/json',
-									},
-									body: JSON.stringify({
-										nickname,
-										profile: imgSrc,
-										intro: description,
-									}),
-								});
+						onClick={async () => {
+							// 확인 버튼 눌렀을 때 닉네임 중복 검사 및 유저 정보 수정 API
+
+							if (edit) {
+								// 닉네임이 바뀌었을 때만 중복 검사
+								if (currentNickname !== nickname) {
+									const isDuplicate = await fetch(`https://elice-server.herokuapp.com/check/${nickname}`, {
+										method: 'GET',
+									}).then((res) => res.json());
+									console.log(isDuplicate);
+									if (isDuplicate.data === 'true') {
+										alert('닉네임 중복!');
+										return;
+									}
+									await fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {
+										method: 'PUT',
+										headers: {
+											'Content-Type': 'application/json',
+										},
+										body: JSON.stringify({
+											nickname,
+											profile: imgSrc,
+											intro: description,
+										}),
+									});
+								}
+							} else {
+								setCurrentNickname(nickname);
 							}
+
+							toggleEdit();
 						}}
 					>
-						{edit ? '확인' : '수정'}
+						{edit ? '확인' : '프로필 수정'}
 					</button>
 				</div>
 				<div className="description">
-					<span>한줄 소개</span>
+					<span>한줄 소개, 취미</span>
 					{edit === true ? (
 						<textarea onChange={HandleDescription} placeholder={description} value={description} />
 					) : (

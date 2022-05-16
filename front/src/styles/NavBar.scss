@@ -1,77 +1,82 @@
 .navBar {
+	margin-top: 30px;
 	/* position: fixed; */
 	width: 100%;
+	height: 22px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 16px 16px 16px 0;
 	border: 1px solid gainsboro;
 	a {
-		color: black;
+		color: #4a3763;
 	}
+	background-color: #d9c9f8;
+	border-radius: 15px;
 }
 
 .navLogo {
 	font-size: 30px;
-	color: black;
-	margin-left: 50px;
+	color: #2f1154;
+	margin: -5px 0 0 30px;
+	text-decoration: none;
 }
 
-.searchBar {
-	position: relative;
-	right: -30px;
-	color: #909090;
-	display: flex;
-	align-items: center;
-	width: 300px;
-	height: 40px;
-	background-color: #efefef;
-	border-radius: 10px;
-	margin-left: 50px;
-	span {
-		position: absolute;
-		left: 60px;
-	}
-	height: 40px;
+// .searchBar {
+// 	position: relative;
+// 	right: -30px;
+// 	color: #909090;
+// 	display: flex;
+// 	align-items: center;
+// 	width: 300px;
+// 	height: 40px;
+// 	background-color: #efefef;
+// 	border-radius: 10px;
+// 	margin-left: 50px;
+// 	span {
+// 		position: absolute;
+// 		left: 60px;
+// 	}
+// 	height: 40px;
 
-	.searchBar__delete {
-		font-size: 15px;
-		background-color: #c7c7c7;
-		border: none;
-		border-radius: 50%;
-		color: whitesmoke;
-		margin-left: 70px;
-		width: 20px;
-		height: 20px;
-		line-height: 20px;
-	}
-}
+// 	.searchBar__delete {
+// 		font-size: 15px;
+// 		background-color: #c7c7c7;
+// 		border: none;
+// 		border-radius: 50%;
+// 		color: whitesmoke;
+// 		margin-left: 70px;
+// 		width: 20px;
+// 		height: 20px;
+// 		line-height: 20px;
+// 	}
+// }
 
-.searchBar__input {
-	background-color: #efefef;
-	margin-left: 45px;
-	border: none;
+// .searchBar__input {
+// 	background-color: #efefef;
+// 	margin-left: 45px;
+// 	border: none;
 
-	&:focus {
-		outline: none;
-	}
-}
+// 	&:focus {
+// 		outline: none;
+// 	}
+// }
 
-.searchBar__input::placeholder {
-	font-size: 15px;
-}
+// .searchBar__input::placeholder {
+// 	font-size: 15px;
+// }
 
-.searchBar__icon {
-	position: absolute;
-	padding: 0px 15px 0px 20px;
-	background-color: transparent;
-}
+// .searchBar__icon {
+// 	position: absolute;
+// 	padding: 0px 15px 0px 20px;
+// 	background-color: transparent;
+// }
 
-.navItems {
-	display: flex;
-	margin-right: 50px;
-	align-items: center;
-}
+// .navItems {
+// 	display: flex;
+// 	margin-right: 50px;
+// 	align-items: center;
+// }
 
 .navItem {
 	padding: 6px 12px;
@@ -79,7 +84,6 @@
 	cursor: pointer;
 	border-radius: 4px;
 	font-size: 20px;
-
 	.navItem__menu-container {
 		position: relative;
 	}
@@ -100,7 +104,7 @@
 		width: 200px;
 		box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 		z-index: 999;
-
+		opacity: 80%;
 		.menu__square {
 			position: absolute;
 			left: 147px;
@@ -118,7 +122,7 @@
 			font-size: 16px;
 			line-height: 18px;
 			text-decoration: none;
-			color: #333333;
+			color: #2f1154;
 			padding: 15px 20px;
 			display: block;
 
@@ -126,5 +130,9 @@
 				margin-right: 10px;
 			}
 		}
+		// .menu__mypage {
+		// 	border-bottom: 1.5px #4a3763 solid;
+		// 	padding: 0 20px 15px 20px;
+		// }
 	}
 }

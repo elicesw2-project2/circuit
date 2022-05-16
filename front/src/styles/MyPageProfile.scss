@@ -1,3 +1,15 @@
+html {
+	background: conic-gradient(
+			from 200deg at 50.23% 40.06%,
+			#fceeef -43.41deg,
+			#e5d8fa 115.87deg,
+			#fceeef 316.59deg,
+			#e5d8fa 475.87deg
+		),
+		rgba(255, 255, 255, 0.8);
+	height: 100%;
+	width: 100%;
+}
 .MyPageProfile__profile {
 	display: flex;
 	margin: 50px auto;
@@ -5,8 +17,10 @@
 	height: 250px;
 	justify-content: space-between;
 	align-items: center;
-	border: 1px solid #524fa1;
-
+	border-radius: 15px;
+	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+	color: #2f1154;
+	background-color: #fff;
 	.MyPageProfile__container__left {
 		position: relative;
 		img {
@@ -17,6 +31,7 @@
 			&:hover {
 				opacity: 0.25;
 			}
+			box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 		}
 
 		.Profile__icon {
@@ -46,16 +61,21 @@
 			span {
 				margin-top: 7px;
 				font-size: 26px;
+				cursor: default;
 			}
 		}
 
 		button {
+			cursor: pointer;
+
 			width: 90px;
 			height: 35px;
 			border: 0;
 			outline: none;
-			background-color: #524fa1;
-			color: #fff;
+			border: 2px solid #a171ff;
+			background-color: #fff;
+			border-radius: 10px;
+			color: #a171ff;
 			font-weight: 600;
 			font-size: 14px;
 		}
@@ -63,18 +83,21 @@
 		.description {
 			span {
 				font-size: 17px;
-				margin-bottom: 0;
+				cursor: default;
+				border-bottom: 1px solid #bcbcbc;
+				padding-bottom: 5px;
 				&::after {
 					content: '';
 					display: block;
 					width: 65px;
-					border-bottom: 1px solid #bcbcbc;
 					margin: 8px 0px 15px 0px;
 				}
 			}
 
 			p {
-				margin-top: 7px;
+				margin-top: 20px;
+				font-size: 15px;
+				cursor: default;
 			}
 
 			textarea {
