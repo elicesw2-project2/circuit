@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import img2 from 'public/img2.jpg';
 import ChangeDate from 'utils/ChangeDate';
+import '../styles/SingleComment.scss';
 
 export default function SingleComment({ singleComment, onRemove }) {
 	const [edit, setEdit] = useState(false);
@@ -36,6 +37,7 @@ export default function SingleComment({ singleComment, onRemove }) {
 				<span className="comment_edit_button">
 					{/* 수정버튼 */}
 					<button
+						className="editBtn"
 						type="submit"
 						onClick={() => {
 							toggleEdit();
@@ -60,7 +62,7 @@ export default function SingleComment({ singleComment, onRemove }) {
 					</button>
 
 					{/* 삭제버튼 */}
-					<button type="submit" onClick={() => onRemove(singleComment.comment_idx)}>
+					<button className="deleteBtn" type="submit" onClick={() => onRemove(singleComment.comment_idx)}>
 						삭제
 					</button>
 				</span>

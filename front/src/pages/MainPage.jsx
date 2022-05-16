@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MainProfile from 'components/MainProfile';
 import Story from 'components/Story';
+import SideBar from 'components/SideBar';
 import '../styles/MainPage.scss';
 
 function MainPage({ imgSrc, setImgSrc, nickname, setNickname, searchWritings, email, setEmail }) {
@@ -24,6 +25,7 @@ function MainPage({ imgSrc, setImgSrc, nickname, setNickname, searchWritings, em
 		<div className="main_cpn">
 			<Story searchWritings={searchWritings} />
 			<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
+			<SideBar />
 		</div>
 	);
 }

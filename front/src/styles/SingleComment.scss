@@ -1,0 +1,33 @@
+
+.comment_edit{
+    background-color:#F3EBFF;
+    border-radius: 15px;
+    border: 1px solid #F3EBFF;
+    width: 480px;
+}
+
+.comment_edit_button{
+    border-style:none;
+    padding: 10px;
+}
+
+.editBtn{
+    cursor: pointer;
+    background-color: #fff;
+	color: #A171FF;
+    border: solid 2px #A171FF;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+
+.deleteBtn{
+    cursor: pointer;
+    background-color: #A171FF;
+    border: solid 2px #A171FF;
+	color: white;
+    padding: 10px;
+    border-radius: 10px;
+    padding: 5px 15px;
+}

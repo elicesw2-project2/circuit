@@ -37,16 +37,17 @@ function ReadContent() {
 		<div>
 			{board[0] !== undefined ? (
 				<section className="read_container">
-					<div className="read_title">{board[0].title}</div>
-					<div className="read_info">
-						<span className="read_name">{board[0].nickname}</span>
-						<span className="read_day">{board[0].date.substr(0, 10)}</span>
-					</div>
-					<div className="read_content">{board[0].content}</div>
 					<div className="button_box">
 						<input type="submit" className="read_button" value="수정" />
-						<input type="submit" className="read_button delete_button" value="삭제" onClick={storyDel} />
+						<input type="submit" className="delete_button" value="삭제" onClick={storyDel} />
 					</div>
+					<div className="read_title">{board[0].title}</div>
+					<div className="read_info">
+						<div className="read_name">{board[0].nickname}</div>
+						<div className="read_day">{board[0].date.substr(0, 10)}</div>
+					</div>
+					<div className="read_content">{board[0].content}</div>
+
 					<Comment />
 				</section>
 			) : null}

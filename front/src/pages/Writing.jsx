@@ -70,7 +70,7 @@ function WriteContent({ nickname }) {
 					placeholder="내용을 입력하세요"
 					ref={contentRef}
 				/>
-				<input type="submit" className="write_post" value="게시" onClick={storySubmit} />
+				<input type="submit" className="write_post" value="글 등록" onClick={storySubmit} />
 			</form>
 		</section>
 	);
