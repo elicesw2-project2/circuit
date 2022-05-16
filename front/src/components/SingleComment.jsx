@@ -59,9 +59,11 @@ export default function SingleComment({ singleComment, onRemove }) {
 							{edit ? '등록' : '수정'}
 						</button>
 						{/* 삭제버튼 */}
-						<button type="submit" onClick={() => onRemove(singleComment.comment_idx)}>
-							삭제
-						</button>
+						{edit ? null : (
+							<button type="submit" onClick={() => onRemove(singleComment.comment_idx)}>
+								삭제
+							</button>
+						)}
 					</span>
 				) : null}
 			</li>
