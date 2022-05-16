@@ -26,7 +26,7 @@ function MainPage({ imgSrc, setImgSrc, nickname, setNickname, searchWritings, se
 	return (
 		<div className="main_cpn">
 			<Story searchWritings={searchWritings} />
-			<div>
+			<div className="Mainpage__rightContainer">
 				<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
 				<SearchBar setSearchWritings={setSearchWritings} />
 			</div>

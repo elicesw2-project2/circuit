@@ -18,7 +18,7 @@ function SearchBar({ setSearchWritings }) {
 		<div className="searchBar">
 			<input
 				className="searchBar__input"
-				placeholder="검색"
+				placeholder="게시글 검색.."
 				value={searchValue}
 				onChange={handleSearchValue}
 				onKeyDown={async (e) => {
@@ -57,17 +57,6 @@ function SearchBar({ setSearchWritings }) {
 					}}
 				/>
 			</div>
-			{searchValue !== '' ? (
-				<button
-					type="button"
-					className="searchBar__delete"
-					onClick={() => {
-						setSearchValue('');
-					}}
-				>
-					&times;
-				</button>
-			) : null}
 		</div>
 	);
 }
