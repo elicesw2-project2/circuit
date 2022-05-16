@@ -97,8 +97,8 @@ Users.remove = (id, user, result) => {
 };
 
 // id로 닉네임 체크
-Users.getCheckNickname = (user,result)=>{
-	sql.query('select nickname from user where nickname = ? ', user.nickname,(err, res) =>{
+Users.getCheckNickname = (nickname,result)=>{
+	sql.query('select nickname from user where nickname = ? ', nickname,(err, res) =>{
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);
