@@ -22,7 +22,7 @@ function SideBar() {
 
 			<div className="git">
 				<FontAwesomeIcon icon={faGithub} className="gitIcon" />
-				<a href="https://github.com">Github</a>
+				<a href="https://github.com/elicesw2-project2/circuit">Github</a>
 			</div>
 			<div className="footer">
 				<p>© 2022 Circuit From Elice</p>
