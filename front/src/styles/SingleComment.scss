@@ -1,3 +1,7 @@
+.comment_item {
+	position: relative;
+}
+
 .comment_profile {
 	img {
 		border-radius: 50%;
@@ -11,8 +15,20 @@
 }
 
 .comment_edit_button {
+	position: absolute;
+	right: -5px;
+	bottom: 5px;
 	border-style: none;
 	padding: 10px;
+}
+
+.menu__icon {
+	cursor: pointer;
+	width: 20px;
+	height: 15px;
+	border-radius: 50%;
+	position: absolute;
+	right: 5px;
 }
 
 .editBtn {
@@ -34,4 +50,10 @@
 	padding: 10px;
 	border-radius: 10px;
 	padding: 5px 15px;
+}
+
+.comment_date {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
 }
