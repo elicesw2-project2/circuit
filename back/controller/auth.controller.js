@@ -1,11 +1,15 @@
+import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import * as userRepository from './user.controller.js';
 
+dotenv.config();
+
 // 기본 설정
-const jwtSecretKey = 'PV59zFWNbrvJrfDLkETWe2VHZttSfSq9';
-const jwtExpiresInDays = '2d';
-const bcryptSaltRounds = 12;
+const jwtSecretKey = process.env.AUTH_jwtSecretKey;
+const jwtExpiresInDays = process.env.AUTH_jwtExpiresInDays;
+let bcryptSaltRounds = process.env.AUTH_bcryptSaltRounds;
+bcryptSaltRounds = parseInt(bcryptSaltRounds);
 
 // signup 확인 + 토큰
 export async function signup(req, res) {

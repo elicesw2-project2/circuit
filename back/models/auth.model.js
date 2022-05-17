@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import * as userRepository from '../controller/user.controller.js';
 
+dotenv.config();
+const jwtSecretKey = process.env.AUTH_jwtSecretKey;
 const AUTH_ERROR = { message: 'Authentication Error' };
 const isAuth = async (req, res, next) => {
 	const authHeader = req.get('authorization');
@@ -12,7 +15,7 @@ const isAuth = async (req, res, next) => {
 	jwt.verify(
 		//
 		token,
-		'PV59zFWNbrvJrfDLkETWe2VHZttSfSq9',
+		jwtSecretKey,
 		async (error, decoded) => {
 			if (error) {
 				return res.status(401).json({ message: AUTH_ERROR });

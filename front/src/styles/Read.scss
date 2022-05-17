@@ -18,15 +18,15 @@ html {
 	flex-direction: column;
 	margin: 30px auto;
 	padding: 30px 40px;
-	width: 800px;
-	/* width: 80%; */
+	// width: 800px;
+	width: 70%; 
 	box-sizing: border-box;
 	box-shadow: 2px 2px 2px #e1e1e1;
 }
 
 .read_title {
 	margin-bottom: 20px;
-	font-size: 40px;
+	font-size: 30px;
 	font-weight: 600;
 	color: #2F1154;
 }
@@ -54,7 +54,7 @@ html {
 	margin-bottom: 20px;
 	padding-top: 20px;
 	resize: none;
-	font-size: 20px;
+	font-size: 18px;
 	height: 300px;
 	color: #2F1154;
 	border-bottom: solid 2px #4A3763;
