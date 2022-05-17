@@ -57,6 +57,7 @@
 		]
 	},
 	"devDependencies": {
+		"@fortawesome/free-brands-svg-icons": "^6.1.1",
 		"eslint": "^8.14.0",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-prettier": "^8.5.0",
