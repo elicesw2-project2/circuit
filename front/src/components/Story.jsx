@@ -9,7 +9,6 @@ function Story({ searchWritings }) {
 function Storys({ searchWritings }) {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
 	const [board, setboard] = useState([]);
-	const [maxpage, setMaxpage] = useState();
 	const [page, setpage] = useState();
 
 	useEffect(() => {
@@ -19,17 +18,13 @@ function Storys({ searchWritings }) {
 			.then((res) => res.json())
 			.then((data) => {
 				setboard(data.data);
-				setMaxpage(Math.ceil(data.pageCount[0].count / 15));
-				const asdf = [];
-				for (let i = 1; i <= maxpage; i += 1) {
-					console.log('asdf');
-					asdf.push(i);
-					console.log(asdf);
+				const totalPage = Math.ceil(data.pageCount[0].count / 15); // 마지막 페이지 수
+				const pageNum = [];
+				for (let i = 1; i <= totalPage; i += 1) {
+					pageNum.push(i);
 				}
-				console.log(asdf);
-				setpage(asdf);
+				setpage(pageNum);
 			});
-		console.log(page);
 	}, []);
 
 	function storyPagination(e) {
@@ -40,12 +35,11 @@ function Storys({ searchWritings }) {
 			.then((res) => res.json())
 			.then((data) => {
 				setboard(data.data);
-				setMaxpage(Math.ceil(data.pageCount[0].count / 15));
 			});
 	}
 
 	return searchWritings === undefined ? (
-		<div className="story_parent">
+		<section className="story_parent">
 			<div className="story_container">
 				<StoryInfo />
 				{board.map((el) => (
@@ -60,30 +54,31 @@ function Storys({ searchWritings }) {
 				))}
 			</div>
 			<div className="pages_nav">
-				<button type="submit" onClick={storyPagination}>
-					1
-				</button>
-				<button type="submit" onClick={storyPagination}>
-					2
-				</button>
-				<button type="submit" onClick={storyPagination}>
-					3
-				</button>
+				{page !== undefined
+					? page.map((el) => (
+							<button type="submit" onClick={storyPagination}>
+								{el}
+							</button>
+					  ))
+					: null}
 			</div>
-		</div>
+		</section>
 	) : (
-		<section className="story_container">
-			<StoryInfo />
-			{searchWritings.map((el) => (
-				<div className="story">
-					<span className="story_number story_child">{el.post_idx}</span>
-					<span className="story_name story_child asdf">{el.nickname}</span>
-					<Link to={`/Read/${el.post_idx}`}>
-						<span className="story_title story_child">{el.title}</span>
-					</Link>
-					<span className="story_time story_child">{el.date.substr(0, 10)}</span>
-				</div>
-			))}
+		<section className="story_parent">
+			<div className="story_container">
+				<StoryInfo />
+				{searchWritings.map((el) => (
+					<div className="story">
+						<span className="story_number story_child">{el.post_idx}</span>
+						<span className="story_name story_child asdf">{el.nickname}</span>
+						<Link to={`/Read/${el.post_idx}`}>
+							<span className="story_title story_child">{el.title}</span>
+						</Link>
+						<span className="story_time story_child">{el.date.substr(0, 10)}</span>
+					</div>
+				))}
+			</div>
+			<div />
 		</section>
 	);
 }
@@ -98,23 +93,6 @@ function StoryInfo() {
 			<span className="story_time story_child">작성일</span>
 		</div>
 	);
-}
-
-function Pages() {
-	const [board, setboard] = useState([]);
-	// const [page, setpage] = useState(1);
-
-	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/board`, {
-			method: 'GET',
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data.pageCount[0].count);
-				setboard(data.data);
-			});
-	}, []);
-	return <div>ds</div>;
 }
 
 export default Story;
