@@ -1,3 +1,8 @@
+.story_parent {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+}
 .story_container {
 	border: solid 1px #ebe2e8;
 	position: relative;
@@ -5,20 +10,14 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 50px 0px;
-	// margin-right: 27px;
-	// width: 1200px; /*아래 width랑 ㄱㅊ은거 골라 고정이나 비율중*/
-	width: 90%;
-	height: 100%;
+	margin: 50px 0px 10px 0px;
 	box-sizing: border-box;
-	cursor: default;
 }
 
 .story {
 	display: flex;
 	position: relative;
 	width: 100%;
-
 	justify-content: space-between;
 	background-color: white;
 	border-bottom: solid 1px #ebe2e8;
@@ -45,9 +44,9 @@
 	text-align: center;
 	font-size: 15px;
 	color: #2f1154;
-	// font-weight: 600;
 }
 
+/*  */
 .story.storyInfo {
 	border-bottom: 1.5px solid #4a3763;
 	border-radius: 16px 16px 0px 0px;
@@ -55,4 +54,31 @@
 
 .story.storyInfo .story_title {
 	right: 220px;
+}
+
+.writeBtn {
+	background-color: #a171ff;
+	border-style: none;
+	color: #fff;
+	border-radius: 10px;
+	font-size: 16px;
+	margin: 3px;
+	margin-left: auto;
+
+	padding: 10px 15px;
+	cursor: pointer;
+	// position: absolute;
+	right: 10px;
+}
+
+.pageNav {
+	margin: 0 auto 0 auto;
+}
+
+.pageNav_btn {
+	background-color: transparent;
+	border-style: none;
+	font-size: 16px;
+	margin: 0px 5px;
+	cursor: pointer;
 }

@@ -1,33 +1,60 @@
-
-.comment_edit{
-    background-color:#F3EBFF;
-    border-radius: 15px;
-    border: 1px solid #F3EBFF;
-    width: 480px;
+.comment_item {
+	position: relative;
 }
 
-.comment_edit_button{
-    border-style:none;
-    padding: 10px;
+.comment_profile {
+	img {
+		border-radius: 50%;
+	}
+}
+.comment_edit {
+	background-color: #f3ebff;
+	border-radius: 15px;
+	border: 1px solid #f3ebff;
+	width: 480px;
 }
 
-.editBtn{
-    cursor: pointer;
-    background-color: #fff;
-	color: #A171FF;
-    border: solid 2px #A171FF;
-    padding: 10px;
-    margin-right: 5px;
-    border-radius: 10px;
-    padding: 5px 15px;
+.comment_edit_button {
+	position: absolute;
+	right: -5px;
+	bottom: 5px;
+	border-style: none;
+	padding: 10px;
 }
 
-.deleteBtn{
-    cursor: pointer;
-    background-color: #A171FF;
-    border: solid 2px #A171FF;
+.menu__icon {
+	cursor: pointer;
+	width: 20px;
+	height: 15px;
+	border-radius: 50%;
+	position: absolute;
+	top: 10px;
+	right: 5px;
+}
+
+.editBtn {
+	cursor: pointer;
+	background-color: #fff;
+	color: #a171ff;
+	border: solid 2px #a171ff;
+	padding: 10px;
+	margin-right: 5px;
+	border-radius: 10px;
+	padding: 5px 15px;
+}
+
+.deleteBtn {
+	cursor: pointer;
+	background-color: #a171ff;
+	border: solid 2px #a171ff;
 	color: white;
-    padding: 10px;
-    border-radius: 10px;
-    padding: 5px 15px;
+	padding: 10px;
+	border-radius: 10px;
+	padding: 5px 15px;
+}
+
+.comment_date {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
 }
