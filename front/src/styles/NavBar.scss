@@ -43,8 +43,8 @@
 		background: #ffffff;
 		border-radius: 8px;
 		position: absolute;
-		top: 45px;
-		right: -30px;
+		top: 52px;
+		right: -27px;
 		width: 200px;
 		box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 		z-index: 999;
@@ -74,9 +74,8 @@
 				margin-right: 10px;
 			}
 		}
-		// .menu__mypage {
-		// 	border-bottom: 1.5px #4a3763 solid;
-		// 	padding: 0 20px 15px 20px;
-		// }
+		.menu__mypage {
+			border-bottom: 1.5px #d9c9f8 solid;
+		}
 	}
 }

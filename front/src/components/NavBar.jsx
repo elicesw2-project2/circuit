@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/NavBar.scss';
+// import { Divider } from '@mui/material';
 
 // FontAwesome Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -53,12 +54,14 @@ function NavBar({ imgSrc }) {
 								<nav className="menu">
 									<div className="menu__square" />
 									<div className="menu__lists">
-										<li>
+										<li className="menu__mypage">
 											<FontAwesomeIcon icon={faCircleUser} className="menu__icon" />
-											<Link to="/my-page" className="menu__mypage" style={{ textDecoration: 'none' }}>
+											<Link to="/my-page" style={{ textDecoration: 'none' }}>
 												마이 페이지
 											</Link>
 										</li>
+										{/* <Divider /> */}
+										{/* <Divider /> */}
 										{/* <Divider>Or</Divider> */}
 										{/* <li>
 										<FontAwesomeIcon icon={faGear} className="menu__icon" />
