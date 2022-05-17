@@ -45,7 +45,7 @@ export default function SingleComment({ singleComment, onRemove }) {
 				{localStorage.getItem('id') === singleComment.comment_id ? (
 					<>
 						{edit === false ? (
-							<FontAwesomeIcon icon={faEllipsisVertical} className="menu__icon" onClick={toggleMenu} />
+							<FontAwesomeIcon icon={faEllipsisVertical} className="comment__menu__icon" onClick={toggleMenu} />
 						) : null}
 						{showMenu ? (
 							<span className="comment_edit_button">

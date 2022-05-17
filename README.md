@@ -1,7 +1,32 @@
-# circuit
+# 🏁 [Circuit](https://elicesw2-project2.github.io/circuit)
+### 엘리스 수강생들을 위한 익명 커뮤니티
 
-Elice SW-2 Team Project - Circuit
+<br>
 
+## :white_check_mark: 서비스 소개
+####  👩‍👩‍👧‍👦 수강생들의 정보 공유 및 교류를 위한 커뮤니티 서비스
+  - 익명으로 글을 작성하거나 댓글을 등록할 수 있습니다.
+#### 🙋 마이페이지
+  - 마이페이지에서 사용자의 정보를 수정하고 작성한 게시글을 관리할 수 있습니다.
+
+<br>
+
+## 🛠️ 기술 스택
+
+<p>
+    <img src="https://img.shields.io/badge/React-v18.0.0-blue?logo=Reac"/>
+    <img src="https://img.shields.io/badge/node.js-v16.13.0-green?logo=Node.j"/>
+    <img src="https://img.shields.io/badge/eslint-%5E8.14.0-yellow?logo=eslint"/>
+    <img src="https://img.shields.io/badge/mysql-v2.18.1-%234479A1?logo=Mysql">
+  <img src="https://img.shields.io/badge/Nodemon-v2.0.15-76D04B?logo=Nodemo"/>
+  <img src="https://img.shields.io/badge/Express-v2.0.15-000000?logo=Express"/>
+</p>
+
+<br>
+
+## 📌 [기술 및 스크럼 - WIKI](https://github.com/elicesw2-project2/circuit/wiki)
+
+<br>
 
 ## ⚙️ 프로젝트 구동 방법
 우선 Repository clone 한다.
