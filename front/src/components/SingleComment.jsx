@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ChangeDate from 'utils/ChangeDate';
 import '../styles/SingleComment.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faL } from '@fortawesome/free-solid-svg-icons';
 
-export default function SingleComment({ singleComment, onRemove }) {
+export default function SingleComment({ key, singleComment, onRemove }) {
 	const [edit, setEdit] = useState(false);
 	const [value, setValue] = useState(singleComment.content);
 	const [showMenu, setShowMenu] = useState(false);
+	const navigate = useNavigate();
 
 	const toggleMenu = () => {
 		setShowMenu((showMenu) => !showMenu);
@@ -30,7 +31,9 @@ export default function SingleComment({ singleComment, onRemove }) {
 					<img src={singleComment.profile} alt="profile" />
 				</span>
 				<span>
-					<div className="comment_user_name">{singleComment.nickname}</div>
+					<div className="comment_user_name" onClick={() => navigate(`/user/${singleComment.comment_id}`)}>
+						{singleComment.nickname}
+					</div>
 
 					{edit === true ? (
 						<textarea className="comment_edit" onChange={onChange} value={value} />
