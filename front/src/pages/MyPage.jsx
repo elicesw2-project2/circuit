@@ -1,28 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import MyPageProfile from 'components/MyPageProfile';
 import MyStory from 'components/MyStory';
+import { useLocation, useParams } from 'react-router-dom';
 
-function MyPage({ imgSrc, setImgSrc, nickname, setNickname, setEmail }) {
-	const [description, setDescription] = useState('');
+let prePath = '';
+
+function MyPage({ imgSrc, setImgSrc, nickname, setNickname, setEmail, description, setDescription }) {
+	const { id } = useParams();
+	const [userId, setUserId] = useState(id);
+	const location = useLocation();
+
 	useEffect(() => {
-		(async function fetchUserId() {
-			await fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {
-				method: 'GET',
-			})
-				.then((res) => res.json())
-				.then((result) => {
-					setNickname(result.data.nickname);
-					setEmail(result.data.id);
-					if (result.data.intro !== null) {
-						setDescription(result.data.intro);
-					}
-					// 처음 로그인한 유저는 null값이 들어오므로 profile값이 있을 때만 DB에서 불러와서 지정함
-					if (result.data.profile !== null) {
-						setImgSrc(result.data.profile);
-					}
-				});
-		})();
-	}, []);
+		if (prePath.indexOf('/user') !== -1 && prePath.indexOf(localStorage.getItem('id')) === -1) {
+			prePath = '';
+			window.location.reload();
+		}
+		prePath = location.pathname;
+	}, [location]);
+
+	useEffect(() => {}, []);
 	return (
 		<>
 			<MyPageProfile
@@ -32,8 +28,9 @@ function MyPage({ imgSrc, setImgSrc, nickname, setNickname, setEmail }) {
 				setNickname={setNickname}
 				description={description}
 				setDescription={setDescription}
+				userId={userId}
 			/>
-			<MyStory />
+			<MyStory userId={userId} />
 		</>
 	);
 }

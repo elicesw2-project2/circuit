@@ -6,7 +6,6 @@ import '../styles/MainPage.scss';
 import SearchBar from 'components/SearchBar';
 
 function MainPage({ imgSrc, setImgSrc, nickname, setNickname, searchWritings, setSearchWritings, email, setEmail }) {
-	// URL 파라미터 수정해야함
 	useEffect(() => {
 		(async function fetchUserId() {
 			await fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {

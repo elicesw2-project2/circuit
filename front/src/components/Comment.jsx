@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/Comment.scss';
 import ChangeDate from 'utils/ChangeDate';
-import SingleComment from './SingleComment';
+import SingleComment from 'components/SingleComment';
 
 function Comment({ nickname, imgSrc, email }) {
 	const [commentList, setCommentList] = useState();
@@ -53,6 +53,7 @@ function Comment({ nickname, imgSrc, email }) {
 		})
 			.then((res) => res.json())
 			.then((result) => {
+				console.log(result);
 				lastCommentIdx = result.data[result.data.length - 1].comment_idx;
 				const comment = {
 					comment_id: localStorage.getItem('id'),
@@ -102,7 +103,7 @@ function Comment({ nickname, imgSrc, email }) {
 			<ul className="comment_list">
 				{commentList &&
 					commentList.map((singleComment) => (
-						<SingleComment key={singleComment.comment_idx} singleComment={singleComment} onRemove={onRemove} />
+						<SingleComment key={singleComment.comment_id} singleComment={singleComment} onRemove={onRemove} />
 					))}
 			</ul>
 		</div>

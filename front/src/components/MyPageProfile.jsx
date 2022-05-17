@@ -5,10 +5,33 @@ import ImgModal from 'components/ImgModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 
-function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, setDescription }) {
+function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, setDescription, userId }) {
 	const [edit, setEdit] = useState(false);
 	const [modalOpen, setModalOpen] = useState(false);
 	const [currentNickname, setCurrentNickname] = useState('');
+	const [isAdmin, setIsAdmin] = useState(false);
+
+	const [otherUserProfile, setotherUserProfile] = useState('');
+	const [otherUserNickname, setotherUserNickname] = useState('');
+	const [otherUserIntro, setotherUserIntro] = useState('');
+
+	useEffect(() => {
+		if (userId === localStorage.getItem('id')) {
+			setIsAdmin(true);
+		} else {
+			(async function fetchUserData() {
+				await fetch(`https://elice-server.herokuapp.com/mypage/${userId}`, {
+					method: 'GET',
+				})
+					.then((res) => res.json())
+					.then((result) => {
+						setotherUserProfile(result.data.profile);
+						setotherUserNickname(result.data.nickname);
+						setotherUserIntro(result.data.intro);
+					});
+			})();
+		}
+	}, []);
 
 	const openModal = () => {
 		setModalOpen(true);
@@ -32,8 +55,14 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 	return (
 		<div className="MyPageProfile__profile">
 			<div className="MyPageProfile__container__left">
-				<img src={imgSrc} alt="profile" onClick={openModal} />
-				<FontAwesomeIcon icon={faPen} className="Profile__icon" />
+				{isAdmin ? (
+					<>
+						<img src={imgSrc} alt="profile" onClick={openModal} className="AdminProfile" />
+						<FontAwesomeIcon icon={faPen} className="Profile__icon" />
+					</>
+				) : (
+					<img src={otherUserProfile} alt="profile" />
+				)}
 			</div>
 			<ImgModal
 				open={modalOpen}
@@ -45,26 +74,32 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 			/>
 			<div className="MyPageProfile__container__right">
 				<div className="items">
-					{edit === true ? (
-						<input placeholder={nickname} onChange={HandleNickname} value={nickname} />
+					{isAdmin ? (
+						edit === true ? (
+							<input placeholder={nickname} onChange={HandleNickname} value={nickname} />
+						) : (
+							<span>{nickname}</span>
+						)
 					) : (
-						<span>{nickname}</span>
+						<span>{otherUserNickname}</span>
 					)}
-					<button
-						type="button"
-						onClick={async () => {
-							// 확인 버튼 눌렀을 때 닉네임 중복 검사 및 유저 정보 수정 API
+					{userId === localStorage.getItem('id') ? (
+						<button
+							type="button"
+							onClick={async () => {
+								// 확인 버튼 눌렀을 때 닉네임 중복 검사 및 유저 정보 수정 API
 
-							if (edit) {
-								// 닉네임이 바뀌었을 때만 중복 검사
-								if (currentNickname !== nickname) {
-									const isDuplicate = await fetch(`https://elice-server.herokuapp.com/check/${nickname}`, {
-										method: 'GET',
-									}).then((res) => res.json());
-									console.log(isDuplicate);
-									if (isDuplicate.data === 'true') {
-										alert('닉네임 중복!');
-										return;
+								if (edit) {
+									// 닉네임이 바뀌었을 때만 중복 검사
+									if (currentNickname !== nickname) {
+										const isDuplicate = await fetch(`https://elice-server.herokuapp.com/check/${nickname}`, {
+											method: 'GET',
+										}).then((res) => res.json());
+										console.log(isDuplicate);
+										if (isDuplicate.data === 'true') {
+											alert('닉네임 중복!');
+											return;
+										}
 									}
 									await fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {
 										method: 'PUT',
@@ -76,24 +111,31 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 											profile: imgSrc,
 											intro: description,
 										}),
-									});
+									})
+										.then((res) => res.json())
+										.then((result) => console.log(result));
+									console.log(description);
+								} else {
+									setCurrentNickname(nickname);
 								}
-							} else {
-								setCurrentNickname(nickname);
-							}
 
-							toggleEdit();
-						}}
-					>
-						{edit ? '확인' : '프로필 수정'}
-					</button>
+								toggleEdit();
+							}}
+						>
+							{edit ? '확인' : '프로필 수정'}
+						</button>
+					) : null}
 				</div>
 				<div className="description">
 					<span>한줄 소개, 취미</span>
-					{edit === true ? (
-						<textarea onChange={HandleDescription} placeholder={description} value={description} />
+					{isAdmin ? (
+						edit === true ? (
+							<textarea onChange={HandleDescription} placeholder={description} value={description} />
+						) : (
+							<p>{description}</p>
+						)
 					) : (
-						<p>{description}</p>
+						<p>{otherUserIntro}</p>
 					)}
 				</div>
 			</div>
