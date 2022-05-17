@@ -4,7 +4,7 @@
 	flex-direction: column;
 	width: 79%;
 	height: 35%;
-	padding: 20px 0px 0px 0px;
+	padding: 20px 0px 5px 0px;
 	margin: 50px 0px 0px 50px;
 	border-radius: 20px;
 	background: #e6daff;
@@ -22,31 +22,15 @@
 	h2 {
 		font-size: 23px;
 		font-weight: 500;
-		margin: 13px 0;
+		margin: 10px 0;
 		color: #2f1154;
 	}
 
 	span {
 		font-size: 14px;
 		color: #4a3763;
-		margin: 6px 0;
+		margin: 3px 0;
 	}
-
-	// button {
-	// 	background-color: #524fa1;
-	// 	color: #fff;
-	// 	width: 150px;
-	// 	height: 30px;
-	// 	margin-bottom: 10px;
-	// 	font-weight: 500;
-	// 	font-size: 13px;
-
-	// 	padding: 7px 0px 7px 0px;
-
-	// 	// 버튼 기본 css 삭제
-	// 	border: 0;
-	// 	outline: 0;
-	// }
 
 	a {
 		color: white;
