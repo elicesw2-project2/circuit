@@ -22,88 +22,46 @@ function App() {
 	const [email, setEmail] = useState('');
 	return (
 		<div className="App">
-			<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} />
 			<Routes>
-				<Route
-					path="/auth/login"
-					element={
-						<PublicRoute>
-							<Login />
-						</PublicRoute>
-					}
-				/>
-				<Route
-					path="/auth/signup"
-					element={
-						<PublicRoute>
-							<SignUp />
-						</PublicRoute>
-					}
-				/>
-				<Route
-					path="/"
-					element={
-						<PrivateRoute>
-							<MainPage
-								imgSrc={imgSrc}
-								setImgSrc={setImgSrc}
-								nickname={nickname}
-								setNickname={setNickname}
-								searchWritings={searchWritings}
-								setSearchWritings={setSearchWritings}
-								email={email}
-								setEmail={setEmail}
-							/>
-						</PrivateRoute>
-					}
-				/>
-				<Route
-					path="/my-page"
-					element={
-						<PrivateRoute>
-							<MyPage
-								imgSrc={imgSrc}
-								setImgSrc={setImgSrc}
-								nickname={nickname}
-								setNickname={setNickname}
-								setEmail={setEmail}
-							/>
-						</PrivateRoute>
-					}
-				/>
-				<Route
-					path="/Story"
-					element={
-						<PrivateRoute>
-							<Story />
-						</PrivateRoute>
-					}
-				/>
-				<Route
-					path="/Read/:id"
-					element={
-						<PrivateRoute>
-							<Read nickname={nickname} imgSrc={imgSrc} email={email} />
-						</PrivateRoute>
-					}
-				/>
-				<Route
-					path="/Writing"
-					element={
-						<PrivateRoute>
-							<Writing nickname={nickname} />
-						</PrivateRoute>
-					}
-				/>
-
-				<Route
-					path="/Writing/:id"
-					element={
-						<PrivateRoute>
-							<WritePut />
-						</PrivateRoute>
-					}
-				/>
+				<Route element={<PublicRoute />}>
+					<Route path="/auth/login" element={<Login />} />
+					<Route path="/auth/signup" element={<SignUp />} />
+				</Route>
+				<Route element={<PrivateRoute />}>
+					<Route element={<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} />}>
+						<Route
+							path="/"
+							element={
+								<MainPage
+									imgSrc={imgSrc}
+									setImgSrc={setImgSrc}
+									nickname={nickname}
+									setNickname={setNickname}
+									searchWritings={searchWritings}
+									setSearchWritings={setSearchWritings}
+									email={email}
+									setEmail={setEmail}
+								/>
+							}
+						/>
+						<Route
+							path="/my-page"
+							element={
+								<MyPage
+									imgSrc={imgSrc}
+									setImgSrc={setImgSrc}
+									nickname={nickname}
+									setNickname={setNickname}
+									setEmail={setEmail}
+								/>
+							}
+						/>
+						<Route path="/Story" element={<Story />} />
+						<Route path="/Read/:id" element={<Read nickname={nickname} imgSrc={imgSrc} email={email} />} />
+						<Route path="/Writing" element={<Writing nickname={nickname} />} />
+						<Route path="/Writing/:id" element={<WritePut />} />
+					</Route>
+				</Route>
 			</Routes>
 		</div>
 	);
