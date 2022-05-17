@@ -39,7 +39,7 @@ export function create(req, res) {
 // 전체 조회
 export function findAll(req, res) {
 	let page = req.query.page ? parseInt(req.query.page, 10) : 1; // 페이지 번호
-	let limit = req.query.limit ? parseInt(req.query.limit, 10) : 15; // 현재 보여줄 게시물 수
+	let limit = req.query.limit ? parseInt(req.query.limit, 10) : 10; // 현재 보여줄 게시물 수
 	let offset = (page - 1) * limit; // 다음 페이지의 시작점
 	let pageCount; // 전체 페이지 수
 
