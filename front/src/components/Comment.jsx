@@ -55,6 +55,7 @@ function Comment({ nickname, imgSrc, email }) {
 			.then((result) => {
 				lastCommentIdx = result.data[result.data.length - 1].comment_idx;
 				const comment = {
+					comment_id: localStorage.getItem('id'),
 					comment_idx: lastCommentIdx,
 					nickname: nickName,
 					date: time,
