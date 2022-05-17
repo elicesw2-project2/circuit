@@ -3,7 +3,7 @@
 
 <br>
 
-## 📌 서비스 소개
+## :white_check_mark: 서비스 소개
 ####  👩‍👩‍👧‍👦 수강생들의 정보 공유 및 교류를 위한 커뮤니티 서비스
   - 익명으로 글을 작성하거나 댓글을 등록할 수 있습니다.
 #### 🙋 마이페이지
@@ -25,6 +25,8 @@
 <br>
 
 ## 📌 [기술 및 스크럼 - WIKI](https://github.com/elicesw2-project2/circuit/wiki)
+
+<br>
 
 ## ⚙️ 프로젝트 구동 방법
 우선 Repository clone 한다.
