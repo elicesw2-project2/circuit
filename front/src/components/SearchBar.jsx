@@ -6,7 +6,7 @@ import 'styles/SearchBar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-function SearchBar({ setSearchWritings }) {
+function SearchBar({ setSearchKeyword, setSearchWritings }) {
 	const navigate = useNavigate();
 
 	const [searchValue, setSearchValue] = useState('');
@@ -33,6 +33,7 @@ function SearchBar({ setSearchWritings }) {
 							setSearchWritings([]);
 							return;
 						}
+						setSearchKeyword(searchValue);
 						setSearchWritings(searchResult);
 						navigate('/');
 					}
@@ -52,6 +53,7 @@ function SearchBar({ setSearchWritings }) {
 							setSearchWritings([]);
 							return;
 						}
+						setSearchKeyword(searchValue);
 						setSearchWritings(searchResult);
 						navigate('/');
 					}}

@@ -18,6 +18,7 @@ import WritePut from './pages/WritePut';
 function App() {
 	const [imgSrc, setImgSrc] = useState(profile);
 	const [nickname, setNickname] = useState('');
+	const [searchKeyword, setSearchKeyword] = useState('');
 	const [searchWritings, setSearchWritings] = useState();
 	const [email, setEmail] = useState('');
 	return (
@@ -39,6 +40,8 @@ function App() {
 									setImgSrc={setImgSrc}
 									nickname={nickname}
 									setNickname={setNickname}
+									searchKeyword={searchKeyword}
+									setSearchKeyword={setSearchKeyword}
 									searchWritings={searchWritings}
 									setSearchWritings={setSearchWritings}
 									email={email}
