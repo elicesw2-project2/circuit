@@ -11,11 +11,12 @@ html {
 	width: 100%;
 }
 .MyPageProfile__profile {
+	position: relative;
 	display: flex;
 	margin: 50px auto;
-	width: 700px;
+	width: 65%;
 	height: 250px;
-	justify-content: space-between;
+	// justify-content: space-between;
 	align-items: center;
 	border-radius: 15px;
 	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
@@ -25,7 +26,7 @@ html {
 		position: relative;
 		img {
 			border-radius: 50%;
-			margin-left: 50px;
+			margin: 0px 50px;
 			width: 160px;
 			height: 160px;
 			&:hover {
@@ -66,8 +67,9 @@ html {
 		}
 
 		button {
+			position: absolute;
+			right: 7%;
 			cursor: pointer;
-
 			width: 90px;
 			height: 35px;
 			border: 0;

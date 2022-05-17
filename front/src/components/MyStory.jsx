@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Story.scss';
+import 'styles/MyStory.scss';
 
 function MyStory() {
 	return (
-		<section className="story_container">
+		<section className="Mystory_container">
 			<StoryInfo />
 			<Storys />
 		</section>
@@ -27,7 +27,7 @@ function Storys() {
 	}, []);
 
 	return board.map((el) => (
-		<div className="story">
+		<div className="MyStory">
 			<span className="story_number story_child">{el.post_idx}</span>
 			<span className="story_name story_child">{el.nickname}</span>
 			<Link to={`/Read/${el.post_idx}`}>

@@ -1,0 +1,33 @@
+.Mystory_container {
+	border: solid 1px #ebe2e8;
+	// position: relative;
+	border-radius: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 50px auto;
+	// margin-right: 27px;
+	// width: 1200px; /*아래 width랑 ㄱㅊ은거 골라 고정이나 비율중*/
+	width: 65%;
+	height: 100%;
+	box-sizing: border-box;
+	cursor: default;
+}
+
+.MyStory {
+	display: flex;
+	position: relative;
+	width: 100%;
+	justify-content: space-between;
+	background-color: white;
+	border-bottom: solid 1px #ebe2e8;
+	margin: 0 10px;
+	padding: 15px;
+	box-sizing: border-box;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.MyStory:last-child {
+	border-radius: 0 0 18px 18px;
+	border-bottom: none;
+}
