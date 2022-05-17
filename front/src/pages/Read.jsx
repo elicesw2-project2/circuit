@@ -41,6 +41,12 @@ function ReadContent({ nickname, imgSrc, email }) {
 		<div>
 			{board[0] !== undefined ? (
 				<section className="read_container">
+					{localStorage.getItem('id') === board[0].id ? (
+						<div className="button_box">
+							<input type="submit" className="read_button" value="수정" onClick={storyPut} />
+							<input type="submit" className="read_button delete_button" value="삭제" onClick={storyDel} />
+						</div>
+					) : null}
 					<div className="read_title">{board[0].title}</div>
 					<div className="read_info">
 						<span className="read_name">{board[0].nickname}</span>
@@ -54,12 +60,6 @@ function ReadContent({ nickname, imgSrc, email }) {
 							</span>
 						))}
 					</div>
-					{localStorage.getItem('id') === board[0].id ? (
-						<div className="button_box">
-							<input type="submit" className="read_button" value="수정" onClick={storyPut} />
-							<input type="submit" className="read_button delete_button" value="삭제" onClick={storyDel} />
-						</div>
-					) : null}
 
 					<Comment nickname={nickname} imgSrc={imgSrc} email={email} />
 				</section>
