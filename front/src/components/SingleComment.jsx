@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import ChangeDate from 'utils/ChangeDate';
 import '../styles/SingleComment.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical, faL } from '@fortawesome/free-solid-svg-icons';
 
 export default function SingleComment({ singleComment, onRemove }) {
 	const [edit, setEdit] = useState(false);
@@ -44,7 +44,9 @@ export default function SingleComment({ singleComment, onRemove }) {
 				{/* 댓글 작성자에게만 수정/삭제 버튼 보이게 */}
 				{localStorage.getItem('id') === singleComment.comment_id ? (
 					<>
-						<FontAwesomeIcon icon={faEllipsisVertical} className="menu__icon" onClick={toggleMenu} />
+						{edit === false ? (
+							<FontAwesomeIcon icon={faEllipsisVertical} className="menu__icon" onClick={toggleMenu} />
+						) : null}
 						{showMenu ? (
 							<span className="comment_edit_button">
 								{/* 수정버튼 */}
