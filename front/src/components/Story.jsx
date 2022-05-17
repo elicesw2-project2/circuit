@@ -18,7 +18,7 @@ function Storys({ searchWritings }) {
 			.then((res) => res.json())
 			.then((data) => {
 				setboard(data.data);
-				const totalPage = Math.ceil(data.pageCount[0].count / 15); // 마지막 페이지 수
+				const totalPage = Math.ceil(data.pageCount[0].count / 10); // 마지막 페이지 수
 				const pageNum = [];
 				for (let i = 1; i <= totalPage; i += 1) {
 					pageNum.push(i);
