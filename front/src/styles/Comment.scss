@@ -1,9 +1,15 @@
 .comment_container {
 	background-color: #ffff;
 	border-radius: 1px;
-	padding: 20px 0px;
+	// padding: 20px 0px;
 }
 
+.commentCount {
+	margin: 10px;
+	text-align: right;
+	margin-bottom: 20px;
+	color: #4a3763;
+}
 .comment {
 	display: flex;
 }
