@@ -63,14 +63,19 @@
 .comment_text {
 	font-size: 15;
 	padding: 6px;
+	display: inline-flex;
+	justify-content: flex-start;
 }
 
 .comment_date {
-	position: relative;
+	// position: absolute;
 	font-size: 12px;
 	color: rgb(156, 156, 156);
 	padding: 6px;
-	left: 420px;
+	// left: 60%;;
+	display: inline-flex;
+	justify-content: flex-end;
+	
 }
 
 .comment_profile {
