@@ -28,7 +28,9 @@ function App() {
 					<Route path="/auth/signup" element={<SignUp />} />
 				</Route>
 				<Route element={<PrivateRoute />}>
-					<Route element={<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} />}>
+					<Route
+						element={<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} setNickname={setNickname} setEmail={setEmail} />}
+					>
 						<Route
 							path="/"
 							element={
