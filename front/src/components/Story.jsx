@@ -53,10 +53,13 @@ function Storys({ searchWritings }) {
 					</div>
 				))}
 			</div>
-			<div className="pages_nav">
+			<Link className="writeBtn" to="/Writing">
+				글쓰기
+			</Link>
+			<div className="pageNav">
 				{page !== undefined
 					? page.map((el) => (
-							<button type="submit" onClick={storyPagination}>
+							<button type="submit" className="pageNav_btn" onClick={storyPagination}>
 								{el}
 							</button>
 					  ))
