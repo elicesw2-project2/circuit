@@ -2,20 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'styles/MyStory.scss';
 
-function MyStory() {
+function MyStory({ userId }) {
 	return (
 		<section className="Mystory_container">
 			<StoryInfo />
-			<Storys />
+			<Storys userId={userId} />
 		</section>
 	);
 }
 
-function Storys() {
+function Storys({ userId }) {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
 	const [board, setboard] = useState([]);
+
 	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}/posts`, {
+		fetch(`https://elice-server.herokuapp.com/mypage/${userId}/posts`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())

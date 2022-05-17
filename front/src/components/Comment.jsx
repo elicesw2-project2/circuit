@@ -53,6 +53,7 @@ function Comment({ nickname, imgSrc, email }) {
 		})
 			.then((res) => res.json())
 			.then((result) => {
+				console.log(result);
 				lastCommentIdx = result.data[result.data.length - 1].comment_idx;
 				const comment = {
 					comment_id: localStorage.getItem('id'),

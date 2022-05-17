@@ -14,7 +14,7 @@ import {
 import { Link, Outlet } from 'react-router-dom';
 import Logout from 'utils/Logout';
 
-function NavBar({ imgSrc, setNickname, setEmail, setImgSrc }) {
+function NavBar({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 	const [showMenu, setShowMenu] = useState(false);
 	const toggleMenu = () => {
 		setShowMenu((showMenu) => !showMenu);
@@ -29,6 +29,7 @@ function NavBar({ imgSrc, setNickname, setEmail, setImgSrc }) {
 				.then((result) => {
 					setNickname(result.data.nickname);
 					setEmail(result.data.id);
+					setDescription(result.data.intro);
 					// 처음 로그인한 유저는 null값이 들어오므로 profile값이 있을 때만 DB에서 불러와서 지정함
 					if (result.data.profile !== null) {
 						setImgSrc(result.data.profile);
@@ -72,7 +73,11 @@ function NavBar({ imgSrc, setNickname, setEmail, setImgSrc }) {
 									<div className="menu__lists">
 										<li>
 											<FontAwesomeIcon icon={faCircleUser} className="menu__icon" />
-											<Link to="/my-page" className="menu__mypage" style={{ textDecoration: 'none' }}>
+											<Link
+												to={`/user/${localStorage.getItem('id')}`}
+												className="menu__mypage"
+												style={{ textDecoration: 'none' }}
+											>
 												마이 페이지
 											</Link>
 										</li>

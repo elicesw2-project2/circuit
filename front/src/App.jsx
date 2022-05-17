@@ -18,6 +18,7 @@ import WritePut from './pages/WritePut';
 function App() {
 	const [imgSrc, setImgSrc] = useState(profile);
 	const [nickname, setNickname] = useState('');
+	const [description, setDescription] = useState('');
 	const [searchWritings, setSearchWritings] = useState();
 	const [email, setEmail] = useState('');
 	return (
@@ -29,7 +30,15 @@ function App() {
 				</Route>
 				<Route element={<PrivateRoute />}>
 					<Route
-						element={<NavBar imgSrc={imgSrc} setImgSrc={setImgSrc} setNickname={setNickname} setEmail={setEmail} />}
+						element={
+							<NavBar
+								imgSrc={imgSrc}
+								setImgSrc={setImgSrc}
+								setNickname={setNickname}
+								setEmail={setEmail}
+								setDescription={setDescription}
+							/>
+						}
 					>
 						<Route
 							path="/"
@@ -47,7 +56,7 @@ function App() {
 							}
 						/>
 						<Route
-							path="/my-page"
+							path="/user/:id"
 							element={
 								<MyPage
 									imgSrc={imgSrc}
@@ -55,6 +64,8 @@ function App() {
 									nickname={nickname}
 									setNickname={setNickname}
 									setEmail={setEmail}
+									description={description}
+									setDescription={setDescription}
 								/>
 							}
 						/>

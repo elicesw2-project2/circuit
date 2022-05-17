@@ -21,6 +21,7 @@
 		// "no-use-before-define": "off"
 		"react/no-array-index-key": "off",
 		"react/jsx-props-no-spreading": "off",
-		"no-unused-expressions": "off"
+		"no-unused-expressions": "off",
+		"no-nested-ternary": "off"
 	}
 }

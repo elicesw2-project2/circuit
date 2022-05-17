@@ -29,8 +29,10 @@ html {
 			margin: 0px 50px;
 			width: 160px;
 			height: 160px;
-			&:hover {
-				opacity: 0.25;
+			.AdminProfile {
+				&:hover {
+					opacity: 0.25;
+				}
 			}
 			box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 		}
