@@ -5,7 +5,19 @@ import SideBar from 'components/SideBar';
 import '../styles/MainPage.scss';
 import SearchBar from 'components/SearchBar';
 
-function MainPage({ imgSrc, setImgSrc, nickname, setNickname, searchWritings, setSearchWritings, email, setEmail }) {
+function MainPage({
+	imgSrc,
+	setImgSrc,
+	nickname,
+	setNickname,
+	searchKeyword,
+	setSearchKeyword,
+	searchWritings,
+	setSearchWritings,
+	email,
+	setEmail,
+}) {
+	// URL 파라미터 수정해야함
 	useEffect(() => {
 		(async function fetchUserId() {
 			await fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {
@@ -25,10 +37,10 @@ function MainPage({ imgSrc, setImgSrc, nickname, setNickname, searchWritings, se
 
 	return (
 		<div className="main_cpn">
-			<Story searchWritings={searchWritings} />
+			<Story searchKeyword={searchKeyword} searchWritings={searchWritings} />
 			<div className="Mainpage__rightContainer">
 				<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
-				<SearchBar setSearchWritings={setSearchWritings} />
+				<SearchBar setSearchKeyword={setSearchKeyword} setSearchWritings={setSearchWritings} />
 				<SideBar />
 			</div>
 		</div>

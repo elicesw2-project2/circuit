@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Story.scss';
 
-function Story({ searchWritings }) {
-	return <Storys searchWritings={searchWritings} />;
+function Story({ searchKeyword, searchWritings }) {
+	return <Storys searchKeyword={searchKeyword} searchWritings={searchWritings} />;
 }
 
-function Storys({ searchWritings }) {
+function Storys({ searchKeyword, searchWritings }) {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
 	const [board, setboard] = useState([]);
 	const [page, setpage] = useState();
+	const [boardcount, setboardcount] = useState();
 
 	useEffect(() => {
 		fetch(`https://elice-server.herokuapp.com/board/?page=${1}`, {
@@ -18,6 +19,7 @@ function Storys({ searchWritings }) {
 			.then((res) => res.json())
 			.then((data) => {
 				setboard(data.data);
+				setboardcount(data.pageCount[0].count);
 				const totalPage = Math.ceil(data.pageCount[0].count / 10); // 마지막 페이지 수
 				const pageNum = [];
 				for (let i = 1; i <= totalPage; i += 1) {
@@ -41,6 +43,7 @@ function Storys({ searchWritings }) {
 	return searchWritings === undefined ? (
 		<section className="story_parent">
 			<div className="story_container">
+				<div className="story_length">{boardcount}개의 게시글</div>
 				<StoryInfo />
 				{board.map((el) => (
 					<div className="story">
@@ -69,6 +72,9 @@ function Storys({ searchWritings }) {
 	) : (
 		<section className="story_parent">
 			<div className="story_container">
+				<div className="story_length">
+					&apos;{searchKeyword}&apos; - {searchWritings.length}개의 게시글
+				</div>
 				<StoryInfo />
 				{searchWritings.map((el) => (
 					<div className="story">

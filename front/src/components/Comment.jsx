@@ -6,6 +6,7 @@ import SingleComment from 'components/SingleComment';
 
 function Comment({ nickname, imgSrc, email }) {
 	const [commentList, setCommentList] = useState();
+	const [commentCount, setCommentCount] = useState();
 	let lastCommentIdx = '';
 	const postIdx = useParams().id;
 	// 댓글 가져오기(GET)
@@ -19,8 +20,10 @@ function Comment({ nickname, imgSrc, email }) {
 					// console.log(result.data);
 					// commentList에 result.data를 넣어줌
 					setCommentList(result.data);
+					setCommentCount(result.data.length);
 				} else {
 					setCommentList([]);
+					setCommentCount(0);
 				}
 			});
 	}, []);
@@ -66,6 +69,7 @@ function Comment({ nickname, imgSrc, email }) {
 				};
 				// concat 함수로 comment객체를 commentList에 추가
 				setCommentList(commentList.concat(comment));
+				setCommentCount(commentList.length + 1);
 			});
 		// 댓글 등록 후 textarea 리셋
 		document.querySelector('#comment_textarea').value = '';
@@ -79,7 +83,7 @@ function Comment({ nickname, imgSrc, email }) {
 		// comment_idx 가 전달받은 파라미터와 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
 		// = comment_idx 가 param 인 것을 제거함
 		setCommentList(commentList.filter((commentList) => commentList.comment_idx !== param));
-
+		setCommentCount(commentList.length - 1);
 		// fetch delete
 		fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments/${param}`, {
 			method: 'DELETE',
@@ -92,6 +96,7 @@ function Comment({ nickname, imgSrc, email }) {
 
 	return (
 		<div className="comment_container">
+			<div className="commentCount">{commentCount}개의 댓글</div>
 			<div className="comment">
 				<div className="comment_textarea__container">
 					<textarea id="comment_textarea" placeholder="댓글 달기..." />
