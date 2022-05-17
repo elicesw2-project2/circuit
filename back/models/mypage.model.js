@@ -35,7 +35,7 @@ Users.updateById = (id, user, result) => {
 	// user 테이블 수정
 	sql.query(
 		'UPDATE user SET nickname = ?, profile = ?, intro = ? WHERE id = ?',
-		[user.nickname, user.profile,user.intro, id],
+		[user.nickname, user.profile, user.intro, id],
 		(err, res) => {
 			if (err) {
 				console.log('error: ', err);
@@ -55,15 +55,9 @@ Users.updateById = (id, user, result) => {
 	);
 
 	// post 테이블 수정
-	sql.query(
-		'UPDATE post set nickname = ? WHERE id = ?',
-		[user.nickname, id],
-		(err, res) => {
-			console.log('update post: ', { id, ...user });
-			
-			
-		}
-	);
+	sql.query('UPDATE post set nickname = ? WHERE id = ?', [user.nickname, id], (err, res) => {
+		console.log('update post: ', { id, ...user });
+	});
 
 	// commnet 테이블 수정
 	sql.query(
@@ -71,7 +65,6 @@ Users.updateById = (id, user, result) => {
 		[user.nickname, user.profile, id],
 		(err, res) => {
 			console.log('update comment: ', { id, ...user });
-	
 		}
 	);
 };
@@ -97,8 +90,8 @@ Users.remove = (id, user, result) => {
 };
 
 // id로 닉네임 체크
-Users.getCheckNickname = (nickname,result)=>{
-	sql.query('select nickname from user where nickname = ? ', nickname,(err, res) =>{
+Users.getCheckNickname = (nickname, result) => {
+	sql.query('select nickname from user where nickname = ? ', nickname, (err, res) => {
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);
@@ -106,18 +99,18 @@ Users.getCheckNickname = (nickname,result)=>{
 		}
 
 		if (res.length) {
-			console.log("found nickname: ", res);
+			console.log('found nickname: ', res);
 			result(null, res);
 			return;
 		}
 
 		// 결과가 없을 시
 		result({ kind: 'not_found' }, null);
-	})
-}
+	});
+};
 // id로 게시글 조회
 Users.getPostsById = (userId, result) => {
-	sql.query('SELECT * FROM post WHERE id = ?', userId, (err, res) => {
+	sql.query('SELECT * FROM post ORDER BY post_idx WHERE id = ?', userId, (err, res) => {
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);
