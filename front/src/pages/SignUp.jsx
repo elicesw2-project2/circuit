@@ -67,13 +67,14 @@ function SignUp() {
 				{errors.nickname && <p id="signUp_errors">{errors.nickname.message}</p>}
 
 				<p>
-					<input {...register('pw', { required: '필수 정보입니다.' })} id="pw" placeholder="비밀번호" />
+					<input type="password" {...register('pw', { required: '필수 정보입니다.' })} id="pw" placeholder="비밀번호" />
 					<label htmlFor="pw">비밀번호</label>
 				</p>
 				{errors.pw && <p id="signUp_errors">{errors.pw.message}</p>}
 
 				<p>
 					<input
+						type="password"
 						{...register('pw_check', { required: true, validate: (value) => value === pw.current })}
 						id="pw_check"
 						placeholder="비밀번호 확인"

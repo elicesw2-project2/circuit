@@ -59,6 +59,7 @@ function Login() {
 					<p>
 						<input
 							className="pw"
+							type="password"
 							{...register('pw', { required: '비밀번호를 입력하세요.' })}
 							id="pw"
 							placeholder="비밀번호"

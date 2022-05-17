@@ -32,38 +32,42 @@ export default function SingleComment({ singleComment, onRemove }) {
 
 					<div className="comment_date">{singleComment.date.substr(0, 10)} </div>
 				</span>
-				<span className="comment_edit_button">
-					{/* 수정버튼 */}
-					<button
-						className="editBtn"
-						type="submit"
-						onClick={() => {
-							toggleEdit();
-							if (edit === true) {
-								// const editedComment = `${value}`;
-								fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments/${singleComment.comment_idx}`, {
-									method: 'PATCH',
-									body: JSON.stringify({
-										content: `${value}`,
-										date: ChangeDate(),
-									}),
-									headers: {
-										'Content-type': 'application/json; charset=UTF-8',
-									},
-								})
-									.then((response) => response.json())
-									.then((data) => console.log(data));
-							}
-						}}
-					>
-						{edit ? '등록' : '수정'}
-					</button>
 
-					{/* 삭제버튼 */}
-					<button className="deleteBtn" type="submit" onClick={() => onRemove(singleComment.comment_idx)}>
-						삭제
-					</button>
-				</span>
+				{/* 댓글 작성자에게만 수정/삭제 버튼 보이게 */}
+				{localStorage.getItem('id') === singleComment.comment_id ? (
+					<span className="comment_edit_button">
+						{/* 수정버튼 */}
+						<button
+							className="editBtn"
+							type="submit"
+							onClick={() => {
+								toggleEdit();
+								if (edit === true) {
+									fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments/${singleComment.comment_idx}`, {
+										method: 'PATCH',
+										body: JSON.stringify({
+											content: `${value}`,
+											date: ChangeDate(),
+										}),
+										headers: {
+											'Content-type': 'application/json; charset=UTF-8',
+										},
+									})
+										.then((response) => response.json())
+										.then((data) => console.log(data));
+								}
+							}}
+						>
+							{edit ? '등록' : '수정'}
+						</button>
+						{/* 삭제버튼 */}
+						{edit ? null : (
+							<button className="deleteBtn" type="submit" onClick={() => onRemove(singleComment.comment_idx)}>
+								삭제
+							</button>
+						)}
+					</span>
+				) : null}
 			</li>
 		</div>
 	);
