@@ -110,7 +110,7 @@ Users.getCheckNickname = (nickname, result) => {
 };
 // id로 게시글 조회
 Users.getPostsById = (userId, result) => {
-	sql.query('SELECT * FROM post ORDER BY post_idx WHERE id = ?', userId, (err, res) => {
+	sql.query('SELECT * FROM post WHERE id = ? ORDER BY post_idx DESC', userId, (err, res) => {
 		if (err) {
 			console.log('error: ', err);
 			result(err, null);
