@@ -91,14 +91,12 @@ function Comment({ nickname, imgSrc, email }) {
 	return (
 		<div className="comment_container">
 			<div className="comment">
-				<span>
+				<div className="comment_textarea__container">
 					<textarea id="comment_textarea" placeholder="댓글 달기..." />
-				</span>
-				<span>
-					<button type="submit" className="comment_btn" onClick={onCreate}>
-						등록
-					</button>
-				</span>
+				</div>
+				<button type="submit" className="comment_btn" onClick={onCreate}>
+					등록
+				</button>
 			</div>
 			<ul className="comment_list">
 				{commentList &&

@@ -1,42 +1,51 @@
 .comment_container {
-	height: fit-content;
-	width: 100;
-	text-align: center;
 	background-color: #ffff;
 	border-radius: 1px;
-	padding: 10px 0px;
+	padding: 20px 0px;
+}
+
+.comment {
+	display: flex;
+}
+
+.comment_textarea__container {
+	position: relative;
+	width: 90%;
+	height: 40px;
+	align-items: center;
+	background: #f3ebff;
+	border: 1px solid #f3ebff;
+	border-radius: 15px;
+	margin: 0px 10px 20px 10px;
 }
 
 #comment_textarea {
-	padding:7px;
+	position: absolute;
+	top: 10px;
+	left: 15px;
 	font-size: 15px;
-	width: 80%;
-	height: 2rem;
+	background: transparent;
 	outline: none;
-	background: #F3EBFF;
-	border-radius: 15px;
-	border: 1px solid #F3EBFF;
-	margin: 0 15px 10px 0;
+	border: none;
 	resize: none;
 }
 
 .comment_btn {
-	padding:10px;
+	padding: 10px;
 	text-align: center;
 	width: 70px;
+	height: 100%;
 	border: 1px solid transparent;
-	background-color: #A171FF;
+	background-color: #a171ff;
 	border-radius: 15px;
 	color: #fff;
 	font-weight: 600;
 	font-size: 15px;
 	cursor: pointer;
-	position: relative;
-	bottom: 27px;
 }
 
 .comment_list {
-	color: #4A3763;
+	color: #4a3763;
 	padding: 9px 0px 7px 9px;
 	font-size: 15px;
 	width: 100%;
@@ -75,7 +84,6 @@
 	// left: 60%;;
 	display: inline-flex;
 	justify-content: flex-end;
-	
 }
 
 .comment_profile {
