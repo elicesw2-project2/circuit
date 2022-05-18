@@ -36,9 +36,9 @@ function NavBar2({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 		<>
 			<nav className="navBar navBar2">
 				<div className="navLogo">
-					<a href="/circuit" style={{ textDecoration: 'none' }}>
+					<Link to="/page=1" style={{ textDecoration: 'none' }}>
 						Circuit
-					</a>
+					</Link>
 				</div>
 				<ul className="navItems">
 					<li className="navItem">

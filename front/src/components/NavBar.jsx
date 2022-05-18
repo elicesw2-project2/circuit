@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/NavBar.scss';
-// import { Divider } from '@mui/material';
 
 // FontAwesome Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -36,9 +35,9 @@ function NavBar({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 		<>
 			<nav className="navBar navBar1">
 				<div className="navLogo">
-					<a href="/circuit/page=1" style={{ textDecoration: 'none' }}>
+					<Link to="/page=1" style={{ textDecoration: 'none' }}>
 						Circuit
-					</a>
+					</Link>
 				</div>
 				<ul className="navItems">
 					<li className="navItem">

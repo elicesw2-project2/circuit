@@ -11,7 +11,6 @@ import NavBar2 from 'components/NavBar2';
 import MainPage from './pages/MainPage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import Story from './components/Story';
 import Read from './pages/Read';
 import Writing from './pages/Writing';
 import WritePut from './pages/WritePut';
@@ -27,6 +26,7 @@ function App() {
 	if (window.location.pathname === '/circuit' || window.location.pathname === '/circuit/') {
 		window.location.pathname = '/circuit/page=1';
 	}
+
 	return (
 		<div className="App">
 			<Routes>
@@ -63,6 +63,21 @@ function App() {
 								/>
 							}
 						/>
+						<Route
+							path="/page=:pageNum"
+							element={
+								<MainPage
+									imgSrc={imgSrc}
+									setImgSrc={setImgSrc}
+									nickname={nickname}
+									setNickname={setNickname}
+									searchWritings={searchWritings}
+									setSearchWritings={setSearchWritings}
+									email={email}
+									setEmail={setEmail}
+								/>
+							}
+						/>
 					</Route>
 					<Route
 						element={
@@ -86,21 +101,6 @@ function App() {
 									setEmail={setEmail}
 									description={description}
 									setDescription={setDescription}
-								/>
-							}
-						/>
-						<Route
-							path="/page=:pageNum"
-							element={
-								<MainPage
-									imgSrc={imgSrc}
-									setImgSrc={setImgSrc}
-									nickname={nickname}
-									setNickname={setNickname}
-									searchWritings={searchWritings}
-									setSearchWritings={setSearchWritings}
-									email={email}
-									setEmail={setEmail}
 								/>
 							}
 						/>
