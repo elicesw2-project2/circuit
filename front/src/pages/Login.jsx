@@ -23,7 +23,7 @@ function Login() {
 			.then((result) => {
 				if (result.message === '로그인 성공') {
 					// mainpage로 이동
-					navigate('/');
+					navigate('/page=1');
 					localStorage.setItem('id', result.data.id);
 					saveToken(result.data.token);
 				} else {
