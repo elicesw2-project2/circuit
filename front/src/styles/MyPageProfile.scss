@@ -31,19 +31,29 @@ html {
 			height: 160px;
 			box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 		}
-		.AdminProfile {
-			&:hover {
+		&:hover {
+			.AdminProfile {
 				opacity: 0.3;
 			}
 		}
 
 		.Profile__icon {
+			display: none;
 			color: #524fa1;
 			font-size: 23px;
 			position: absolute;
 			bottom: 70px;
 			right: 120px;
+			display: none;
 		}
+		// .Profile__icon:hover {
+		// 	color: #524fa1;
+		// 	font-size: 23px;
+		// 	position: absolute;
+		// 	bottom: 70px;
+		// 	right: 120px;
+		// 	display: block;
+		// }
 	}
 
 	.MyPageProfile__container__right {

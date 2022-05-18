@@ -63,18 +63,13 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 
 	return (
 		<div className="MyPageProfile__profile">
-			<div className="MyPageProfile__container__left">
+			<div className="MyPageProfile__container__left" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 				{isAdmin ? (
 					<>
-						<img
-							src={imgSrc}
-							alt="profile"
-							onClick={openModal}
-							className="AdminProfile"
-							onMouseEnter={onMouseEnter}
-							onMouseLeave={onMouseLeave}
-						/>
-						{mouseEnter ? <FontAwesomeIcon icon={faPen} className="Profile__icon " /> : null}
+						<img src={imgSrc} alt="profile" onClick={openModal} className="AdminProfile" />
+						{mouseEnter ? (
+							<FontAwesomeIcon icon={faPen} className="Profile__icon " style={{ display: 'block' }} />
+						) : null}
 					</>
 				) : (
 					<img src={otherUserProfile} alt="profile" />
