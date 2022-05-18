@@ -15,10 +15,10 @@
 
 <p>
     <img src="https://img.shields.io/badge/React-v18.0.0-blue?logo=Reac"/>
-    <img src="https://img.shields.io/badge/node.js-v16.13.0-green?logo=Node.j"/>
+    <img src="https://img.shields.io/badge/node.js-v16.13.0-green?logo=Node.js"/>
     <img src="https://img.shields.io/badge/eslint-%5E8.14.0-yellow?logo=eslint"/>
     <img src="https://img.shields.io/badge/mysql-v2.18.1-%234479A1?logo=Mysql">
-  <img src="https://img.shields.io/badge/Nodemon-v2.0.15-76D04B?logo=Nodemo"/>
+  <img src="https://img.shields.io/badge/Nodemon-v2.0.15-76D04B?logo=Nodemon"/>
   <img src="https://img.shields.io/badge/Express-v2.0.15-000000?logo=Express"/>
 </p>
 
