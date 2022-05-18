@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import '../styles/Story.scss';
 
 function Story({ searchKeyword, searchWritings }) {
@@ -11,9 +11,11 @@ function Storys({ searchKeyword, searchWritings }) {
 	const [board, setboard] = useState([]);
 	const [page, setpage] = useState();
 	const [boardcount, setboardcount] = useState();
+	const navigate = useNavigate();
+	const { pageNum } = useParams();
 
 	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/board/?page=${1}`, {
+		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNum}`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
@@ -38,6 +40,7 @@ function Storys({ searchKeyword, searchWritings }) {
 			.then((data) => {
 				setboard(data.data);
 			});
+		navigate(`/page=${pageNumber}`);
 	}
 
 	return searchWritings === undefined ? (
@@ -49,7 +52,7 @@ function Storys({ searchKeyword, searchWritings }) {
 					<div className="story">
 						<span className="story_number story_child">{el.post_idx}</span>
 						<span className="story_name story_child">{el.nickname}</span>
-						<Link to={`/Read/${el.post_idx}`}>
+						<Link to={`/page=${pageNum}/Read=${el.post_idx}`}>
 							<span className="story_title story_child">
 								{el.title.length < 25 ? el.title : `${el.title.substr(0, 25)}...`}
 							</span>
@@ -64,7 +67,7 @@ function Storys({ searchKeyword, searchWritings }) {
 			<div className="pageNav">
 				{page !== undefined
 					? page.map((el) => (
-							<button type="submit" className="pageNav_btn" onClick={storyPagination}>
+							<button type="submit" className="pageNav_btn" onClick={storyPagination} value={el}>
 								{el}
 							</button>
 					  ))
@@ -82,7 +85,7 @@ function Storys({ searchKeyword, searchWritings }) {
 					<div className="story">
 						<span className="story_number story_child">{el.post_idx}</span>
 						<span className="story_name story_child asdf">{el.nickname}</span>
-						<Link to={`/Read/${el.post_idx}`}>
+						<Link to={`Read=${el.post_idx}`}>
 							<span className="story_title story_child">{el.title}</span>
 						</Link>
 						<span className="story_time story_child">{el.date.substr(0, 10)}</span>

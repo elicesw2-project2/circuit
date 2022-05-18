@@ -106,7 +106,6 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 										const isDuplicate = await fetch(`https://elice-server.herokuapp.com/check/${nickname}`, {
 											method: 'GET',
 										}).then((res) => res.json());
-										console.log(isDuplicate);
 										if (isDuplicate.data === 'true') {
 											alert('닉네임 중복!');
 											return;
@@ -122,10 +121,7 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 											profile: imgSrc,
 											intro: description,
 										}),
-									})
-										.then((res) => res.json())
-										.then((result) => console.log(result));
-									console.log(description);
+									}).then((res) => res.json());
 								} else {
 									setCurrentNickname(nickname);
 								}

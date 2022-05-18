@@ -4,7 +4,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Login.scss';
 import { useForm } from 'react-hook-form';
-import { saveToken, getToken } from 'utils/token';
+import { saveToken } from 'utils/token';
 
 function Login() {
 	const navigate = useNavigate();

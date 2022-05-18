@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import img1 from 'public/img1.jpg';
 import img2 from 'public/img2.jpg';
 import img3 from 'public/img3.jpg';
@@ -11,7 +11,7 @@ import 'styles/Modal.scss';
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
-function Modal({ open, close, imgSrc, setImgSrc, nickname, description }) {
+function Modal({ open, close, setImgSrc, nickname, description }) {
 	return (
 		<div className={open ? 'openModal modal' : 'modal'}>
 			{open ? (
