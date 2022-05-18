@@ -76,7 +76,7 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 				<div className="items">
 					{isAdmin ? (
 						edit === true ? (
-							<input placeholder={nickname} onChange={HandleNickname} value={nickname} />
+							<input placeholder={nickname} onChange={HandleNickname} value={nickname.trim()} maxLength="8" />
 						) : (
 							<span>{nickname}</span>
 						)

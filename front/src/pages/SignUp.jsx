@@ -61,7 +61,11 @@ function SignUp() {
 				</p>
 				{errors.id && <p id="signUp_errors">{errors.id.message}</p>}
 				<p>
-					<input {...register('nickname', { required: '필수 정보입니다.' })} id="nickname" placeholder="별명" />
+					<input
+						{...register('nickname', { required: '필수 정보입니다.', maxLength: 8 })}
+						id="nickname"
+						placeholder="별명"
+					/>
 					<label htmlFor="nickname">별명</label>
 				</p>
 				{errors.nickname && <p id="signUp_errors">{errors.nickname.message}</p>}
@@ -75,7 +79,7 @@ function SignUp() {
 				<p>
 					<input
 						type="password"
-						{...register('pw_check', { required: true, validate: (value) => value === pw.current })}
+						{...register('pw_check', { required: true, validate: (value) => value === pw.current, minLength: 5 })}
 						id="pw_check"
 						placeholder="비밀번호 확인"
 					/>
