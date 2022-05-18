@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
 .Sidebar__container {
 	background-color: #fff;
 	display: flex;
@@ -12,7 +14,7 @@
 	margin: 20px;
 	margin-left: 130px;
 	margin-top: 30px;
-
+	font-family: 'Noto Sans KR', sans-serif;
 	h2 {
 		color: #2f1154;
 		font-weight: bold;

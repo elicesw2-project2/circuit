@@ -4,7 +4,6 @@
 	width: 80%;
 }
 .story_container {
-	border: solid 1px #ebe2e8;
 	position: relative;
 	border-radius: 30%;
 	display: flex;
@@ -19,6 +18,7 @@
 	color: #2f1154;
 	padding: 10px;
 	margin-left: 5px;
+	font-weight: bold;
 }
 
 .story {
@@ -57,6 +57,7 @@
 .story.storyInfo {
 	border-bottom: 1.5px solid #4a3763;
 	border-radius: 16px 16px 0px 0px;
+	font-weight: bold;
 }
 
 .story.storyInfo .story_title {
