@@ -50,7 +50,7 @@ function WriteContent({ nickname }) {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				navigate(`/Read/${data.data.post_idx}`);
+				navigate(`/page=1/Read=${data.data.post_idx}`);
 			});
 	}
 	return (

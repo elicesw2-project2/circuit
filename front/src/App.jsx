@@ -20,7 +20,7 @@ function App() {
 	const [nickname, setNickname] = useState('');
 	const [searchWritings, setSearchWritings] = useState();
 	const [email, setEmail] = useState('');
-	console.log(window.location.pathname);
+
 	if (window.location.pathname === '/circuit' || window.location.pathname === '/circuit/') {
 		window.location.pathname = '/circuit/page=1';
 	}
@@ -75,13 +75,12 @@ function App() {
 								/>
 							}
 						/>
-						{/* <Route path="/Story" element={<Story qwer={qwer} setqwer={setqwer} />} /> */}
 						<Route
 							path="/page=:pageNum/Read=:id"
 							element={<Read nickname={nickname} imgSrc={imgSrc} email={email} />}
 						/>
 						<Route path="/Writing" element={<Writing nickname={nickname} />} />
-						<Route path="/Writing/:id" element={<WritePut />} />
+						<Route path="/page=:pageNum/Writing=:id" element={<WritePut />} />
 					</Route>
 				</Route>
 			</Routes>

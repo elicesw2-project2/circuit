@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import '../styles/Story.scss';
 
-import Read from '../pages/Read';
-
 function Story({ searchWritings }) {
 	return <Storys searchWritings={searchWritings} />;
 }
@@ -14,7 +12,7 @@ function Storys({ searchWritings }) {
 	const [page, setpage] = useState();
 	const navigate = useNavigate();
 	const { pageNum } = useParams();
-	// console.log(pagesRef.current.innerHTML);
+
 	useEffect(() => {
 		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNum}`, {
 			method: 'GET',
@@ -23,7 +21,6 @@ function Storys({ searchWritings }) {
 			.then((data) => {
 				setboard(data.data);
 				const totalPage = Math.ceil(data.pageCount[0].count / 10); // 마지막 페이지 수
-				console.log(totalPage);
 				const pageNum = [];
 				for (let i = 1; i <= totalPage; i += 1) {
 					pageNum.push(i);
@@ -68,7 +65,6 @@ function Storys({ searchWritings }) {
 							<button type="submit" className="pageNav_btn" onClick={storyPagination} value={el}>
 								{el}
 							</button>
-							// <input type="submit" className="pageNav_btn" value={el} onClick={storyPagination} />
 					  ))
 					: null}
 			</div>

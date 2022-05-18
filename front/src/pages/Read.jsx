@@ -9,12 +9,14 @@ export default function Read({ nickname, imgSrc, email }) {
 }
 
 function ReadContent({ nickname, imgSrc, email }) {
+	const boardPageNum = window.location.pathname.split('/')[2];
+
 	const readParam = useParams().id;
 	const { pageNum } = useParams();
 	const navigate = useNavigate();
 	const [board, setboard] = useState([]);
 	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNum || 1}`, {
+		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNum}`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
@@ -25,7 +27,7 @@ function ReadContent({ nickname, imgSrc, email }) {
 
 	function storyPut() {
 		// 글 수정페이지로 이동
-		navigate(`/Writing/${board[0].post_idx}`);
+		navigate(`/${boardPageNum}/Writing=${board[0].post_idx}`);
 	}
 
 	function storyDel() {
@@ -35,7 +37,7 @@ function ReadContent({ nickname, imgSrc, email }) {
 				method: 'DELETE',
 			});
 			alert('삭제되었습니다.');
-			navigate(`/`);
+			navigate(`/page=1`);
 		} else {
 			alert('삭제 취소');
 		}
