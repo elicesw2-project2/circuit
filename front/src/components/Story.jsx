@@ -50,7 +50,9 @@ function Storys({ searchKeyword, searchWritings }) {
 						<span className="story_number story_child">{el.post_idx}</span>
 						<span className="story_name story_child">{el.nickname}</span>
 						<Link to={`/Read/${el.post_idx}`}>
-							<span className="story_title story_child">{el.title}</span>
+							<span className="story_title story_child">
+								{el.title.length < 25 ? el.title : `${el.title.substr(0, 25)}...`}
+							</span>
 						</Link>
 						<span className="story_time story_child">{el.date.substr(0, 10)}</span>
 					</div>
