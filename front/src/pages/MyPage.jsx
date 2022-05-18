@@ -5,7 +5,7 @@ import { useLocation, useParams } from 'react-router-dom';
 
 let prePath = '';
 
-function MyPage({ imgSrc, setImgSrc, nickname, setNickname, setEmail, description, setDescription }) {
+function MyPage({ imgSrc, setImgSrc, nickname, setNickname, description, setDescription }) {
 	const { id } = useParams();
 	const [userId, setUserId] = useState(id);
 	const location = useLocation();

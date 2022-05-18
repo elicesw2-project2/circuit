@@ -29,7 +29,6 @@ function SearchBar({ setSearchKeyword, setSearchWritings }) {
 						}
 						const searchResult = await Search(searchValue);
 						if (searchResult.status === 404) {
-							console.log(searchResult.message);
 							setSearchWritings([]);
 							return;
 						}
@@ -49,7 +48,6 @@ function SearchBar({ setSearchKeyword, setSearchWritings }) {
 						}
 						const searchResult = await Search(searchValue);
 						if (searchResult.status === 404) {
-							console.log(searchResult.message);
 							setSearchWritings([]);
 							return;
 						}

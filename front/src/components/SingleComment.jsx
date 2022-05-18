@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import ChangeDate from 'utils/ChangeDate';
 import '../styles/SingleComment.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisVertical, faL } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 
-export default function SingleComment({ key, singleComment, onRemove }) {
+export default function SingleComment({ singleComment, onRemove }) {
 	const [edit, setEdit] = useState(false);
 	const [value, setValue] = useState(singleComment.content);
 	const [showMenu, setShowMenu] = useState(false);
@@ -71,9 +71,7 @@ export default function SingleComment({ key, singleComment, onRemove }) {
 														'Content-type': 'application/json; charset=UTF-8',
 													},
 												}
-											)
-												.then((response) => response.json())
-												.then((data) => console.log(data));
+											).then((response) => response.json());
 										}
 									}}
 								>

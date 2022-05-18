@@ -10,6 +10,7 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 	const [modalOpen, setModalOpen] = useState(false);
 	const [currentNickname, setCurrentNickname] = useState('');
 	const [isAdmin, setIsAdmin] = useState(false);
+	const [mouseEnter, setMouseEnter] = useState(false);
 
 	const [otherUserProfile, setotherUserProfile] = useState('');
 	const [otherUserNickname, setotherUserNickname] = useState('');
@@ -52,13 +53,23 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 		setEdit((edit) => !edit);
 	};
 
+	const onMouseEnter = () => {
+		setMouseEnter(true);
+	};
+
+	const onMouseLeave = () => {
+		setMouseEnter(false);
+	};
+
 	return (
 		<div className="MyPageProfile__profile">
-			<div className="MyPageProfile__container__left">
+			<div className="MyPageProfile__container__left" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 				{isAdmin ? (
 					<>
 						<img src={imgSrc} alt="profile" onClick={openModal} className="AdminProfile" />
-						<FontAwesomeIcon icon={faPen} className="Profile__icon" />
+						{mouseEnter ? (
+							<FontAwesomeIcon icon={faPen} className="Profile__icon " style={{ display: 'block' }} />
+						) : null}
 					</>
 				) : (
 					<img src={otherUserProfile} alt="profile" />
@@ -95,7 +106,6 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 										const isDuplicate = await fetch(`https://elice-server.herokuapp.com/check/${nickname}`, {
 											method: 'GET',
 										}).then((res) => res.json());
-										console.log(isDuplicate);
 										if (isDuplicate.data === 'true') {
 											alert('닉네임 중복!');
 											return;
@@ -111,10 +121,7 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 											profile: imgSrc,
 											intro: description,
 										}),
-									})
-										.then((res) => res.json())
-										.then((result) => console.log(result));
-									console.log(description);
+									}).then((res) => res.json());
 								} else {
 									setCurrentNickname(nickname);
 								}
