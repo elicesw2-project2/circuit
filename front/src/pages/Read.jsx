@@ -12,16 +12,15 @@ function ReadContent({ nickname, imgSrc, email }) {
 	const boardPageNum = window.location.pathname.split('/')[2];
 
 	const readParam = useParams().id;
-	const { pageNum } = useParams();
 	const navigate = useNavigate();
 	const [board, setboard] = useState([]);
 	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNum}`, {
+		fetch(`https://elice-server.herokuapp.com/board/${readParam}`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				setboard(data.data.filter((el) => el.post_idx === Number(readParam)));
+				setboard(data.data);
 			});
 	}, [readParam]);
 
@@ -45,31 +44,32 @@ function ReadContent({ nickname, imgSrc, email }) {
 
 	return (
 		<div>
-			{board[0] !== undefined ? (
+			{board && (
 				<section className="read_container">
-					{localStorage.getItem('id') === board[0].id ? (
+					{localStorage.getItem('id') === board.id ? (
 						<div className="button_box">
 							<input type="submit" className="read_button" value="수정" onClick={storyPut} />
 							<input type="submit" className="read_button delete_button" value="삭제" onClick={storyDel} />
 						</div>
 					) : null}
-					<div className="read_title">{board[0].title}</div>
+					<div className="read_title">{board.title}</div>
 					<div className="read_info">
-						<span className="read_name">{board[0].nickname}</span>
-						<span className="read_day">{board[0].date.substr(0, 10)}</span>
+						<span className="read_name">{board.nickname}</span>
+						<span className="read_day">{board.date}</span>
 					</div>
 					<div className="read_content">
-						{board[0].content.split('\n').map((el) => (
-							<span>
-								{el}
-								<br />
-							</span>
-						))}
+						{board.content &&
+							board.content.split('\n').map((el) => (
+								<span>
+									{el}
+									<br />
+								</span>
+							))}
 					</div>
 
 					<Comment nickname={nickname} imgSrc={imgSrc} email={email} />
 				</section>
-			) : null}
+			)}
 		</div>
 	);
 }

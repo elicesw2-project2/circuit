@@ -31,7 +31,7 @@ function Storys({ userId }) {
 		<div className="MyStory">
 			<span className="story_number story_child">{el.post_idx}</span>
 			<span className="story_name story_child">{el.nickname}</span>
-			<Link to={`/Read/${el.post_idx}`}>
+			<Link to={`/Read=${el.post_idx}`}>
 				<span className="story_title story_child">
 					{el.title.length < 25 ? el.title : `${el.title.substr(0, 25)}...`}
 				</span>
