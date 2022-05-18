@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import MainProfile from 'components/MainProfile';
 import Story from 'components/Story';
 import SideBar from 'components/SideBar';

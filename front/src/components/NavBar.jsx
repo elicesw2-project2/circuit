@@ -4,14 +4,7 @@ import '../styles/NavBar.scss';
 
 // FontAwesome Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faFlagCheckered,
-	faHomeLgAlt,
-	faEdit,
-	faCircleUser,
-	faGear,
-	faRightFromBracket,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { Link, Outlet } from 'react-router-dom';
 import Logout from 'utils/Logout';
 
@@ -45,20 +38,9 @@ function NavBar({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 				<div className="navLogo">
 					<a href="/circuit" style={{ textDecoration: 'none' }}>
 						Circuit
-						{/* <FontAwesomeIcon icon={faFlagCheckered} /> */}
 					</a>
 				</div>
 				<ul className="navItems">
-					{/* <li className="navItem">
-					<Link to="/">
-						<FontAwesomeIcon icon={faHomeLgAlt} />
-					</Link>
-				</li> */}
-					{/* <li className="navItem">
-					<Link to="/Writing">
-						<FontAwesomeIcon icon={faEdit} />
-					</Link>
-				</li> */}
 					<li className="navItem">
 						<div className="navItem__menu-container">
 							<img
@@ -78,13 +60,6 @@ function NavBar({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 												마이 페이지
 											</Link>
 										</li>
-										{/* <Divider /> */}
-										{/* <Divider /> */}
-										{/* <Divider>Or</Divider> */}
-										{/* <li>
-										<FontAwesomeIcon icon={faGear} className="menu__icon" />
-										<Link to="/">설정</Link>
-									</li> */}
 										<li>
 											<FontAwesomeIcon icon={faRightFromBracket} className="menu__icon" />
 											<Link to="/auth/login" onClick={Logout} style={{ textDecoration: 'none' }}>

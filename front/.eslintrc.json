@@ -7,10 +7,10 @@
 	"extends": ["eslint:recommended", "plugin:react/recommended", "airbnb", "airbnb/hooks", "prettier"],
 	"plugins": ["react"],
 	"rules": {
-		"no-unused-vars": "off",
+		"no-unused-vars": "warn",
 		"import/no-unresolved": "off",
 		"import/no-extraneous-dependencies": "off",
-		"no-console": "off",
+		"no-console": "warn",
 		"no-shadow": "off",
 		"no-alert": "off",
 		"class-methods-use-this": "off",
@@ -18,7 +18,7 @@
 		"react/prop-types": "off",
 		"jsx-a11y/click-events-have-key-events": "off",
 		"jsx-a11y/no-noninteractive-element-interactions": "off",
-		// "no-use-before-define": "off"
+		// "no-use-before-define": "off",
 		"react/no-array-index-key": "off",
 		"react/jsx-props-no-spreading": "off",
 		"no-unused-expressions": "off",
