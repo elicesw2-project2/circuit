@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/NavBar_2.scss';
+import '../styles/NavBar.scss';
 // import { Divider } from '@mui/material';
 
 // FontAwesome Icon
@@ -15,7 +15,7 @@ import {
 import { Link, Outlet } from 'react-router-dom';
 import Logout from 'utils/Logout';
 
-function NavBar({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
+function NavBar2({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 	const [showMenu, setShowMenu] = useState(false);
 	const toggleMenu = () => {
 		setShowMenu((showMenu) => !showMenu);
@@ -41,7 +41,7 @@ function NavBar({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 
 	return (
 		<>
-			<nav className="navBar">
+			<nav className="navBar navBar2">
 				<div className="navLogo">
 					<a href="/circuit" style={{ textDecoration: 'none' }}>
 						Circuit
@@ -103,4 +103,4 @@ function NavBar({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 	);
 }
 
-export default NavBar;
+export default NavBar2;

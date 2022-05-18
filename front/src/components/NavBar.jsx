@@ -41,7 +41,7 @@ function NavBar({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 
 	return (
 		<>
-			<nav className="navBar">
+			<nav className="navBar navBar1">
 				<div className="navLogo">
 					<a href="/circuit" style={{ textDecoration: 'none' }}>
 						Circuit

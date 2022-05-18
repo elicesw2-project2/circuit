@@ -7,6 +7,7 @@ import PublicRoute from 'utils/PublicRoute';
 import MyPage from 'pages/MyPage';
 import profile from 'public/profile.jpg';
 import NavBar from 'components/NavBar';
+import NavBar2 from 'components/NavBar2';
 import MainPage from './pages/MainPage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
@@ -58,6 +59,18 @@ function App() {
 								/>
 							}
 						/>
+					</Route>
+					<Route
+						element={
+							<NavBar2
+								imgSrc={imgSrc}
+								setImgSrc={setImgSrc}
+								setNickname={setNickname}
+								setEmail={setEmail}
+								setDescription={setDescription}
+							/>
+						}
+					>
 						<Route
 							path="/user/:id"
 							element={
