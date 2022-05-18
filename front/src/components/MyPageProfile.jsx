@@ -10,6 +10,7 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 	const [modalOpen, setModalOpen] = useState(false);
 	const [currentNickname, setCurrentNickname] = useState('');
 	const [isAdmin, setIsAdmin] = useState(false);
+	const [mouseEnter, setMouseEnter] = useState(false);
 
 	const [otherUserProfile, setotherUserProfile] = useState('');
 	const [otherUserNickname, setotherUserNickname] = useState('');
@@ -52,13 +53,28 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 		setEdit((edit) => !edit);
 	};
 
+	const onMouseEnter = () => {
+		setMouseEnter(true);
+	};
+
+	const onMouseLeave = () => {
+		setMouseEnter(false);
+	};
+
 	return (
 		<div className="MyPageProfile__profile">
 			<div className="MyPageProfile__container__left">
 				{isAdmin ? (
 					<>
-						<img src={imgSrc} alt="profile" onClick={openModal} className="AdminProfile" />
-						<FontAwesomeIcon icon={faPen} className="Profile__icon" />
+						<img
+							src={imgSrc}
+							alt="profile"
+							onClick={openModal}
+							className="AdminProfile"
+							onMouseEnter={onMouseEnter}
+							onMouseLeave={onMouseLeave}
+						/>
+						{mouseEnter ? <FontAwesomeIcon icon={faPen} className="Profile__icon " /> : null}
 					</>
 				) : (
 					<img src={otherUserProfile} alt="profile" />
