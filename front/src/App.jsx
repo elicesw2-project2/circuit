@@ -72,6 +72,8 @@ function App() {
 									nickname={nickname}
 									setNickname={setNickname}
 									searchWritings={searchWritings}
+									searchKeyword={searchKeyword}
+									setSearchKeyword={setSearchKeyword}
 									setSearchWritings={setSearchWritings}
 									email={email}
 									setEmail={setEmail}

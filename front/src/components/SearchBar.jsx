@@ -29,12 +29,13 @@ function SearchBar({ setSearchKeyword, setSearchWritings }) {
 						}
 						const searchResult = await Search(searchValue);
 						if (searchResult.status === 404) {
+							setSearchKeyword(searchValue);
 							setSearchWritings([]);
 							return;
 						}
 						setSearchKeyword(searchValue);
 						setSearchWritings(searchResult);
-						navigate('/');
+						navigate('/page=1');
 					}
 				}}
 			/>
@@ -48,12 +49,13 @@ function SearchBar({ setSearchKeyword, setSearchWritings }) {
 						}
 						const searchResult = await Search(searchValue);
 						if (searchResult.status === 404) {
+							setSearchKeyword(searchValue);
 							setSearchWritings([]);
 							return;
 						}
 						setSearchKeyword(searchValue);
 						setSearchWritings(searchResult);
-						navigate('/');
+						navigate('/page=1');
 					}}
 				/>
 			</div>
