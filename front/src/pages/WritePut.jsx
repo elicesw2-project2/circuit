@@ -13,7 +13,6 @@ function WriteContent() {
 	const contentRef = useRef(null);
 	const [titleText, settitleText] = useState(); // 기존에 있던 글 제목
 	const [contentText, setcontentText] = useState(); // 기존에 있던 글 내용
-	const boardPageNum = window.location.pathname.split('/')[2]; // page=:num 값 할당
 
 	useEffect(() => {
 		fetch(`https://elice-server.herokuapp.com/board/${WritingParam}`, {
@@ -49,7 +48,7 @@ function WriteContent() {
 		})
 			.then((res) => res.json())
 			.then(() => {
-				navigate(`/${boardPageNum}/Read=${WritingParam}`);
+				navigate(`/Read=${WritingParam}`);
 			});
 	}
 

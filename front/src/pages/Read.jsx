@@ -9,8 +9,6 @@ export default function Read({ nickname, imgSrc, email }) {
 }
 
 function ReadContent({ nickname, imgSrc, email }) {
-	const boardPageNum = window.location.pathname.split('/')[2];
-
 	const readParam = useParams().id;
 	const navigate = useNavigate();
 	const [board, setboard] = useState([]);
@@ -26,7 +24,7 @@ function ReadContent({ nickname, imgSrc, email }) {
 
 	function storyPut() {
 		// 글 수정페이지로 이동
-		navigate(`/${boardPageNum}/Writing=${board[0].post_idx}`);
+		navigate(`/Writing=${board.post_idx}`);
 	}
 
 	function storyDel() {

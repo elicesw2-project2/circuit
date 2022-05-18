@@ -113,6 +113,7 @@ function App() {
 						<Route path="/Read=:id" element={<Read nickname={nickname} imgSrc={imgSrc} email={email} />} />
 						<Route path="/Writing" element={<Writing nickname={nickname} />} />
 						<Route path="/page=:pageNum/Writing=:id" element={<WritePut />} />
+						<Route path="/Writing=:id" element={<WritePut />} />
 					</Route>
 				</Route>
 			</Routes>
