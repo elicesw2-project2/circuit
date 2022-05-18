@@ -15,8 +15,6 @@ function SignUp() {
 		formState: { errors },
 	} = useForm();
 	const onSubmit = (data) => {
-		console.log(data);
-
 		const signUpPost = () => {
 			fetch('https://elice-server.herokuapp.com/auth/signup', {
 				method: 'POST',
@@ -31,7 +29,7 @@ function SignUp() {
 						navigate('/auth/login');
 					} else if (result.status === 409) {
 						// 회원가입 실패 메세지
-						alert(result.message);
+						alert('result.message');
 					}
 				});
 		};

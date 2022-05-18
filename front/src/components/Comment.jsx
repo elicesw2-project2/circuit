@@ -17,7 +17,6 @@ function Comment({ nickname, imgSrc, email }) {
 			.then((res) => res.json())
 			.then((result) => {
 				if (result.status === 200) {
-					// console.log(result.data);
 					// commentList에 result.data를 넣어줌
 					setCommentList(result.data);
 					setCommentCount(result.data.length);
@@ -45,18 +44,13 @@ function Comment({ nickname, imgSrc, email }) {
 				nickname: nickName,
 				date: time,
 			}),
-		})
-			.then((res) => res.json())
-			.then((result) => {
-				console.log(result.data);
-			});
+		}).then((res) => res.json());
 
 		await fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
 			.then((result) => {
-				console.log(result);
 				lastCommentIdx = result.data[result.data.length - 1].comment_idx;
 				const comment = {
 					comment_id: localStorage.getItem('id'),
@@ -87,11 +81,7 @@ function Comment({ nickname, imgSrc, email }) {
 		// fetch delete
 		fetch(`https://elice-server.herokuapp.com/board/${postIdx}/comments/${param}`, {
 			method: 'DELETE',
-		})
-			.then((res) => res.json())
-			.then((result) => {
-				console.log(result);
-			});
+		}).then((res) => res.json());
 	};
 
 	return (
