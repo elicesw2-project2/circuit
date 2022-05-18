@@ -2,17 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Read.scss';
 import Comment from '../components/Comment';
+// import Story from '../components/Story';
 
 export default function Read({ nickname, imgSrc, email }) {
 	return <ReadContent nickname={nickname} imgSrc={imgSrc} email={email} />;
 }
 
 function ReadContent({ nickname, imgSrc, email }) {
+	const boardPageNum = window.location.pathname.split('/')[2];
+
 	const readParam = useParams().id;
+	const { pageNum } = useParams();
 	const navigate = useNavigate();
 	const [board, setboard] = useState([]);
 	useEffect(() => {
-		fetch('https://elice-server.herokuapp.com/board', {
+		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNum}`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
@@ -23,7 +27,7 @@ function ReadContent({ nickname, imgSrc, email }) {
 
 	function storyPut() {
 		// 글 수정페이지로 이동
-		navigate(`/Writing/${board[0].post_idx}`);
+		navigate(`/${boardPageNum}/Writing=${board[0].post_idx}`);
 	}
 
 	function storyDel() {
@@ -32,9 +36,11 @@ function ReadContent({ nickname, imgSrc, email }) {
 			fetch(`https://elice-server.herokuapp.com/board/${readParam}`, {
 				method: 'DELETE',
 			});
+			alert('삭제되었습니다.');
+			navigate(`/page=1`);
+		} else {
+			alert('삭제 취소');
 		}
-		navigate(`/`);
-		alert('삭제되었습니다.');
 	}
 
 	return (

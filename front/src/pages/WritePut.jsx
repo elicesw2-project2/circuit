@@ -7,13 +7,13 @@ export default function WritiePut() {
 }
 
 function WriteContent() {
-	const WritingParam = useParams().id;
+	const WritingParam = useParams().id; // board/숫자 값에 넣을 id 값
 	const navigate = useNavigate();
 	const titleRef = useRef(null);
 	const contentRef = useRef(null);
-
-	const [titleText, settitleText] = useState();
-	const [contentText, setcontentText] = useState();
+	const [titleText, settitleText] = useState(); // 기존에 있던 글 제목
+	const [contentText, setcontentText] = useState(); // 기존에 있던 글 내용
+	const boardPageNum = window.location.pathname.split('/')[2]; // page=:num 값 할당
 
 	useEffect(() => {
 		fetch(`https://elice-server.herokuapp.com/board/${WritingParam}`, {
@@ -49,7 +49,7 @@ function WriteContent() {
 		})
 			.then((res) => res.json())
 			.then(() => {
-				navigate(`/Read/${WritingParam}`);
+				navigate(`/${boardPageNum}/Read=${WritingParam}`);
 			});
 	}
 

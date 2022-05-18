@@ -43,7 +43,7 @@ function NavBar({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 		<>
 			<nav className="navBar navBar1">
 				<div className="navLogo">
-					<a href="/circuit" style={{ textDecoration: 'none' }}>
+					<a href="/circuit/page=1" style={{ textDecoration: 'none' }}>
 						Circuit
 						{/* <FontAwesomeIcon icon={faFlagCheckered} /> */}
 					</a>
