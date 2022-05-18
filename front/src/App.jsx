@@ -20,7 +20,10 @@ function App() {
 	const [nickname, setNickname] = useState('');
 	const [searchWritings, setSearchWritings] = useState();
 	const [email, setEmail] = useState('');
-	const [qwer, setqwer] = useState('1');
+	console.log(window.location.pathname);
+	if (window.location.pathname === '/circuit' || window.location.pathname === '/circuit/') {
+		window.location.pathname = '/circuit/page=1';
+	}
 	return (
 		<div className="App">
 			<Routes>
@@ -57,8 +60,26 @@ function App() {
 								/>
 							}
 						/>
-						<Route path="/Story" element={<Story qwer={qwer} setqwer={setqwer} />} />
-						<Route path="/Read/:id" element={<Read nickname={nickname} imgSrc={imgSrc} email={email} qwer={qwer} />} />
+						<Route
+							path="/page=:pageNum"
+							element={
+								<MainPage
+									imgSrc={imgSrc}
+									setImgSrc={setImgSrc}
+									nickname={nickname}
+									setNickname={setNickname}
+									searchWritings={searchWritings}
+									setSearchWritings={setSearchWritings}
+									email={email}
+									setEmail={setEmail}
+								/>
+							}
+						/>
+						{/* <Route path="/Story" element={<Story qwer={qwer} setqwer={setqwer} />} /> */}
+						<Route
+							path="/page=:pageNum/Read=:id"
+							element={<Read nickname={nickname} imgSrc={imgSrc} email={email} />}
+						/>
 						<Route path="/Writing" element={<Writing nickname={nickname} />} />
 						<Route path="/Writing/:id" element={<WritePut />} />
 					</Route>

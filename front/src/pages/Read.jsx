@@ -4,22 +4,21 @@ import '../styles/Read.scss';
 import Comment from '../components/Comment';
 // import Story from '../components/Story';
 
-export default function Read({ nickname, imgSrc, email, qwer }) {
-	return <ReadContent nickname={nickname} imgSrc={imgSrc} email={email} qwer={qwer} />;
+export default function Read({ nickname, imgSrc, email }) {
+	return <ReadContent nickname={nickname} imgSrc={imgSrc} email={email} />;
 }
 
-function ReadContent({ nickname, imgSrc, email, qwer }) {
+function ReadContent({ nickname, imgSrc, email }) {
 	const readParam = useParams().id;
+	const { pageNum } = useParams();
 	const navigate = useNavigate();
 	const [board, setboard] = useState([]);
-	console.log(qwer);
 	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/board/?page=${qwer}`, {
+		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNum || 1}`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setboard(data.data.filter((el) => el.post_idx === Number(readParam)));
 			});
 	}, [readParam]);

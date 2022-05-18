@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import '../styles/Story.scss';
 
 import Read from '../pages/Read';
 
-function Story({ searchWritings, qwer, setqwer }) {
-	return <Storys searchWritings={searchWritings} setqwer={setqwer} qwer={qwer} />;
+function Story({ searchWritings }) {
+	return <Storys searchWritings={searchWritings} />;
 }
 
-function Storys({ searchWritings, qwer, setqwer }) {
+function Storys({ searchWritings }) {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
 	const [board, setboard] = useState([]);
 	const [page, setpage] = useState();
-	const [asdf, setasdf] = useState(1);
-	console.log(qwer);
+	const navigate = useNavigate();
+	const { pageNum } = useParams();
 	// console.log(pagesRef.current.innerHTML);
 	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/board`, {
+		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNum}`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
 			.then((data) => {
 				setboard(data.data);
 				const totalPage = Math.ceil(data.pageCount[0].count / 10); // 마지막 페이지 수
+				console.log(totalPage);
 				const pageNum = [];
 				for (let i = 1; i <= totalPage; i += 1) {
 					pageNum.push(i);
@@ -33,8 +34,6 @@ function Storys({ searchWritings, qwer, setqwer }) {
 
 	function storyPagination(e) {
 		const pageNumber = Number(e.target.innerHTML);
-		// setasdf(e.target.innerHTML);
-		// setqwer(e.target.innerHTML);
 		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNumber}`, {
 			method: 'GET',
 		})
@@ -42,8 +41,8 @@ function Storys({ searchWritings, qwer, setqwer }) {
 			.then((data) => {
 				setboard(data.data);
 			});
+		navigate(`/page=${pageNumber}`);
 	}
-	// console.log(asdf);
 
 	return searchWritings === undefined ? (
 		<section className="story_parent">
@@ -53,7 +52,7 @@ function Storys({ searchWritings, qwer, setqwer }) {
 					<div className="story">
 						<span className="story_number story_child">{el.post_idx}</span>
 						<span className="story_name story_child">{el.nickname}</span>
-						<Link to={`/Read/${el.post_idx}`}>
+						<Link to={`Read=${el.post_idx}`}>
 							<span className="story_title story_child">{el.title}</span>
 						</Link>
 						<span className="story_time story_child">{el.date.substr(0, 10)}</span>
@@ -82,7 +81,7 @@ function Storys({ searchWritings, qwer, setqwer }) {
 					<div className="story">
 						<span className="story_number story_child">{el.post_idx}</span>
 						<span className="story_name story_child asdf">{el.nickname}</span>
-						<Link to={`/Read/${el.post_idx}`}>
+						<Link to={`Read=${el.post_idx}`}>
 							<span className="story_title story_child">{el.title}</span>
 						</Link>
 						<span className="story_time story_child">{el.date.substr(0, 10)}</span>
