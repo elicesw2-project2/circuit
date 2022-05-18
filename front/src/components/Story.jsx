@@ -2,23 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Story.scss';
 
-function Story({ searchWritings }) {
-	return <Storys searchWritings={searchWritings} />;
+import Read from '../pages/Read';
+
+function Story({ searchWritings, qwer, setqwer }) {
+	return <Storys searchWritings={searchWritings} setqwer={setqwer} qwer={qwer} />;
 }
 
-function Storys({ searchWritings }) {
+function Storys({ searchWritings, qwer, setqwer }) {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
 	const [board, setboard] = useState([]);
 	const [page, setpage] = useState();
-
+	const [asdf, setasdf] = useState(1);
+	console.log(qwer);
+	// console.log(pagesRef.current.innerHTML);
 	useEffect(() => {
-		fetch(`https://elice-server.herokuapp.com/board/?page=${1}`, {
+		fetch(`https://elice-server.herokuapp.com/board`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
 			.then((data) => {
 				setboard(data.data);
-				const totalPage = Math.ceil(data.pageCount[0].count / 15); // 마지막 페이지 수
+				const totalPage = Math.ceil(data.pageCount[0].count / 10); // 마지막 페이지 수
 				const pageNum = [];
 				for (let i = 1; i <= totalPage; i += 1) {
 					pageNum.push(i);
@@ -29,6 +33,8 @@ function Storys({ searchWritings }) {
 
 	function storyPagination(e) {
 		const pageNumber = Number(e.target.innerHTML);
+		// setasdf(e.target.innerHTML);
+		// setqwer(e.target.innerHTML);
 		fetch(`https://elice-server.herokuapp.com/board/?page=${pageNumber}`, {
 			method: 'GET',
 		})
@@ -37,6 +43,7 @@ function Storys({ searchWritings }) {
 				setboard(data.data);
 			});
 	}
+	// console.log(asdf);
 
 	return searchWritings === undefined ? (
 		<section className="story_parent">
@@ -59,9 +66,10 @@ function Storys({ searchWritings }) {
 			<div className="pageNav">
 				{page !== undefined
 					? page.map((el) => (
-							<button type="submit" className="pageNav_btn" onClick={storyPagination}>
+							<button type="submit" className="pageNav_btn" onClick={storyPagination} value={el}>
 								{el}
 							</button>
+							// <input type="submit" className="pageNav_btn" value={el} onClick={storyPagination} />
 					  ))
 					: null}
 			</div>

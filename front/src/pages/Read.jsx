@@ -2,21 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Read.scss';
 import Comment from '../components/Comment';
+// import Story from '../components/Story';
 
-export default function Read({ nickname, imgSrc, email }) {
-	return <ReadContent nickname={nickname} imgSrc={imgSrc} email={email} />;
+export default function Read({ nickname, imgSrc, email, qwer }) {
+	return <ReadContent nickname={nickname} imgSrc={imgSrc} email={email} qwer={qwer} />;
 }
 
-function ReadContent({ nickname, imgSrc, email }) {
+function ReadContent({ nickname, imgSrc, email, qwer }) {
 	const readParam = useParams().id;
 	const navigate = useNavigate();
 	const [board, setboard] = useState([]);
+	console.log(qwer);
 	useEffect(() => {
-		fetch('https://elice-server.herokuapp.com/board', {
+		fetch(`https://elice-server.herokuapp.com/board/?page=${qwer}`, {
 			method: 'GET',
 		})
 			.then((res) => res.json())
 			.then((data) => {
+				console.log(data);
 				setboard(data.data.filter((el) => el.post_idx === Number(readParam)));
 			});
 	}, [readParam]);
@@ -32,9 +35,11 @@ function ReadContent({ nickname, imgSrc, email }) {
 			fetch(`https://elice-server.herokuapp.com/board/${readParam}`, {
 				method: 'DELETE',
 			});
+			alert('삭제되었습니다.');
+			navigate(`/`);
+		} else {
+			alert('삭제 취소');
 		}
-		navigate(`/`);
-		alert('삭제되었습니다.');
 	}
 
 	return (

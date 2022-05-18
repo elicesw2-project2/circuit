@@ -20,6 +20,7 @@ function App() {
 	const [nickname, setNickname] = useState('');
 	const [searchWritings, setSearchWritings] = useState();
 	const [email, setEmail] = useState('');
+	const [qwer, setqwer] = useState('1');
 	return (
 		<div className="App">
 			<Routes>
@@ -56,8 +57,8 @@ function App() {
 								/>
 							}
 						/>
-						<Route path="/Story" element={<Story />} />
-						<Route path="/Read/:id" element={<Read nickname={nickname} imgSrc={imgSrc} email={email} />} />
+						<Route path="/Story" element={<Story qwer={qwer} setqwer={setqwer} />} />
+						<Route path="/Read/:id" element={<Read nickname={nickname} imgSrc={imgSrc} email={email} qwer={qwer} />} />
 						<Route path="/Writing" element={<Writing nickname={nickname} />} />
 						<Route path="/Writing/:id" element={<WritePut />} />
 					</Route>
