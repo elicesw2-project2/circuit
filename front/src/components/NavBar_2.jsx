@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/NavBar.scss';
+import '../styles/NavBar_2.scss';
 // import { Divider } from '@mui/material';
 
 // FontAwesome Icon
