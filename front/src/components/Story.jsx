@@ -96,7 +96,22 @@ function Storys({ searchKeyword, searchWritings }) {
 		<section className="story_parent">
 			<div className="story_container">
 				<div className="story_length">
-					&apos;{searchKeyword}&apos; - {searchWritings.length}개의 게시글
+					<span>
+						&apos;{searchKeyword}&apos; - {searchWritings.length}개의 게시글
+					</span>
+					<FontAwesomeIcon
+						icon={faArrowRotateRight}
+						className="refresh__icon"
+						onClick={async () => {
+							await fetch(`https://elice-server.herokuapp.com/board/?page=1`, {
+								method: 'GET',
+							})
+								.then((res) => res.json())
+								.then((data) => {
+									setboard(data.data);
+								});
+						}}
+					/>
 				</div>
 				<StoryInfo />
 				{searchWritings.map((el) => (
