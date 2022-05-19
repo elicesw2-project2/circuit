@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import '../styles/Story.scss';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRotateRight } from '@fortawesome/free-solid-svg-icons';
+
 function Story({ searchKeyword, searchWritings }) {
 	return <Storys searchKeyword={searchKeyword} searchWritings={searchWritings} />;
 }
@@ -46,7 +49,22 @@ function Storys({ searchKeyword, searchWritings }) {
 	return searchWritings === undefined ? (
 		<section className="story_parent">
 			<div className="story_container">
-				<div className="story_length">{boardcount}개의 게시글</div>
+				<div className="story_length">
+					<span>{boardcount}개의 게시글</span>
+					<FontAwesomeIcon
+						icon={faArrowRotateRight}
+						className="refresh__icon"
+						onClick={async () => {
+							await fetch(`https://elice-server.herokuapp.com/board/?page=1`, {
+								method: 'GET',
+							})
+								.then((res) => res.json())
+								.then((data) => {
+									setboard(data.data);
+								});
+						}}
+					/>
+				</div>
 				<StoryInfo />
 				{board.map((el) => (
 					<div className="story">
@@ -78,7 +96,22 @@ function Storys({ searchKeyword, searchWritings }) {
 		<section className="story_parent">
 			<div className="story_container">
 				<div className="story_length">
-					&apos;{searchKeyword}&apos; - {searchWritings.length}개의 게시글
+					<span>
+						&apos;{searchKeyword}&apos; - {searchWritings.length}개의 게시글
+					</span>
+					<FontAwesomeIcon
+						icon={faArrowRotateRight}
+						className="refresh__icon"
+						onClick={async () => {
+							await fetch(`https://elice-server.herokuapp.com/board/?page=1`, {
+								method: 'GET',
+							})
+								.then((res) => res.json())
+								.then((data) => {
+									setboard(data.data);
+								});
+						}}
+					/>
 				</div>
 				<StoryInfo />
 				{searchWritings.map((el) => (
