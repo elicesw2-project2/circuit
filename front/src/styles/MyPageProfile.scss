@@ -1,17 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
-html {
-	background: conic-gradient(
-			from 200deg at 50.23% 40.06%,
-			#fceeef -43.41deg,
-			#e5d8fa 115.87deg,
-			#fceeef 316.59deg,
-			#e5d8fa 475.87deg
-		),
-		rgba(255, 255, 255, 0.8);
-	height: 100vh;
-	width: 100vw;
-}
 .MyPageProfile__profile {
 	position: relative;
 	display: flex;
@@ -24,7 +12,7 @@ html {
 	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 	color: #2f1154;
 	background-color: #fff;
-	
+
 	// font-family: 'Nanum Gothic', sans-serif;
 	font-family: 'Noto Sans KR', sans-serif;
 	.MyPageProfile__container__left {

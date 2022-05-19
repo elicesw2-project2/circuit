@@ -1,18 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Sriracha&display=swap');
 
-html {
-	background: conic-gradient(
-			from 200deg at 50.23% 40.06%,
-			#fceeef -43.41deg,
-			#e5d8fa 115.87deg,
-			#fceeef 316.59deg,
-			#e5d8fa 475.87deg
-		),
-		rgba(255, 255, 255, 0.8);
-	height: 100vh;
-	width: 100%;
-}
-
 .loginBox {
 	width: 600px;
 	height: fit-content;

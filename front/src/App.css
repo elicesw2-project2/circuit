@@ -4,7 +4,7 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
-.App{
+.App {
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -148,4 +148,25 @@ a:hover {
 
 .App {
 	padding: 0 250px;
+}
+
+html {
+	background: conic-gradient(
+			from 200deg at 50.23% 40.06%,
+			#fceeef -43.41deg,
+			#e5d8fa 115.87deg,
+			#fceeef 316.59deg,
+			#e5d8fa 475.87deg
+		),
+		rgba(255, 255, 255, 0.8);
+	height: 100vh;
+	width: 100%;
+}
+
+/* 반응형 */
+@media (max-width: 1224px) {
+	html {
+		color: white;
+		background: black;
+	}
 }
