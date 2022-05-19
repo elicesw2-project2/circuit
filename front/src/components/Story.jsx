@@ -83,6 +83,7 @@ function Storys({ searchKeyword, searchWritings, setSearchWritings }) {
 				글쓰기
 			</Link>
 			<div className="pageNav">
+				&lt;
 				{page !== undefined
 					? page.map((el) => (
 							<button type="submit" className="pageNav_btn" onClick={storyPagination} value={el}>
@@ -90,6 +91,7 @@ function Storys({ searchKeyword, searchWritings, setSearchWritings }) {
 							</button>
 					  ))
 					: null}
+				&gt;
 			</div>
 		</section>
 	) : (
