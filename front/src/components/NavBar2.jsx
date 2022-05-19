@@ -5,17 +5,19 @@ import '../styles/NavBar.scss';
 // FontAwesome Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import Logout from 'utils/Logout';
 
 function NavBar2({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
+	const location = useLocation();
 	const [showMenu, setShowMenu] = useState(false);
+	const [refresh, setRefresh] = useState(false);
 	const toggleMenu = () => {
 		setShowMenu((showMenu) => !showMenu);
 	};
 
 	useEffect(() => {
-		(async function fetchUserId() {
+		(async () => {
 			await fetch(`https://elice-server.herokuapp.com/mypage/${localStorage.getItem('id')}`, {
 				method: 'GET',
 			})
@@ -31,6 +33,14 @@ function NavBar2({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 				});
 		})();
 	}, []);
+
+	useEffect(() => {
+		if (location.pathname.includes('user')) {
+			setRefresh(true);
+		} else {
+			setRefresh(false);
+		}
+	}, [location]);
 
 	return (
 		<>
@@ -56,9 +66,15 @@ function NavBar2({ imgSrc, setNickname, setEmail, setImgSrc, setDescription }) {
 									<div className="menu__lists">
 										<li className="menu__mypage">
 											<FontAwesomeIcon icon={faCircleUser} className="menu__icon" />
-											<Link to={`/user/${localStorage.getItem('id')}`} style={{ textDecoration: 'none' }}>
-												마이 페이지
-											</Link>
+											{refresh ? (
+												<a href={`/circuit/user/${localStorage.getItem('id')}`} style={{ textDecoration: 'none' }}>
+													마이 페이지
+												</a>
+											) : (
+												<Link to={`/user/${localStorage.getItem('id')}`} style={{ textDecoration: 'none' }}>
+													마이 페이지
+												</Link>
+											)}
 										</li>
 										<li>
 											<FontAwesomeIcon icon={faRightFromBracket} className="menu__icon" />

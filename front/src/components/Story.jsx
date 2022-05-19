@@ -66,8 +66,8 @@ function Storys({ searchKeyword, searchWritings, setSearchWritings }) {
 					/>
 				</div>
 				<StoryInfo />
-				{board.map((el) => (
-					<div className="story">
+				{board.map((el, idx) => (
+					<div className="story" key={idx}>
 						<span className="story_number story_child">{el.post_idx}</span>
 						<span className="story_name story_child">{el.nickname}</span>
 						<Link to={`/page=${pageNum}/Read=${el.post_idx}`}>
