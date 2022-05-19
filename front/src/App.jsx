@@ -134,7 +134,7 @@ function App() {
 			</Desktop>
 			<Mobile className="Mobile">
 				<div className="mobile_container">
-					<h1 className="mobile_span">여긴 너무 작아요 (˘･_･˘)</h1>
+					<h1>여긴 너무 작아요 (˘･_･˘)</h1>
 					<h2>더 큰 화면으로 봐주세요 !</h2>
 				</div>
 			</Mobile>
