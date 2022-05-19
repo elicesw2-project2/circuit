@@ -5,11 +5,11 @@ import '../styles/Story.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRotateRight } from '@fortawesome/free-solid-svg-icons';
 
-function Story({ searchKeyword, searchWritings }) {
-	return <Storys searchKeyword={searchKeyword} searchWritings={searchWritings} />;
+function Story({ searchKeyword, searchWritings, setSearchWritings }) {
+	return <Storys searchKeyword={searchKeyword} searchWritings={searchWritings} setSearchWritings={setSearchWritings} />;
 }
 
-function Storys({ searchKeyword, searchWritings }) {
+function Storys({ searchKeyword, searchWritings, setSearchWritings }) {
 	// <Link to={`/Read/${el.id}`}> 더미데이터의 id 값을 map을 이용해 주소로 만들어 목록 생성
 	const [board, setboard] = useState([]);
 	const [page, setpage] = useState();
@@ -108,8 +108,10 @@ function Storys({ searchKeyword, searchWritings }) {
 							})
 								.then((res) => res.json())
 								.then((data) => {
-									setboard(data.data);
+									setSearchWritings(data.data);
+									setSearchWritings(undefined);
 								});
+							navigate('/page=1');
 						}}
 					/>
 				</div>

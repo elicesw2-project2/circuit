@@ -37,7 +37,7 @@ function MainPage({
 
 	return (
 		<div className="main_cpn">
-			<Story searchKeyword={searchKeyword} searchWritings={searchWritings} />
+			<Story searchKeyword={searchKeyword} searchWritings={searchWritings} setSearchWritings={setSearchWritings} />
 			<div className="Mainpage__rightContainer">
 				<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
 				<SearchBar setSearchKeyword={setSearchKeyword} setSearchWritings={setSearchWritings} />

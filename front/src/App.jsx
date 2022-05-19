@@ -61,7 +61,7 @@ function App() {
 							}
 						>
 							<Route
-								path="/"
+								path="/page=:pageNum"
 								element={
 									<MainPage
 										imgSrc={imgSrc}
@@ -78,7 +78,7 @@ function App() {
 								}
 							/>
 							<Route
-								path="/page=:pageNum"
+								path="/search=:keyword"
 								element={
 									<MainPage
 										imgSrc={imgSrc}
