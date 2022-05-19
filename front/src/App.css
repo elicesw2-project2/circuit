@@ -167,6 +167,28 @@ html {
 @media (max-width: 1224px) {
 	html {
 		color: white;
-		background: black;
+		background: #d9c9f8;
+	}
+	.App {
+		padding: 0;
+		width: 100vw;
+		height: 100vh;
+	}
+	.mobile_container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.mobile_container h1 {
+		font-weight: 600;
+		font-size: 36px;
+		padding-bottom: 15px;
+	}
+	.mobile_container h2 {
+		font-size: 20px;
+		padding-bottom: 15px;
 	}
 }
