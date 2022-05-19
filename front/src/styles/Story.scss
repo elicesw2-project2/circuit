@@ -19,6 +19,23 @@
 	padding: 10px;
 	margin-left: 5px;
 	font-weight: bold;
+	span {
+		margin-right: 7px;
+	}
+	.refresh__icon {
+		opacity: 0.6;
+		&:hover {
+			animation: rotate_image 1s linear infinite;
+			transform-origin: 50% 50%;
+			opacity: 0.2;
+		}
+	}
+
+	@keyframes rotate_image {
+		100% {
+			transform: rotate(360deg);
+		}
+	}
 }
 
 .story {
