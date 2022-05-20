@@ -62,14 +62,19 @@ function SignUp() {
 					<input
 						{...register('nickname', { required: '필수 정보입니다.', maxLength: 8 })}
 						id="nickname"
-						placeholder="별명"
+						placeholder="별명 (최대 8자 이하)"
 					/>
 					<label htmlFor="nickname">별명</label>
 				</p>
 				{errors.nickname && <p id="signUp_errors">{errors.nickname.message}</p>}
 
 				<p>
-					<input type="password" {...register('pw', { required: '필수 정보입니다.' })} id="pw" placeholder="비밀번호" />
+					<input
+						type="password"
+						{...register('pw', { required: '필수 정보입니다.' })}
+						id="pw"
+						placeholder="비밀번호 (최소 5자 이상)"
+					/>
 					<label htmlFor="pw">비밀번호</label>
 				</p>
 				{errors.pw && <p id="signUp_errors">{errors.pw.message}</p>}
