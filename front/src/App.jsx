@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
 import PrivateRoute from 'utils/PrivateRoute';
@@ -19,6 +19,8 @@ import Writing from './pages/Writing';
 import WritePut from './pages/WritePut';
 
 function App() {
+	const navigate = useNavigate();
+
 	const [imgSrc, setImgSrc] = useState(profile);
 	const [nickname, setNickname] = useState('');
 	const [description, setDescription] = useState('');
@@ -29,9 +31,11 @@ function App() {
 	const isPc = useMediaQuery({ query: '(min-width:1224px)' });
 	const isMobile = useMediaQuery({ query: '(max-width:1223px' });
 
-	if (window.location.pathname === '/circuit' || window.location.pathname === '/circuit/') {
-		window.location.pathname = '/circuit/page=1';
-	}
+	useEffect(() => {
+		if (window.location.pathname === '/circuit' || window.location.pathname === '/circuit/') {
+			navigate('/page=1');
+		}
+	}, []);
 
 	return (
 		<div className="App">
