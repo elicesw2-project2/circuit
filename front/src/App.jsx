@@ -26,15 +26,8 @@ function App() {
 	const [searchWritings, setSearchWritings] = useState();
 	const [email, setEmail] = useState('');
 
-	function Desktop({ children }) {
-		const isDesktop = useMediaQuery({ minWidth: 1224 });
-		return isDesktop ? children : null;
-	}
-
-	function Mobile({ children }) {
-		const isMobile = useMediaQuery({ maxWidth: 1223 });
-		return isMobile ? children : null;
-	}
+	const isPc = useMediaQuery({ query: '(min-width:1224px)' });
+	const isMobile = useMediaQuery({ query: '(max-width:1223px' });
 
 	if (window.location.pathname === '/circuit' || window.location.pathname === '/circuit/') {
 		window.location.pathname = '/circuit/page=1';
@@ -42,7 +35,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<Desktop>
+			{isPc && (
 				<Routes>
 					<Route element={<PublicRoute />}>
 						<Route path="/auth/login" element={<Login />} />
@@ -131,13 +124,13 @@ function App() {
 						</Route>
 					</Route>
 				</Routes>
-			</Desktop>
-			<Mobile className="Mobile">
+			)}
+			{isMobile && (
 				<div className="mobile_container">
 					<h1>여긴 너무 작아요 (˘･_･˘)</h1>
 					<h2>더 큰 화면으로 봐주세요 !</h2>
 				</div>
-			</Mobile>
+			)}
 		</div>
 	);
 }
