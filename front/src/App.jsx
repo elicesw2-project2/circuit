@@ -11,6 +11,7 @@ import MyPage from 'pages/MyPage';
 import profile from 'public/profile.jpg';
 import NavBar from 'components/NavBar';
 import NavBar2 from 'components/NavBar2';
+import useGAPageTracking from 'PageTracker';
 import MainPage from './pages/MainPage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
@@ -37,6 +38,7 @@ function App() {
 		}
 	}, []);
 
+	useGAPageTracking();
 	return (
 		<div className="App">
 			{isPc && (
