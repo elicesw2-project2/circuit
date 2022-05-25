@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/MainProfile.scss';
+import 'styles/Profile/MainProfile.scss';
 import { Link } from 'react-router-dom';
 
 function MainProfile({ imgSrc, nickname, email }) {

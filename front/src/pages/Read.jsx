@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Read.scss';
-import Comment from '../components/Comment';
+import Comment from '../components/Comment/Comment';
 // import Story from '../components/Story';
 
 export default function Read({ nickname, imgSrc, email }) {

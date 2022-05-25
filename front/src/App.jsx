@@ -4,13 +4,13 @@ import './App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
-import PrivateRoute from 'utils/PrivateRoute';
-import PublicRoute from 'utils/PublicRoute';
+import PrivateRoute from 'utils/Routes/PrivateRoute';
+import PublicRoute from 'utils/Routes/PublicRoute';
 
 import MyPage from 'pages/MyPage';
 import profile from 'public/profile.jpg';
-import NavBar from 'components/NavBar';
-import NavBar2 from 'components/NavBar2';
+import NavBar from 'components/NavBar/NavBar';
+import NavBar2 from 'components/NavBar/NavBar2';
 import MainPage from './pages/MainPage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';

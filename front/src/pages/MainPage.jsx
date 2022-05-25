@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import MainProfile from 'components/MainProfile';
-import Story from 'components/Story';
+import MainProfile from 'components/Profile/MainProfile';
+import Story from 'components/Story/Story';
 import SideBar from 'components/SideBar';
-import '../styles/MainPage.scss';
+import 'styles/Pages/MainPage.scss';
 import SearchBar from 'components/SearchBar';
 
 function MainPage({

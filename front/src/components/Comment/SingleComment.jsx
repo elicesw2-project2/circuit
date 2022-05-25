@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ChangeDate from 'utils/ChangeDate';
-import '../styles/SingleComment.scss';
+import 'styles/Comment/SingleComment.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 

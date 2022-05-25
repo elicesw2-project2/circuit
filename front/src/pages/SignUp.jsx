@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles/SignUp.scss';
+import 'styles/Pages/SignUp.scss';
 
 function SignUp() {
 	const pw = useRef(); // 비밀번호 재확인 할 때 필요

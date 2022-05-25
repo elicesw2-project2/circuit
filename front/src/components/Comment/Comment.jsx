@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import '../styles/Comment.scss';
+import 'styles/Comment/Comment.scss';
 import ChangeDate from 'utils/ChangeDate';
-import SingleComment from 'components/SingleComment';
+import SingleComment from 'components/Comment/SingleComment';
 
 function Comment({ nickname, imgSrc, email }) {
 	const [commentList, setCommentList] = useState();
