@@ -10,7 +10,7 @@
 		"no-unused-vars": "warn",
 		"import/no-unresolved": "off",
 		"import/no-extraneous-dependencies": "off",
-		"no-console": "warn",
+		"no-console": "off",
 		"no-shadow": "off",
 		"no-alert": "off",
 		"class-methods-use-this": "off",

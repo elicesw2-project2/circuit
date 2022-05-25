@@ -2,11 +2,15 @@ import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import * as userRepository from '../controller/user.controller.js';
 
-dotenv.config();
+dotenv.config(); // evn
+
 const jwtSecretKey = process.env.AUTH_jwtSecretKey;
 const AUTH_ERROR = { message: 'Authentication Error' };
+
 const isAuth = async (req, res, next) => {
 	const authHeader = req.get('authorization');
+
+	// authorization : Bearer token
 	if (!(authHeader && authHeader.startsWith('Bearer '))) {
 		return res.status(401).json({ message: AUTH_ERROR });
 	}
