@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Writing.scss';
+import 'styles/Pages/Writing.scss';
 
 export default function Writing({ nickname }) {
 	return <WriteContent nickname={nickname} />;

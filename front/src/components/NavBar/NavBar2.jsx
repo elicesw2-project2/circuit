@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/NavBar.scss';
-// import { Divider } from '@mui/material';
+import 'styles/NavBar/NavBar.scss';
 
 // FontAwesome Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

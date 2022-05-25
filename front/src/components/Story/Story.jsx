@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import '../styles/Story.scss';
+import 'styles/Story/Story.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRotateRight } from '@fortawesome/free-solid-svg-icons';

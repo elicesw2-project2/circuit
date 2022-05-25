@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import MyPageProfile from 'components/MyPageProfile';
-import MyStory from 'components/MyStory';
+import MyPageProfile from 'components/Profile/MyPageProfile';
+import MyStory from 'components/Story/MyStory';
 import { useParams } from 'react-router-dom';
 
 function MyPage({ imgSrc, setImgSrc, nickname, setNickname, description, setDescription }) {
