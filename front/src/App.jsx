@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
 import PrivateRoute from 'utils/PrivateRoute';
@@ -19,6 +19,8 @@ import Writing from './pages/Writing';
 import WritePut from './pages/WritePut';
 
 function App() {
+	const navigate = useNavigate();
+
 	const [imgSrc, setImgSrc] = useState(profile);
 	const [nickname, setNickname] = useState('');
 	const [description, setDescription] = useState('');
@@ -26,23 +28,18 @@ function App() {
 	const [searchWritings, setSearchWritings] = useState();
 	const [email, setEmail] = useState('');
 
-	function Desktop({ children }) {
-		const isDesktop = useMediaQuery({ minWidth: 1224 });
-		return isDesktop ? children : null;
-	}
+	const isPc = useMediaQuery({ query: '(min-width:1224px)' });
+	const isMobile = useMediaQuery({ query: '(max-width:1223px' });
 
-	function Mobile({ children }) {
-		const isMobile = useMediaQuery({ maxWidth: 1223 });
-		return isMobile ? children : null;
-	}
-
-	if (window.location.pathname === '/circuit' || window.location.pathname === '/circuit/') {
-		window.location.pathname = '/circuit/page=1';
-	}
+	useEffect(() => {
+		if (window.location.pathname === '/circuit' || window.location.pathname === '/circuit/') {
+			navigate('/page=1');
+		}
+	}, []);
 
 	return (
 		<div className="App">
-			<Desktop>
+			{isPc && (
 				<Routes>
 					<Route element={<PublicRoute />}>
 						<Route path="/auth/login" element={<Login />} />
@@ -61,7 +58,7 @@ function App() {
 							}
 						>
 							<Route
-								path="/"
+								path="/page=:pageNum"
 								element={
 									<MainPage
 										imgSrc={imgSrc}
@@ -78,7 +75,7 @@ function App() {
 								}
 							/>
 							<Route
-								path="/page=:pageNum"
+								path="/search=:keyword"
 								element={
 									<MainPage
 										imgSrc={imgSrc}
@@ -131,13 +128,13 @@ function App() {
 						</Route>
 					</Route>
 				</Routes>
-			</Desktop>
-			<Mobile className="Mobile">
+			)}
+			{isMobile && (
 				<div className="mobile_container">
 					<h1>여긴 너무 작아요 (˘･_･˘)</h1>
 					<h2>더 큰 화면으로 봐주세요 !</h2>
 				</div>
-			</Mobile>
+			)}
 		</div>
 	);
 }

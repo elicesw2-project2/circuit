@@ -28,6 +28,21 @@
 
 <br>
 
+## 🚗 [주요 기능](https://github.com/elicesw2-project2/circuit/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C)
+|로그인|
+|--|
+|<img width="956" alt="로그인" src="https://user-images.githubusercontent.com/72402014/169438358-629ed697-a4bf-4a21-bdd8-c0094d264fba.png">|
+
+|메인페이지|
+|--|
+|<img width="955" alt="메인" src="https://user-images.githubusercontent.com/72402014/169438392-cb4121c7-7f1b-445d-a59e-fc9ad883df76.png">|
+
+|마이페이지|
+|--|
+|<img width="951" alt="마이" src="https://user-images.githubusercontent.com/72402014/169438415-fe3c1a43-731d-42ef-a2fd-da22dc181473.png">|
+
+<br>
+
 ## ⚙️ 프로젝트 구동 방법
 우선 Repository clone 한다.
 

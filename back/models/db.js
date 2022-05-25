@@ -8,6 +8,7 @@ const connection = mysql.createConnection({
 	user: dbConfig.USER,
 	password: dbConfig.PASSWORD,
 	database: dbConfig.DB,
+	charset: 'utf8mb4',
 });
 
 // MySQL connection 실행

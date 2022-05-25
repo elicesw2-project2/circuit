@@ -57,8 +57,8 @@ function ReadContent({ nickname, imgSrc, email }) {
 					</div>
 					<div className="read_content">
 						{board.content &&
-							board.content.split('\n').map((el) => (
-								<span>
+							board.content.split('\n').map((el, idx) => (
+								<span key={idx}>
 									{el}
 									<br />
 								</span>
