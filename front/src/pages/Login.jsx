@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles/Login.scss';
+import 'styles/Pages/Login.scss';
 import { useForm } from 'react-hook-form';
 import { saveToken } from 'utils/token';
 

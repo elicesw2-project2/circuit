@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/MyPageProfile.scss';
+import 'styles/Profile/MyPageProfile.scss';
 import ImgModal from 'components/ImgModal';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

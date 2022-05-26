@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import 'styles/MyStory.scss';
+import 'styles/Story/MyStory.scss';
 
 function MyStory({ userId }) {
 	return (
