@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 import cors from 'cors';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
-import authRouter from './middleware/auth.middleware.js';
+import authRouter from './routes/auth.js';
 import mypageRouter from './routes/mypage.routes.js';
 import commentRouter from './routes/comment.routes.js';
 import boardRouter from './routes/board.routes.js';
