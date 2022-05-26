@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Read.scss';
 import Comment from '../components/Comment/Comment';
-// import Story from '../components/Story';
 
-export default function Read({ nickname, imgSrc, email }) {
-	return <ReadContent nickname={nickname} imgSrc={imgSrc} email={email} />;
+export default function Read() {
+	return <ReadContent />;
 }
 
-function ReadContent({ nickname, imgSrc, email }) {
+function ReadContent() {
 	const readParam = useParams().id;
 	const navigate = useNavigate();
 	const [board, setboard] = useState([]);
@@ -65,7 +64,7 @@ function ReadContent({ nickname, imgSrc, email }) {
 							))}
 					</div>
 
-					<Comment nickname={nickname} imgSrc={imgSrc} email={email} />
+					<Comment />
 				</section>
 			)}
 		</div>

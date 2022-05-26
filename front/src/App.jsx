@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 
 import { Routes, Route, useNavigate } from 'react-router-dom';
@@ -8,7 +8,6 @@ import PrivateRoute from 'utils/Routes/PrivateRoute';
 import PublicRoute from 'utils/Routes/PublicRoute';
 
 import MyPage from 'pages/MyPage';
-import profile from 'public/profile.jpg';
 import NavBar from 'components/NavBar/NavBar';
 import NavBar2 from 'components/NavBar/NavBar2';
 import MainPage from './pages/MainPage';
@@ -20,13 +19,6 @@ import WritePut from './pages/WritePut';
 
 function App() {
 	const navigate = useNavigate();
-
-	const [imgSrc, setImgSrc] = useState(profile);
-	const [nickname, setNickname] = useState('');
-	const [description, setDescription] = useState('');
-	const [searchKeyword, setSearchKeyword] = useState('');
-	const [searchWritings, setSearchWritings] = useState();
-	const [email, setEmail] = useState('');
 
 	const isPc = useMediaQuery({ query: '(min-width:1224px)' });
 	const isMobile = useMediaQuery({ query: '(max-width:1223px' });
@@ -46,83 +38,15 @@ function App() {
 						<Route path="/auth/signup" element={<SignUp />} />
 					</Route>
 					<Route element={<PrivateRoute />}>
-						<Route
-							element={
-								<NavBar
-									imgSrc={imgSrc}
-									setImgSrc={setImgSrc}
-									setNickname={setNickname}
-									setEmail={setEmail}
-									setDescription={setDescription}
-								/>
-							}
-						>
-							<Route
-								path="/page=:pageNum"
-								element={
-									<MainPage
-										imgSrc={imgSrc}
-										setImgSrc={setImgSrc}
-										nickname={nickname}
-										setNickname={setNickname}
-										searchKeyword={searchKeyword}
-										setSearchKeyword={setSearchKeyword}
-										searchWritings={searchWritings}
-										setSearchWritings={setSearchWritings}
-										email={email}
-										setEmail={setEmail}
-									/>
-								}
-							/>
-							<Route
-								path="/search=:keyword"
-								element={
-									<MainPage
-										imgSrc={imgSrc}
-										setImgSrc={setImgSrc}
-										nickname={nickname}
-										setNickname={setNickname}
-										searchWritings={searchWritings}
-										searchKeyword={searchKeyword}
-										setSearchKeyword={setSearchKeyword}
-										setSearchWritings={setSearchWritings}
-										email={email}
-										setEmail={setEmail}
-									/>
-								}
-							/>
+						<Route element={<NavBar />}>
+							<Route path="/page=:pageNum" element={<MainPage />} />
+							<Route path="/search=:keyword" element={<MainPage />} />
 						</Route>
-						<Route
-							element={
-								<NavBar2
-									imgSrc={imgSrc}
-									setImgSrc={setImgSrc}
-									setNickname={setNickname}
-									setEmail={setEmail}
-									setDescription={setDescription}
-								/>
-							}
-						>
-							<Route
-								path="/user/:id"
-								element={
-									<MyPage
-										imgSrc={imgSrc}
-										setImgSrc={setImgSrc}
-										nickname={nickname}
-										setNickname={setNickname}
-										setEmail={setEmail}
-										description={description}
-										setDescription={setDescription}
-									/>
-								}
-							/>
-							<Route
-								path="/page=:pageNum/Read=:id"
-								element={<Read nickname={nickname} imgSrc={imgSrc} email={email} />}
-							/>
-							<Route path="/Read=:id" element={<Read nickname={nickname} imgSrc={imgSrc} email={email} />} />
-							<Route path="/Writing" element={<Writing nickname={nickname} />} />
+						<Route element={<NavBar2 />}>
+							<Route path="/user/:id" element={<MyPage />} />
+							<Route path="/page=:pageNum/Read=:id" element={<Read />} />
+							<Route path="/Read=:id" element={<Read />} />
+							<Route path="/Writing" element={<Writing />} />
 							<Route path="/page=:pageNum/Writing=:id" element={<WritePut />} />
 							<Route path="/Writing=:id" element={<WritePut />} />
 						</Route>

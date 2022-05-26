@@ -1,16 +1,18 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'styles/Pages/Writing.scss';
+import store from 'store';
 
-export default function Writing({ nickname }) {
-	return <WriteContent nickname={nickname} />;
+export default function Writing() {
+	return <WriteContent />;
 }
 
-function WriteContent({ nickname }) {
+function WriteContent() {
+	const { UserStore } = store();
 	const navigate = useNavigate();
 	const titleRef = useRef(null);
 	const contentRef = useRef(null);
-	const nickName = nickname;
+	const nickName = UserStore.nickname;
 	const today = new Date();
 	const Time = {
 		year: today.getFullYear(),

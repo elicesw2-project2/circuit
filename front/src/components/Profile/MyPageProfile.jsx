@@ -5,7 +5,11 @@ import ImgModal from 'components/ImgModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 
-function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, setDescription, userId }) {
+import store from 'store';
+
+function MyPageProfile({ userId }) {
+	const { UserStore } = store();
+
 	const [edit, setEdit] = useState(false);
 	const [modalOpen, setModalOpen] = useState(false);
 	const [currentNickname, setCurrentNickname] = useState('');
@@ -42,11 +46,11 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 	};
 
 	const HandleNickname = (e) => {
-		setNickname(e.target.value);
+		UserStore.setNickname(e.target.value);
 	};
 
 	const HandleDescription = (e) => {
-		setDescription(e.target.value);
+		UserStore.setDescription(e.target.value);
 	};
 
 	const toggleEdit = () => {
@@ -66,7 +70,7 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 			<div className="MyPageProfile__container__left" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 				{isAdmin ? (
 					<>
-						<img src={imgSrc} alt="profile" onClick={openModal} className="AdminProfile" />
+						<img src={UserStore.imgSrc} alt="profile" onClick={openModal} className="AdminProfile" />
 						{mouseEnter ? (
 							<FontAwesomeIcon icon={faPen} className="Profile__icon " style={{ display: 'block' }} />
 						) : null}
@@ -78,18 +82,23 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 			<ImgModal
 				open={modalOpen}
 				close={closeModal}
-				imgSrc={imgSrc}
-				setImgSrc={setImgSrc}
-				nickname={nickname}
-				description={description}
+				imgSrc={UserStore.imgSrc}
+				setImgSrc={UserStore.setImgSrc}
+				nickname={UserStore.nickname}
+				description={UserStore.description}
 			/>
 			<div className="MyPageProfile__container__right">
 				<div className="items">
 					{isAdmin ? (
 						edit === true ? (
-							<input placeholder={nickname} onChange={HandleNickname} value={nickname.trim()} maxLength="8" />
+							<input
+								placeholder={UserStore.nickname}
+								onChange={HandleNickname}
+								value={UserStore.nickname.trim()}
+								maxLength="8"
+							/>
 						) : (
-							<span>{nickname}</span>
+							<span>{UserStore.nickname}</span>
 						)
 					) : (
 						<span>{otherUserNickname}</span>
@@ -102,8 +111,8 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 
 								if (edit) {
 									// 닉네임이 바뀌었을 때만 중복 검사
-									if (currentNickname !== nickname) {
-										const isDuplicate = await fetch(`https://elice-server.herokuapp.com/check/${nickname}`, {
+									if (currentNickname !== UserStore.nickname) {
+										const isDuplicate = await fetch(`https://elice-server.herokuapp.com/check/${UserStore.nickname}`, {
 											method: 'GET',
 										}).then((res) => res.json());
 										if (isDuplicate.data === 'true') {
@@ -117,13 +126,13 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 											'Content-Type': 'application/json',
 										},
 										body: JSON.stringify({
-											nickname,
-											profile: imgSrc,
-											intro: description,
+											nickname: UserStore.nickname,
+											profile: UserStore.imgSrc,
+											intro: UserStore.description,
 										}),
 									}).then((res) => res.json());
 								} else {
-									setCurrentNickname(nickname);
+									setCurrentNickname(UserStore.nickname);
 								}
 
 								toggleEdit();
@@ -137,9 +146,13 @@ function MyPageProfile({ imgSrc, setImgSrc, nickname, setNickname, description, 
 					<span>한줄 소개, 취미</span>
 					{isAdmin ? (
 						edit === true ? (
-							<textarea onChange={HandleDescription} placeholder={description} value={description} />
+							<textarea
+								onChange={HandleDescription}
+								placeholder={UserStore.description}
+								value={UserStore.description}
+							/>
 						) : (
-							<p>{description}</p>
+							<p>{UserStore.description}</p>
 						)
 					) : (
 						<p>{otherUserIntro}</p>
