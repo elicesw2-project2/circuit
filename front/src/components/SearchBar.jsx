@@ -6,7 +6,10 @@ import 'styles/SearchBar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-function SearchBar({ setSearchKeyword, setSearchWritings }) {
+import store from 'store';
+
+function SearchBar() {
+	const { BoardStore } = store();
 	const navigate = useNavigate();
 
 	const [searchValue, setSearchValue] = useState('');
@@ -29,12 +32,12 @@ function SearchBar({ setSearchKeyword, setSearchWritings }) {
 						}
 						const searchResult = await Search(searchValue);
 						if (searchResult.status === 404) {
-							setSearchKeyword(searchValue);
-							setSearchWritings([]);
+							BoardStore.setSearchKeyword(searchValue);
+							BoardStore.setSearchWritings([]);
 							return;
 						}
-						setSearchKeyword(searchValue);
-						setSearchWritings(searchResult);
+						BoardStore.setSearchKeyword(searchValue);
+						BoardStore.setSearchWritings(searchResult);
 						navigate('/page=1');
 					}
 				}}
@@ -49,12 +52,12 @@ function SearchBar({ setSearchKeyword, setSearchWritings }) {
 						}
 						const searchResult = await Search(searchValue);
 						if (searchResult.status === 404) {
-							setSearchKeyword(searchValue);
-							setSearchWritings([]);
+							BoardStore.setSearchKeyword(searchValue);
+							BoardStore.setSearchWritings([]);
 							return;
 						}
-						setSearchKeyword(searchValue);
-						setSearchWritings(searchResult);
+						BoardStore.setSearchKeyword(searchValue);
+						BoardStore.setSearchWritings(searchResult);
 						navigate('/page=1');
 					}}
 				/>

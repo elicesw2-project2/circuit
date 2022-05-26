@@ -5,18 +5,10 @@ import SideBar from 'components/SideBar';
 import 'styles/Pages/MainPage.scss';
 import SearchBar from 'components/SearchBar';
 
-function MainPage({
-	imgSrc,
-	setImgSrc,
-	nickname,
-	setNickname,
-	searchKeyword,
-	setSearchKeyword,
-	searchWritings,
-	setSearchWritings,
-	email,
-	setEmail,
-}) {
+import store from 'store';
+
+function MainPage() {
+	const { UserStore } = store();
 	// URL 파라미터 수정해야함
 	useEffect(() => {
 		(async function fetchUserId() {
@@ -25,11 +17,11 @@ function MainPage({
 			})
 				.then((res) => res.json())
 				.then((result) => {
-					setNickname(result.data.nickname);
-					setEmail(result.data.id);
+					UserStore.setNickname(result.data.nickname);
+					UserStore.setEmail(result.data.id);
 					// 처음 로그인한 유저는 null값이 들어오므로 profile값이 있을 때만 DB에서 불러와서 지정함
 					if (result.data.profile !== null) {
-						setImgSrc(result.data.profile);
+						UserStore.setImgSrc(result.data.profile);
 					}
 				});
 		})();
@@ -37,10 +29,10 @@ function MainPage({
 
 	return (
 		<div className="main_cpn">
-			<Story searchKeyword={searchKeyword} searchWritings={searchWritings} setSearchWritings={setSearchWritings} />
+			<Story />
 			<div className="Mainpage__rightContainer">
-				<MainProfile imgSrc={imgSrc} nickname={nickname} email={email} />
-				<SearchBar setSearchKeyword={setSearchKeyword} setSearchWritings={setSearchWritings} />
+				<MainProfile />
+				<SearchBar />
 				<SideBar />
 			</div>
 		</div>

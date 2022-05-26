@@ -3,21 +3,13 @@ import MyPageProfile from 'components/Profile/MyPageProfile';
 import MyStory from 'components/Story/MyStory';
 import { useParams } from 'react-router-dom';
 
-function MyPage({ imgSrc, setImgSrc, nickname, setNickname, description, setDescription }) {
+function MyPage() {
 	const { id } = useParams();
 	const [userId, setUserId] = useState(id);
 
 	return (
 		<>
-			<MyPageProfile
-				imgSrc={imgSrc}
-				setImgSrc={setImgSrc}
-				nickname={nickname}
-				setNickname={setNickname}
-				description={description}
-				setDescription={setDescription}
-				userId={userId}
-			/>
+			<MyPageProfile userId={userId} />
 			<MyStory userId={userId} />
 		</>
 	);

@@ -4,7 +4,11 @@ import 'styles/Comment/Comment.scss';
 import ChangeDate from 'utils/ChangeDate';
 import SingleComment from 'components/Comment/SingleComment';
 
-function Comment({ nickname, imgSrc, email }) {
+import store from 'store';
+
+function Comment() {
+	const { UserStore } = store();
+
 	const [commentList, setCommentList] = useState();
 	const [commentCount, setCommentCount] = useState();
 	let lastCommentIdx = '';
@@ -30,7 +34,7 @@ function Comment({ nickname, imgSrc, email }) {
 	// 댓글 추가
 	const onCreate = async () => {
 		const time = ChangeDate();
-		const nickName = nickname;
+		const nickName = UserStore.nickname;
 		// 새댓글이 추가되는 것을 화면에서 보이는 부분
 		const { value } = document.querySelector('#comment_textarea');
 		// 새댓글 post
@@ -38,9 +42,9 @@ function Comment({ nickname, imgSrc, email }) {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				comment_id: email,
+				comment_id: UserStore.email,
 				content: value,
-				profile: imgSrc,
+				profile: UserStore.imgSrc,
 				nickname: nickName,
 				date: time,
 			}),
@@ -59,7 +63,7 @@ function Comment({ nickname, imgSrc, email }) {
 					date: time,
 					// date: new Date().toISOString().slice(0, 10),
 					content: value,
-					profile: imgSrc,
+					profile: UserStore.imgSrc,
 				};
 				// concat 함수로 comment객체를 commentList에 추가
 				setCommentList(commentList.concat(comment));
